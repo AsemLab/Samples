@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".epoxy.EpoxyActivity">
+
+        <com.airbnb.epoxy.EpoxyRecyclerView
+            android:id="@+id/itemsRV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:itemSpacing="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:itemCount="5"
+            tools:listitem="@layout/item_item" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
