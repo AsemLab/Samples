@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">AppShortcuts</string>
+    <string name="sports_shortcut_short_label1">Sports page</string>
+    <string name="sports_shortcut_long_label1">Launch sports page</string>
+    <string name="business_shortcut_short_label1">Business page</string>
+    <string name="business_shortcut_long_label1">Launch Business page</string>
+    <string name="shortcut_disabled_message1">You\'re not subs</string>
+    <string name="dummy">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
+</resources>

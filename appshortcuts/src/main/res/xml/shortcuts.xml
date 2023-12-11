@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/ic_sports"
+        android:shortcutDisabledMessage="@string/shortcut_disabled_message1"
+        android:shortcutId="sports"
+        android:shortcutLongLabel="@string/sports_shortcut_long_label1"
+        android:shortcutShortLabel="@string/sports_shortcut_short_label1">
+        <intent
+            android:action="sports"
+            android:targetClass="com.asemlab.samples.appshortcuts.MainActivity"
+            android:targetPackage="com.asemlab.samples.appshortcuts" />
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+    <!-- Specify more shortcuts here. -->
+
+    <shortcut
+        android:enabled="true"
+        android:icon="@drawable/ic_globe"
+        android:shortcutDisabledMessage="@string/shortcut_disabled_message1"
+        android:shortcutId="business"
+        android:shortcutLongLabel="@string/business_shortcut_long_label1"
+        android:shortcutShortLabel="@string/business_shortcut_short_label1">
+        <!--        TODO Open multiple Activities -->
+        <intent
+            android:action="business"
+            android:targetClass="com.asemlab.samples.appshortcuts.SectionActivity"
+            android:targetPackage="com.asemlab.samples.appshortcuts" />
+        <intent
+            android:action="business"
+            android:targetClass="com.asemlab.samples.appshortcuts.NewsDetailsActivity"
+            android:targetPackage="com.asemlab.samples.appshortcuts" />
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+</shortcuts>

@@ -14,3 +14,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Samples"
 include(":app")
+include(":appshortcuts")

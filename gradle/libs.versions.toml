@@ -11,6 +11,7 @@ navigation-ui-ktx = "2.5.3"
 navigation-fragment-ktx = "2.5.3"
 android-application = "8.1.0"
 kotlin = "1.8.10"
+google-shortcuts = "1.0.0"
 
 [libraries]
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
@@ -25,6 +26,7 @@ epoxy-databinding = { module = "com.airbnb.android:epoxy-databinding", version.r
 epoxy-processor = { module = "com.airbnb.android:epoxy-processor", version.ref = "epoxyVer" }
 junit = { module = "junit:junit", version.ref = "junit" }
 material = { module = "com.google.android.material:material", version.ref = "material" }
+google-shortcuts = { module = "androidx.core:core-google-shortcuts", version.ref = "google-shortcuts" }
 
 [plugins]
 

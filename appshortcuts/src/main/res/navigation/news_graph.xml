@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/news_graph.xml"
+    app:startDestination="@id/news_nav">
+
+    <fragment
+        android:id="@+id/news_nav"
+        android:name="com.asemlab.samples.appshortcuts.fragments.NewsFragment"
+        android:label="NewsFragment"
+        tools:layout="@layout/fragment" />
+    <fragment
+        android:id="@+id/sports_nav"
+        android:name="com.asemlab.samples.appshortcuts.fragments.SportsFragment"
+        android:label="SportsFragment" />
+    <fragment
+        android:id="@+id/business_nav"
+        android:name="com.asemlab.samples.appshortcuts.fragments.BusinessFragment"
+        android:label="BusinessFragment" />
+</navigation>
