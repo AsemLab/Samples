@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph.xml"
+    app:startDestination="@id/news_nav">
+    <fragment
+        android:id="@+id/news_nav"
+        android:name="com.asemlab.samples.navigation_component.fragments.news.NewsFragment"
+        android:label="NewsFragment"
+        tools:layout="@layout/fragment">
+        <action
+            android:id="@+id/action_news_nav_to_internationalFragment"
+            app:destination="@id/news_graph" />
+    </fragment>
+    <fragment
+        android:id="@+id/sports_nav"
+        android:name="com.asemlab.samples.navigation_component.fragments.SportsFragment"
+        android:label="SportsFragment" />
+    <fragment
+        android:id="@+id/business_nav"
+        android:name="com.asemlab.samples.navigation_component.fragments.BusinessFragment"
+        android:label="BusinessFragment" />
+
+    <!--    TODO Or move it to separate file and add it with include element-->
+    <navigation
+        android:id="@+id/news_graph"
+        app:startDestination="@id/internationalFragment">
+        <fragment
+            android:id="@+id/internationalDetailsFragment"
+            android:name="com.asemlab.samples.navigation_component.fragments.news.InternationalDetailsFragment"
+            android:label="InternationalDetailsFragment" />
+        <fragment
+            android:id="@+id/internationalFragment"
+            android:name="com.asemlab.samples.navigation_component.fragments.news.InternationalFragment"
+            android:label="InternationalFragment">
+            <action
+                android:id="@+id/action_internationalFragment_to_internationalDetailsFragment"
+                app:destination="@id/internationalDetailsFragment" />
+        </fragment>
+    </navigation>
+</navigation>
