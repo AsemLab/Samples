@@ -1,5 +1,9 @@
 package com.asemlab.samples.navigation_component
 
+import android.Manifest
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -12,6 +16,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        checkNotificationPermission()
+
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         val controller =
             (supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment).navController
@@ -29,6 +35,26 @@ class MainActivity : AppCompatActivity() {
 //            }
 //        }
 
-
     }
+
+    private fun checkNotificationPermission() {
+        if (packageManager.checkPermission(
+                Manifest.permission.POST_NOTIFICATIONS,
+                packageName
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                requestPermissions(arrayOf(Manifest.permission.POST_NOTIFICATIONS), 55)
+            }
+        }
+    }
+
+    // TODO implement when Activity has launchMode rather than standard
+//    override fun onNewIntent(intent: Intent?) {
+//        super.onNewIntent(intent)
+//        val controller =
+//            (supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment).navController
+//        controller.handleDeepLink(intent)
+//    }
+
 }

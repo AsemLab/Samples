@@ -9,7 +9,7 @@
         android:shortcutShortLabel="@string/sports_shortcut_short_label1">
         <intent
             android:action="sports"
-            android:targetClass="com.asemlab.samples.navigation_component.MainActivity"
+            android:targetClass="com.asemlab.samples.appshortcuts.MainActivity"
             android:targetPackage="com.asemlab.samples.appshortcuts" />
         <categories android:name="android.shortcut.conversation" />
     </shortcut>

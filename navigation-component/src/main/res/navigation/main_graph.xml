@@ -37,6 +37,10 @@
             <action
                 android:id="@+id/action_internationalFragment_to_internationalDetailsFragment"
                 app:destination="@id/internationalDetailsFragment" />
+            <!--    TODO Implement Implicit deep link-->
+            <deepLink
+                android:id="@+id/deepLink"
+                app:uri="www.example.com/{id}" />
         </fragment>
     </navigation>
 </navigation>
