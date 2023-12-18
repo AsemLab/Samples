@@ -8,6 +8,7 @@ espresso-core = "3.5.0"
 junit = "4.13.2"
 material = "1.7.0"
 navigation-ui-ktx = "2.5.3"
+navigation = "2.5.3"
 navigation-fragment-ktx = "2.5.3"
 android-application = "8.1.0"
 kotlin = "1.8.10"
@@ -34,6 +35,7 @@ android-application = { id = "com.android.application", version.ref="android-app
 android-library = { id = "com.android.library", version.ref="android-application" }
 kotlin = { id = "org.jetbrains.kotlin.android", version.ref="kotlin" }
 kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+safe-args = { id = "androidx.navigation.safeargs", version.ref = "navigation" }
 
 [bundles]
 

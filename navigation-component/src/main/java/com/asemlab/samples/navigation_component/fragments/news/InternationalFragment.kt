@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.asemlab.samples.navigation_component.R
 import com.asemlab.samples.navigation_component.databinding.FragmentInternationalBinding
 
@@ -19,7 +20,9 @@ class InternationalFragment : Fragment() {
     ): View {
         binding = FragmentInternationalBinding.inflate(inflater, container, false)
         binding.t1.setOnClickListener {
-            findNavController().navigate(R.id.action_internationalFragment_to_internationalDetailsFragment)
+//            findNavController().navigate(R.id.action_internationalFragment_to_internationalDetailsFragment)
+            // TODO Use Safe Args for navigation
+            findNavController().navigate(InternationalFragmentDirections.actionInternationalFragmentToInternationalDetailsFragment())
         }
 
         // TODO Get arguments from deep link

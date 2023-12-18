@@ -4,4 +4,5 @@ plugins {
     alias(libs.plugins.android.library) apply false
     alias(libs.plugins.kotlin) apply false
     alias(libs.plugins.kotlin.kapt) apply false
+    alias(libs.plugins.safe.args) apply false
 }
