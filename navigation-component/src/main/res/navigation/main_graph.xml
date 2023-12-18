@@ -43,4 +43,7 @@
                 app:uri="www.example.com/{id}" />
         </fragment>
     </navigation>
+    <action
+        android:id="@+id/action_global_international_details"
+        app:destination="@id/news_graph" />
 </navigation>
