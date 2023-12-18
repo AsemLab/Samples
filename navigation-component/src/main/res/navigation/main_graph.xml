@@ -29,7 +29,12 @@
         <fragment
             android:id="@+id/internationalDetailsFragment"
             android:name="com.asemlab.samples.navigation_component.fragments.news.InternationalDetailsFragment"
-            android:label="InternationalDetailsFragment" />
+            android:label="InternationalDetailsFragment" >
+            <deepLink
+                android:id="@+id/deepLink"
+                app:action="HIDE"
+                app:uri="www.example.com/{id}" />
+        </fragment>
         <fragment
             android:id="@+id/internationalFragment"
             android:name="com.asemlab.samples.navigation_component.fragments.news.InternationalFragment"
@@ -40,6 +45,7 @@
             <!--    TODO Implement Implicit deep link-->
             <deepLink
                 android:id="@+id/deepLink"
+                app:action="VIEW"
                 app:uri="www.example.com/{id}" />
         </fragment>
     </navigation>
