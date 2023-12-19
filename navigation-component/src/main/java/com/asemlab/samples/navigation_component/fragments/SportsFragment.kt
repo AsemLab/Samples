@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.app.NotificationCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavDeepLinkBuilder
 import com.asemlab.samples.navigation_component.R
 import com.asemlab.samples.navigation_component.databinding.FragmentBinding
@@ -19,6 +20,7 @@ import com.asemlab.samples.navigation_component.databinding.FragmentBinding
  */
 class SportsFragment : Fragment() {
     private lateinit var binding: FragmentBinding
+    private val fragmentsVM by activityViewModels<FragmentsVM>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,6 +32,13 @@ class SportsFragment : Fragment() {
         binding.t1.text = "Click to create deep link notification"
         binding.newsSections.setOnClickListener {
             createDeepLinkNotification()
+        }
+        binding.title.setOnClickListener {
+            fragmentsVM.setTitle("New Sport title")
+        }
+
+        fragmentsVM.title.observe(viewLifecycleOwner) {
+            binding.title.text = it
         }
 
         return binding.root
