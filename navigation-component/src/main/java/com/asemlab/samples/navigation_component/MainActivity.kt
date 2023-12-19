@@ -6,6 +6,7 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
@@ -26,6 +27,9 @@ class MainActivity : AppCompatActivity() {
             NavigationUI.onNavDestinationSelected(it, controller)
             true
         }
+
+        // TODO Pass data to start destination
+        controller.setGraph(R.navigation.main_graph, bundleOf("pageTitle" to "Fake News"))
 
 //        binding.bottomNav.setOnItemReselectedListener {
 //            when (it.itemId) {

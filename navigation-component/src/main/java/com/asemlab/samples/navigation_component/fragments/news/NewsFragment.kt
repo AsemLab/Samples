@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.navigation.navOptions
 import com.asemlab.samples.navigation_component.R
 import com.asemlab.samples.navigation_component.databinding.FragmentBinding
@@ -13,6 +14,7 @@ import com.asemlab.samples.navigation_component.databinding.FragmentBinding
 class NewsFragment : Fragment() {
 
     private lateinit var binding: FragmentBinding
+    private val args by navArgs<NewsFragmentArgs>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -20,7 +22,7 @@ class NewsFragment : Fragment() {
     ): View {
 
         binding = FragmentBinding.inflate(inflater, container, false)
-        binding.title.text = "News"
+        binding.title.text = args.pageTitle
         // TODO Add NavOptions when navigate
         binding.newsSections.setOnClickListener {
             findNavController().navigate(

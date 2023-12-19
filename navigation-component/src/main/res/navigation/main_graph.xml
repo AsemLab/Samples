@@ -12,6 +12,10 @@
         <action
             android:id="@+id/action_news_nav_to_internationalFragment"
             app:destination="@id/news_graph" />
+        <argument
+            android:name="pageTitle"
+            app:argType="string"
+            android:defaultValue="News" />
     </fragment>
     <fragment
         android:id="@+id/sports_nav"
@@ -34,6 +38,10 @@
                 android:id="@+id/deepLink"
                 app:action="HIDE"
                 app:uri="www.example.com/{id}" />
+            <argument
+                android:name="pageBackground"
+                android:defaultValue="@color/green"
+                app:argType="reference" />
         </fragment>
         <fragment
             android:id="@+id/internationalFragment"
@@ -41,7 +49,11 @@
             android:label="InternationalFragment">
             <action
                 android:id="@+id/action_internationalFragment_to_internationalDetailsFragment"
-                app:destination="@id/internationalDetailsFragment" />
+                app:destination="@id/internationalDetailsFragment" >
+                <argument
+                    android:name="pageBackground"
+                    app:argType="reference" />
+            </action>
             <!--    TODO Implement Implicit deep link-->
             <deepLink
                 android:id="@+id/deepLink"

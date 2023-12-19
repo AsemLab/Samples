@@ -5,9 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import com.asemlab.samples.navigation_component.R
 import com.asemlab.samples.navigation_component.databinding.FragmentInternationalBinding
 
@@ -20,13 +20,20 @@ class InternationalFragment : Fragment() {
     ): View {
         binding = FragmentInternationalBinding.inflate(inflater, container, false)
         binding.t1.setOnClickListener {
-//            findNavController().navigate(R.id.action_internationalFragment_to_internationalDetailsFragment)
+            // findNavController().navigate(R.id.action_internationalFragment_to_internationalDetailsFragment)
             // TODO Use Safe Args for navigation
-            findNavController().navigate(InternationalFragmentDirections.actionInternationalFragmentToInternationalDetailsFragment())
+            // To be able to send argument in this way, the arguments in the ACTION element, shouldn't have default values
+//            findNavController().navigate(InternationalFragmentDirections.actionInternationalFragmentToInternationalDetailsFragment(R.color.yellow))
+
+            // TODO Or pass data between destinations with Bundle objects
+            findNavController().navigate(
+                R.id.action_internationalFragment_to_internationalDetailsFragment,
+                bundleOf("pageBackground" to R.color.yellow)
+            )
         }
 
         // TODO Get arguments from deep link
-        val id =arguments?.getString("id", "-1") ?: "-99"
+        val id = arguments?.getString("id", "-1") ?: "-99"
         Toast.makeText(requireContext(), id, Toast.LENGTH_SHORT).show()
 
 
