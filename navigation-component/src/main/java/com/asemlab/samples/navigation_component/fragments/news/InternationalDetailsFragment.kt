@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
+import androidx.transition.TransitionInflater
+import com.asemlab.samples.navigation_component.R
 import com.asemlab.samples.navigation_component.databinding.FragmentInternationalDetailsBinding
 
 class InternationalDetailsFragment : Fragment() {
@@ -26,4 +28,10 @@ class InternationalDetailsFragment : Fragment() {
         return binding.root
     }
 
+    // TODO Shared element transitions to a fragment destination
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        sharedElementEnterTransition = TransitionInflater.from(requireContext())
+            .inflateTransition(R.transition.move)
+    }
 }

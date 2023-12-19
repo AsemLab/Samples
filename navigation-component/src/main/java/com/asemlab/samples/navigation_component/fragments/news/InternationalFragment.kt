@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.asemlab.samples.navigation_component.R
 import com.asemlab.samples.navigation_component.databinding.FragmentInternationalBinding
@@ -25,11 +26,16 @@ class InternationalFragment : Fragment() {
             // To be able to send argument in this way, the arguments in the ACTION element, shouldn't have default values
 //            findNavController().navigate(InternationalFragmentDirections.actionInternationalFragmentToInternationalDetailsFragment(R.color.yellow))
 
-            // TODO Or pass data between destinations with Bundle objects
+            // TODO Shared element transitions to a fragment destination
+            val extras = FragmentNavigatorExtras(binding.imageView to "newsTitle")
+
             findNavController().navigate(
                 R.id.action_internationalFragment_to_internationalDetailsFragment,
-                bundleOf("pageBackground" to R.color.yellow)
+                bundleOf("pageBackground" to R.color.orange), // TODO Pass data between destinations with Bundle objects
+                null, // NavOptions
+                extras
             )
+
         }
 
         // TODO Get arguments from deep link

@@ -13,6 +13,7 @@
             android:layout_width="128dp"
             android:layout_height="128dp"
             android:src="@drawable/news"
+            android:transitionName="newsTitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
