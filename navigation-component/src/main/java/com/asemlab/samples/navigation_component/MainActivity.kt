@@ -1,10 +1,10 @@
 package com.asemlab.samples.navigation_component
 
 import android.Manifest
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
@@ -38,6 +38,13 @@ class MainActivity : AppCompatActivity() {
 //                }
 //            }
 //        }
+
+        // TODO Receive results in the host activity
+        supportFragmentManager
+            .setFragmentResultListener("has_open_sports", this) { _, bundle ->
+                val result = bundle.getString("open_sports")
+                Toast.makeText(this, "$result", Toast.LENGTH_SHORT).show()
+            }
 
     }
 

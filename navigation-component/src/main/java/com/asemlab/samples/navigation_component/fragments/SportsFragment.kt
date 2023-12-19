@@ -9,8 +9,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.app.NotificationCompat
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.setFragmentResult
 import androidx.navigation.NavDeepLinkBuilder
 import com.asemlab.samples.navigation_component.R
 import com.asemlab.samples.navigation_component.databinding.FragmentBinding
@@ -40,6 +42,9 @@ class SportsFragment : Fragment() {
         fragmentsVM.title.observe(viewLifecycleOwner) {
             binding.title.text = it
         }
+
+        // TODO Pass results between fragments
+        setFragmentResult("has_open_sports", bundleOf("open_sports" to true))
 
         return binding.root
     }

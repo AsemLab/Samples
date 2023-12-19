@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.navigation.navOptions
@@ -36,6 +38,17 @@ class NewsFragment : Fragment() {
                 })
         }
 
+        // TODO Pass results between fragments
+        setFragmentResultListener("has_open_sports"){ _, bundle ->
+            val hasOpen = bundle.getBoolean("open_sports")
+            Toast.makeText(requireContext(), "$hasOpen", Toast.LENGTH_SHORT).show()
+        }
+
+        // TODO Pass results between parent and child fragments
+        childFragmentManager.setFragmentResultListener("news_heading", viewLifecycleOwner){ _, bundle ->
+            val heading = bundle.getString("news_details_heading")
+            Toast.makeText(requireContext(), "$heading", Toast.LENGTH_SHORT).show()
+        }
 
         return binding.root
     }

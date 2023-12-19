@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.res.ResourcesCompat
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResult
 import androidx.navigation.fragment.navArgs
 import androidx.transition.TransitionInflater
 import com.asemlab.samples.navigation_component.R
@@ -24,6 +26,9 @@ class InternationalDetailsFragment : Fragment() {
         binding = FragmentInternationalDetailsBinding.inflate(inflater, container, false)
 
         binding.root.setBackgroundColor(ResourcesCompat.getColor(resources, args.pageBackground, null))
+
+        // TODO Pass results between parent and child fragments
+        setFragmentResult("news_heading", bundleOf("news_details_heading" to binding.titleTV.text))
 
         return binding.root
     }
