@@ -16,3 +16,4 @@ rootProject.name = "Samples"
 include(":app")
 include(":appshortcuts")
 include(":navigation-component")
+include(":viewpager2")
