@@ -1,6 +1,8 @@
 [versions]
 androidx-junit = "1.1.4"
-appcompat = "1.5.1"
+# TODO Next two versions must be > 1.6.0
+appcompat = "1.6.1"
+androidx-activity="1.7.2"
 constraintlayout = "2.1.4"
 core-ktx = "1.7.0"
 epoxyVer = "5.1.1"
@@ -16,6 +18,7 @@ google-shortcuts = "1.0.0"
 
 [libraries]
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
+androidx-activity= { module = "androidx.activity:activity-ktx", version.ref = "androidx-activity" }
 androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
 androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
 androidx-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "espresso-core" }
