@@ -8,16 +8,25 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
-<!--       TODO Add ViewPager2 -->
+        <!--       TODO Add TabLayout -->
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            app:tabTextColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!--       TODO Add ViewPager2 -->
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/pager"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:textAppearance="@style/TextAppearance.AppCompat.Title"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/tabLayout" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
