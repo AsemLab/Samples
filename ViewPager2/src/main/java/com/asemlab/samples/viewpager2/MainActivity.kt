@@ -13,7 +13,9 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
+        
+        // TODO Add adapter to ViewPager2
+        val adapter = PagerAdapter(this)
+        binding.pager.adapter = adapter
     }
 }
