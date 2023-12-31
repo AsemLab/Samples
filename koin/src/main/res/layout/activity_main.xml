@@ -48,5 +48,46 @@
             app:layout_constraintTop_toBottomOf="@id/usersTitle"
             tools:text="User 1" />
 
+        <EditText
+            android:id="@+id/countryET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Country name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/users" />
+
+        <Button
+            android:id="@+id/getCapital"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Get capital"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/countryET" />
+
+
+        <TextView
+            android:id="@+id/capitalTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="The capital is: "
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/getCapital" />
+
+        <TextView
+            android:id="@+id/capital"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+            app:layout_constraintBaseline_toBaselineOf="@+id/capitalTitle"
+            app:layout_constraintStart_toEndOf="@id/capitalTitle"
+            tools:text="Network base url: " />
+
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
