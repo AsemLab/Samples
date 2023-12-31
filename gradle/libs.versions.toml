@@ -16,6 +16,8 @@ android-application = "8.1.0"
 kotlin = "1.8.10"
 google-shortcuts = "1.0.0"
 viewpager = "1.0.0"
+koin_version = "3.5.3"
+room-runtime = "2.5.2"
 
 [libraries]
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
@@ -33,6 +35,10 @@ junit = { module = "junit:junit", version.ref = "junit" }
 material = { module = "com.google.android.material:material", version.ref = "material" }
 google-shortcuts = { module = "androidx.core:core-google-shortcuts", version.ref = "google-shortcuts" }
 viewpager = { module = "androidx.viewpager2:viewpager2", version.ref = "viewpager" }
+koin = { module = "io.insert-koin:koin-android", version.ref = "koin_version" }
+androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "room-runtime" }
+androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "room-runtime" }
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "room-runtime" }
 
 [plugins]
 
