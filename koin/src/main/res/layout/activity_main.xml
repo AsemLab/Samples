@@ -10,6 +10,25 @@
         tools:context=".MainActivity">
 
         <TextView
+            android:id="@+id/urlTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Home page link:   "
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/url"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autoLink="all"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+            app:layout_constraintBaseline_toBaselineOf="@+id/urlTitle"
+            app:layout_constraintStart_toEndOf="@id/urlTitle"
+            tools:text="Network base url: " />
+
+        <TextView
             android:id="@+id/usersTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -17,7 +36,7 @@
             android:text="Current users:"
             android:textAppearance="@style/TextAppearance.AppCompat.Headline"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/urlTitle" />
 
         <TextView
             android:id="@+id/users"
