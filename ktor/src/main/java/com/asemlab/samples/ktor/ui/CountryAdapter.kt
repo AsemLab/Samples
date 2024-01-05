@@ -6,7 +6,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.asemlab.samples.ktor.databinding.ItemCountryBinding
 import com.asemlab.samples.ktor.models.CountryResponseItem
 
-class CountryAdapter : RecyclerView.Adapter<CountryAdapter.CountryViewHolder>() {
+class CountryAdapter(private val onClick: (CountryResponseItem) -> Unit) :
+    RecyclerView.Adapter<CountryAdapter.CountryViewHolder>() {
 
     private val countries = mutableListOf<CountryResponseItem>()
 
@@ -15,7 +16,7 @@ class CountryAdapter : RecyclerView.Adapter<CountryAdapter.CountryViewHolder>() 
     }
 
     override fun onBindViewHolder(holder: CountryViewHolder, position: Int) {
-        holder.bind(countries[position])
+        holder.bind(countries[position], onClick)
     }
 
     override fun getItemCount(): Int {
@@ -36,8 +37,11 @@ class CountryAdapter : RecyclerView.Adapter<CountryAdapter.CountryViewHolder>() 
             }
         }
 
-        fun bind(item: CountryResponseItem) {
+        fun bind(item: CountryResponseItem, onClick: (CountryResponseItem) -> Unit) {
             binding.country = item
+            binding.root.setOnClickListener {
+                onClick(item)
+            }
         }
     }
 
