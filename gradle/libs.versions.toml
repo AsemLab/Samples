@@ -2,7 +2,7 @@
 androidx-junit = "1.1.4"
 # TODO Next two versions must be > 1.6.0
 appcompat = "1.6.1"
-androidx-activity="1.7.2"
+androidx-activity = "1.7.2"
 constraintlayout = "2.1.4"
 core-ktx = "1.7.0"
 epoxyVer = "5.1.1"
@@ -21,10 +21,14 @@ room-runtime = "2.5.2"
 converter-gson = "2.9.0"
 gson = "2.10.1"
 retrofit = "2.9.0"
+ktor = "2.3.7"
+androidx-viewmodel = "2.6.2"
+kotlinx-serialization-json = "1.6.2"
+glide = "4.16.0"
 
 [libraries]
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
-androidx-activity= { module = "androidx.activity:activity-ktx", version.ref = "androidx-activity" }
+androidx-activity = { module = "androidx.activity:activity-ktx", version.ref = "androidx-activity" }
 androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
 androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
 androidx-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "espresso-core" }
@@ -45,13 +49,23 @@ androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref =
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "converter-gson" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
-[plugins]
+ktor-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktor-android = { module = "io.ktor:ktor-client-android", version.ref = "ktor" }
+ktor-serialization = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
+ktor-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
+androidx-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "androidx-viewmodel" }
+kotlinx-serialization-json= { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization-json" }
+glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
+glide-compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "glide" }
 
-android-application = { id = "com.android.application", version.ref="android-application" }
-android-library = { id = "com.android.library", version.ref="android-application" }
-kotlin = { id = "org.jetbrains.kotlin.android", version.ref="kotlin" }
+[plugins]
+android-application = { id = "com.android.application", version.ref = "android-application" }
+android-library = { id = "com.android.library", version.ref = "android-application" }
+kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 safe-args = { id = "androidx.navigation.safeargs", version.ref = "navigation" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+
 
 [bundles]
 

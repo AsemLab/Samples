@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.asemlab.samples.ktor.models.CountryResponseItem" />
+
+        <variable
+            name="country"
+            type="CountryResponseItem" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:layout_margin="16dp"
+            app:cardElevation="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/flag"
+                    loadImage="@{country.flags.png}"
+                    android:layout_width="128dp"
+                    android:layout_height="96dp"
+                    android:layout_margin="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/nameTitle"
+                    style="@style/item_title"
+                    android:text="@string/name_title"
+                    app:layout_constraintBottom_toTopOf="@id/regionTitle"
+                    app:layout_constraintStart_toEndOf="@id/flag"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/name"
+                    style="@style/item_text"
+                    android:text="@{country.name.common}"
+                    app:layout_constraintBaseline_toBaselineOf="@id/nameTitle"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/nameTitle"
+                    tools:text="Jordan" />
+
+                <TextView
+                    android:id="@+id/regionTitle"
+                    style="@style/item_title"
+                    android:text="@string/region_title"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/flag"
+                    app:layout_constraintTop_toBottomOf="@id/nameTitle" />
+
+                <TextView
+                    android:id="@+id/region"
+                    style="@style/item_text"
+                    android:text="@{country.region}"
+                    app:layout_constraintBaseline_toBaselineOf="@id/regionTitle"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/regionTitle"
+                    tools:text="Asia" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

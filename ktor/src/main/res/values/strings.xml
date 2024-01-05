@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Ktor</string>
+    <string name="name_title">Name:</string>
+    <string name="region_title">Region:</string>
 </resources>
