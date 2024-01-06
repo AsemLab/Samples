@@ -2,17 +2,16 @@ package com.asemlab.samples.ktor.models
 
 
 import androidx.annotation.Keep
-import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
+import com.google.gson.annotations.SerializedName
 
 @Keep
-// TODO Make the response classes Serializable
-@Serializable
+// TODO Make the response classes Serializable if don't use Gson
+//@Serializable
 data class CountryResponseItem(
-    @SerialName("flags")
+    @SerializedName("flags")
     val flags: Flags? = null,
-    @SerialName("name")
+    @SerializedName("name")
     val name: Name? = null,
-    @SerialName("region")
+    @SerializedName("region")
     val region: String? = null
 )

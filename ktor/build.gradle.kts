@@ -5,8 +5,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin)
     alias(libs.plugins.kotlin.kapt)
-    // TODO Add Kotlin Serialization plugin
-    alias(libs.plugins.kotlin.serialization)
+    // TODO Add Kotlin Serialization plugin if don't use Gson serialization
+//    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -58,13 +58,15 @@ dependencies {
     implementation(libs.glide)
     kapt(libs.glide.compiler)
 
-    // TODO Add Kotlin Serialization library
-    implementation(libs.kotlinx.serialization.json)
+    // TODO Add Kotlin Serialization library if don't use Gson serialization
+//    implementation(libs.kotlinx.serialization.json)
 
 //    TODO Add Ktor dependencies
     implementation(libs.ktor.core)
     implementation(libs.ktor.android)
+    // TODO Add json library if don't use Gson serialization
     implementation(libs.ktor.serialization)
+    implementation(libs.ktor.serialization.gson)
     implementation(libs.ktor.negotiation)
     implementation(libs.ktor.logging)
     implementation(libs.logback.classic)

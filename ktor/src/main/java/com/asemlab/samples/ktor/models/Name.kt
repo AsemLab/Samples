@@ -2,14 +2,14 @@ package com.asemlab.samples.ktor.models
 
 
 import androidx.annotation.Keep
-import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
+import com.google.gson.annotations.SerializedName
+
 
 @Keep
-@Serializable
+//@Serializable
 data class Name(
-    @SerialName("common")
+    @SerializedName("common")
     val common: String? = null,
-    @SerialName("official")
+    @SerializedName("official")
     val official: String? = null
 )

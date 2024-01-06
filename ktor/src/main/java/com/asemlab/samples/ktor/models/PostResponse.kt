@@ -2,18 +2,17 @@ package com.asemlab.samples.ktor.models
 
 
 import androidx.annotation.Keep
-import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
+import com.google.gson.annotations.SerializedName
 
 @Keep
-@Serializable
+//@Serializable
 data class PostResponse(
-    @SerialName("title")
+    @SerializedName("title")
     val title: String? = null,
-    @SerialName("body")
+    @SerializedName("body")
     val body: String? = null,
-    @SerialName("userId")
+    @SerializedName("userId")
     val userId: Int? = null,
-    @SerialName("id")
+    @SerializedName("id")
     val id: Int? = null
 )

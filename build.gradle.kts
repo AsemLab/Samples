@@ -5,6 +5,6 @@ plugins {
     alias(libs.plugins.kotlin) apply false
     alias(libs.plugins.kotlin.kapt) apply false
     alias(libs.plugins.safe.args) apply false
-    // TODO Add Kotlin Serialization plugin
-    alias(libs.plugins.kotlin.serialization) apply false
+    // TODO Add Kotlin Serialization plugin  if don't use Gson serialization
+//    alias(libs.plugins.kotlin.serialization) apply false
 }

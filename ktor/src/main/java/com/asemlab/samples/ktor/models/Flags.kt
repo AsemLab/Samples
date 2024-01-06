@@ -2,16 +2,14 @@ package com.asemlab.samples.ktor.models
 
 
 import androidx.annotation.Keep
-import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
+import com.google.gson.annotations.SerializedName
 
 @Keep
-@Serializable
 data class Flags(
-    @SerialName("alt")
+    @SerializedName("alt")
     val alt: String? = null,
-    @SerialName("png")
+    @SerializedName("png")
     val png: String? = null,
-    @SerialName("svg")
+    @SerializedName("svg")
     val svg: String? = null
 )

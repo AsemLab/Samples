@@ -17,8 +17,7 @@ import io.ktor.client.plugins.logging.Logging
 import io.ktor.http.ContentType
 import io.ktor.http.contentType
 import io.ktor.http.isSuccess
-import io.ktor.serialization.kotlinx.json.json
-import kotlinx.serialization.json.Json
+import io.ktor.serialization.gson.gson
 import org.koin.dsl.module
 
 val NetworkModule = module {
@@ -27,9 +26,12 @@ val NetworkModule = module {
             // TODO Set up client
             HttpClient(Android) {
                 install(ContentNegotiation) {
-                    json(json = Json {
-                        ignoreUnknownKeys = true
-                    })
+                    gson {
+                    }
+                    // OR with Kotlin Serialization
+//                    json(json = Json {
+//                        ignoreUnknownKeys = true
+//                    })
                 }
                 // TODO Set up the base url
                 defaultRequest {
@@ -69,9 +71,8 @@ val NetworkModule = module {
         PostService(
             HttpClient(Android) {
                 install(ContentNegotiation) {
-                    json(json = Json {
-                        ignoreUnknownKeys = true
-                    })
+                    gson {
+                    }
                 }
                 defaultRequest {
                     url(HttpRoutes.POST_BASE_URL)
