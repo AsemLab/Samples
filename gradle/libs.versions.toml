@@ -26,6 +26,9 @@ ktor = "2.3.7"
 androidx-viewmodel = "2.6.2"
 kotlinx-serialization-json = "1.6.2"
 glide = "4.16.0"
+hilt-android = "2.48"
+hilt-plugin= "2.48"
+realm="1.11.0"
 
 [libraries]
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
@@ -61,6 +64,10 @@ androidx-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", ve
 kotlinx-serialization-json= { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization-json" }
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 glide-compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "glide" }
+hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt-android" }
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt-android" }
+realm-base = { module = "io.realm.kotlin:library-base", version.ref = "realm" }
+realm-sync = { module = "io.realm.kotlin:library-sync", version.ref = "realm" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "android-application" }
@@ -69,6 +76,8 @@ kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 safe-args = { id = "androidx.navigation.safeargs", version.ref = "navigation" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+hilt-plugin = { id = "com.google.dagger.hilt.android", version.ref = "hilt-plugin" }
+realm-plugin = { id = "io.realm.kotlin", version.ref = "realm" }
 
 
 [bundles]

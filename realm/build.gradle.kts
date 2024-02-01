@@ -5,6 +5,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin)
     alias(libs.plugins.kotlin.kapt)
+    //    TODO Add Realm plugin
+    alias(libs.plugins.realm.plugin)
 }
 
 android {
@@ -50,4 +52,12 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    // Hilt
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+
+    //    TODO Add Realm dependencies
+    implementation(libs.realm.base)
+    implementation(libs.realm.sync)
 }
