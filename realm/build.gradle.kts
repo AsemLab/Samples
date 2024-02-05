@@ -5,6 +5,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin)
     alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.hilt.plugin)
+    alias(libs.plugins.safe.args)
     //    TODO Add Realm plugin
     alias(libs.plugins.realm.plugin)
 }
@@ -40,6 +42,7 @@ android {
     }
     buildFeatures {
         dataBinding = true
+        viewBinding = true
     }
 }
 
@@ -47,6 +50,7 @@ dependencies {
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.viewmodel)
     implementation(libs.material)
     implementation(libs.androidx.constraintlayout)
     testImplementation(libs.junit)
@@ -56,6 +60,10 @@ dependencies {
     // Hilt
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
+
+    // Navigation
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
 
     //    TODO Add Realm dependencies
     implementation(libs.realm.base)
