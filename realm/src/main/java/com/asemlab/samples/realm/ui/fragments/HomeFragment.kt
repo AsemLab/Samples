@@ -61,9 +61,6 @@ class HomeFragment : Fragment() {
                     phoneNumber = this@HomeFragment.homeViewModel.personMobile.value!!
                 }
                 this@HomeFragment.homeViewModel.addPerson(person)
-                nameET.text.clear()
-                phoneNumberET.text.clear()
-                idET.text.clear()
             }
 
             delete.setOnClickListener {
@@ -72,24 +69,22 @@ class HomeFragment : Fragment() {
                         _id = ObjectId(c.primaryClip?.getItemAt(0)?.text.toString())
                     }
                     this@HomeFragment.homeViewModel.deletePerson(person)
-                    nameET.text.clear()
-                    phoneNumberET.text.clear()
-                    idET.text.clear()
                 } catch (e: Exception) {
                     Log.e("HomeFragment", "Error deleting person: ${e.message}")
                 }
             }
 
             update.setOnClickListener {
-                val person = Person().apply {
-                    _id = ObjectId(c.primaryClip?.getItemAt(0)?.text.toString())
-                    name = this@HomeFragment.homeViewModel.personName.value!!
-                    phoneNumber = this@HomeFragment.homeViewModel.personMobile.value!!
+                try {
+                    val person = Person().apply {
+                        _id = ObjectId(c.primaryClip?.getItemAt(0)?.text.toString())
+                        name = this@HomeFragment.homeViewModel.personName.value!!
+                        phoneNumber = this@HomeFragment.homeViewModel.personMobile.value!!
+                    }
+                    this@HomeFragment.homeViewModel.updatePerson(person)
+                } catch (e: Exception) {
+                    Log.e("HomeFragment", "Error deleting person: ${e.message}")
                 }
-                this@HomeFragment.homeViewModel.updatePerson(person)
-                nameET.text.clear()
-                phoneNumberET.text.clear()
-                idET.text.clear()
             }
 
         }
@@ -99,6 +94,9 @@ class HomeFragment : Fragment() {
             viewModelScope.launch {
                 persons.collect {
                     personAdapter.updateData(it)
+                    binding.nameET.text.clear()
+                    binding.phoneNumberET.text.clear()
+                    binding.idET.text.clear()
                 }
             }
 
