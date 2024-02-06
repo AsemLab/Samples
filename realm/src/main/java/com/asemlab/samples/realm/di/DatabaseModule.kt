@@ -19,13 +19,20 @@ class DatabaseModule {
     @Singleton
     fun provideRealm(): Realm {
         // TODO Create Realm database file
-        val config = RealmConfiguration.Builder(schema = setOf(Person::class))
+        val config = RealmConfiguration.Builder(
+            // TODO Pass the Realm objects to schema
+            schema = setOf(Person::class)
+        )
+            // Add initial data
             .initialData {
                 copyToRealm(Person().apply {
                     name = "Emergency"
                     phoneNumber = "911"
                 })
             }
+            .name("person_db.realm") // Rename Realm file
+            .directory("/data/user/0/com.asemlab.samples.realm/DB") // Change Realm directory
+            .encryptionKey(ByteArray(64)) // Encrypt Realm file
             .build()
         // TODO Open Realm database
         return Realm.open(config)
