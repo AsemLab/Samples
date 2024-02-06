@@ -2,6 +2,7 @@ package com.asemlab.samples.realm.di
 
 import com.asemlab.samples.realm.database.PersonRepoImp
 import com.asemlab.samples.realm.database.PersonRepository
+import com.asemlab.samples.realm.model.Address
 import com.asemlab.samples.realm.model.Person
 import dagger.Module
 import dagger.Provides
@@ -21,7 +22,7 @@ class DatabaseModule {
         // TODO Create Realm database file
         val config = RealmConfiguration.Builder(
             // TODO Pass the Realm objects to schema
-            schema = setOf(Person::class)
+            schema = setOf(Person::class, Address::class)
         )
             // Add initial data
             .initialData {
@@ -30,9 +31,10 @@ class DatabaseModule {
                     phoneNumber = "911"
                 })
             }
+            .schemaVersion(1) // Used after the schema has changed
             .name("person_db.realm") // Rename Realm file
             .directory("/data/user/0/com.asemlab.samples.realm/DB") // Change Realm directory
-            .encryptionKey(ByteArray(64)) // Encrypt Realm file
+//            .encryptionKey(ByteArray(64)) // Encrypt Realm file
             .build()
         // TODO Open Realm database
         return Realm.open(config)
