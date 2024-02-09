@@ -2,7 +2,7 @@ package com.asemlab.samples.realm.di
 
 import com.asemlab.samples.realm.database.PersonRepoImp
 import com.asemlab.samples.realm.database.PersonRepository
-import com.asemlab.samples.realm.model.Address
+import com.asemlab.samples.realm.model.Child
 import com.asemlab.samples.realm.model.Person
 import dagger.Module
 import dagger.Provides
@@ -22,7 +22,7 @@ class DatabaseModule {
         // TODO Create Realm database file
         val config = RealmConfiguration.Builder(
             // TODO Pass the Realm objects to schema
-            schema = setOf(Person::class, Address::class)
+            schema = setOf(Person::class, Child::class)
         )
             // Add initial data
             .initialData {

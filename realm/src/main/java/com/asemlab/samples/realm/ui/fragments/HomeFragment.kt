@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.viewModelScope
@@ -44,6 +45,8 @@ class HomeFragment : Fragment() {
                 "Person ID Copied to clipboard",
                 Toast.LENGTH_SHORT
             ).show()
+
+            homeViewModel.getPersonChildren(it)
         }
 
         with(binding) {
@@ -83,8 +86,19 @@ class HomeFragment : Fragment() {
                     }
                     this@HomeFragment.homeViewModel.updatePerson(person)
                 } catch (e: Exception) {
-                    Log.e("HomeFragment", "Error deleting person: ${e.message}")
+                    Log.e("HomeFragment", "Error updating person: ${e.message}")
                 }
+            }
+            filter.setOnClickListener {
+                try {
+                    this@HomeFragment.homeViewModel.getPersonsByName(this@HomeFragment.homeViewModel.personName.value!!)
+                } catch (e: Exception) {
+                    Log.e("HomeFragment", "Error while filtering: ${e.message}")
+                }
+            }
+
+            reload.setOnClickListener {
+                this@HomeFragment.homeViewModel.getPersons()
             }
 
         }
@@ -99,11 +113,19 @@ class HomeFragment : Fragment() {
                     binding.idET.text.clear()
                 }
             }
+            personChildren.observe(viewLifecycleOwner) {
+                if(clickedPerson.isNotEmpty())
+                    AlertDialog.Builder(requireContext())
+                    .setTitle("$clickedPerson children")
+                    .setMessage(it.joinToString("\n"))
+                    .show()
+            }
 
             personName.observe(viewLifecycleOwner) {
                 binding.add.isEnabled = it.isNotEmpty() && personMobile.value?.isNotEmpty() ?: false
                 binding.update.isEnabled =
                     it.isNotEmpty() && personMobile.value?.isNotEmpty() ?: false && personId.value?.isNotEmpty() ?: false
+                binding.filter.isEnabled = it.isNotEmpty()
             }
 
             personMobile.observe(viewLifecycleOwner) {

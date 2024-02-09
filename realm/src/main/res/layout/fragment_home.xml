@@ -22,7 +22,6 @@
             android:id="@+id/idET"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
             android:hint="ID"
             android:inputType="text"
             android:text="@={homeViewModel.personId}"
@@ -34,7 +33,6 @@
             android:id="@+id/nameET"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
             android:hint="Name"
             android:inputType="textPersonName"
             android:text="@={homeViewModel.personName}"
@@ -79,9 +77,20 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="Update"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/filter"
             app:layout_constraintStart_toEndOf="@+id/delete"
             app:layout_constraintTop_toBottomOf="@+id/phoneNumberET" />
+
+        <Button
+            android:id="@+id/filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Filter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/update"
+            app:layout_constraintTop_toBottomOf="@+id/phoneNumberET" />
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/personsRV"
@@ -91,8 +100,17 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/add"
-            tools:itemCount="6"
+            tools:itemCount="10"
             tools:listitem="@layout/person_item" />
 
+        <Button
+            android:id="@+id/reload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Reload"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

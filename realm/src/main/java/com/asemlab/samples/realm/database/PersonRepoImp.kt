@@ -1,11 +1,16 @@
 package com.asemlab.samples.realm.database
 
 import android.util.Log
+import com.asemlab.samples.realm.model.Child
 import com.asemlab.samples.realm.model.Person
 import io.realm.kotlin.Realm
 import io.realm.kotlin.ext.query
+import io.realm.kotlin.ext.toRealmList
+import io.realm.kotlin.ext.toRealmSet
+import io.realm.kotlin.query.Sort
 import kotlinx.coroutines.flow.map
 import org.mongodb.kbson.ObjectId
+import kotlin.random.Random
 
 class PersonRepoImp(private val realm: Realm) : PersonRepository {
 
@@ -15,6 +20,16 @@ class PersonRepoImp(private val realm: Realm) : PersonRepository {
     // TODO Insert into Realm
     override suspend fun insertPerson(person: Person) {
         realm.writeBlocking {
+            // TODO Add random number of children
+            person.apply {
+                val children = buildList {
+                    repeat(Random.nextInt(0, 5)) {
+                        add(Child().apply { name = "Child #$it" })
+                    }
+                }
+                childrenList = children.toRealmList()
+                childrenSet = children.toRealmSet()
+            }
             copyToRealm(person)
         }
     }
@@ -40,4 +55,27 @@ class PersonRepoImp(private val realm: Realm) : PersonRepository {
 
         }
     }
+
+    // TODO Read a RealmList
+    override fun getChildrenList(id: ObjectId): List<Child> {
+        val p = realm.query<Person>(query = "_id == $0", id).find().first()
+        return p.childrenList.toList()
+    }
+
+    // TODO Read a RealmSet and apply filter
+    override fun getAllPersonsHaveMore(childrenCount: Int): List<Person> {
+        val personsQuery =
+            realm.query<Person>(query = "childrenSet.@size > $0", childrenCount).find()
+        return personsQuery.toList()
+    }
+
+    // TODO Filter by property(name)
+    override fun getPersonsByName(name: String) =
+        realm.query<Person>(query = "name CONTAINS $0", name).find().asFlow().map { it.list }
+
+    // TODO Filter by property(name) and sort descending
+    override fun getPersonsByNameDesc(name: String) =
+        realm.query<Person>(query = "name CONTAINS $0", name).sort("name", Sort.DESCENDING).find()
+            .asFlow().map { it.list }
+
 }

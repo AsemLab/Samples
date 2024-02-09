@@ -1,9 +1,11 @@
 package com.asemlab.samples.realm.model
 
 import io.realm.kotlin.ext.realmListOf
+import io.realm.kotlin.ext.realmSetOf
 import io.realm.kotlin.types.RealmInstant
 import io.realm.kotlin.types.RealmList
 import io.realm.kotlin.types.RealmObject
+import io.realm.kotlin.types.RealmSet
 import io.realm.kotlin.types.annotations.Ignore
 import io.realm.kotlin.types.annotations.PersistedName
 import io.realm.kotlin.types.annotations.PrimaryKey
@@ -19,12 +21,17 @@ class Person() : RealmObject {
 
     @PersistedName("mobile")
     var phoneNumber: String? = ""
-    var addresses: RealmList<Address> = realmListOf() // Define property as List
+    var childrenList: RealmList<Child> = realmListOf() // Define property as List
 
-    //    var addresses: RealmSet<Address>? = realmSetOf() // Define property as Set
+    var childrenSet: RealmSet<Child> = realmSetOf() // Define property as Set
+
     //    var addresses: RealmDictionary<Address>? = realmDictionaryOf() // Define property as Map<String, Address>
     @Ignore // To ignore this property from Realm
-    var address: Address? = Address() // RealmObject must be nullable, and cannot be a primary key
+    //    var child: Child? = Child() // RealmObject must be nullable, and cannot be a primary key
     var timeCreated: RealmInstant =
         RealmInstant.now() // Realm datetime property as '2024-02-06T12:02:25.371Z'
+
+    override fun toString(): String {
+        return "$name, $phoneNumber"
+    }
 }
