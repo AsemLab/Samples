@@ -69,7 +69,7 @@ class HomeFragment : Fragment() {
             delete.setOnClickListener {
                 try {
                     val person = Person().apply {
-                        _id = ObjectId(c.primaryClip?.getItemAt(0)?.text.toString())
+                        _id = ObjectId(this@HomeFragment.homeViewModel.personId.value!!)
                     }
                     this@HomeFragment.homeViewModel.deletePerson(person)
                 } catch (e: Exception) {
@@ -80,7 +80,7 @@ class HomeFragment : Fragment() {
             update.setOnClickListener {
                 try {
                     val person = Person().apply {
-                        _id = ObjectId(c.primaryClip?.getItemAt(0)?.text.toString())
+                        _id = ObjectId(this@HomeFragment.homeViewModel.personId.value!!)
                         name = this@HomeFragment.homeViewModel.personName.value!!
                         phoneNumber = this@HomeFragment.homeViewModel.personMobile.value!!
                     }
@@ -94,6 +94,25 @@ class HomeFragment : Fragment() {
                     this@HomeFragment.homeViewModel.getPersonsByName(this@HomeFragment.homeViewModel.personName.value!!)
                 } catch (e: Exception) {
                     Log.e("HomeFragment", "Error while filtering: ${e.message}")
+                }
+            }
+
+            filterDesc.setOnClickListener {
+                try {
+                    this@HomeFragment.homeViewModel.getPersonsByNameDesc(this@HomeFragment.homeViewModel.personName.value!!)
+                } catch (e: Exception) {
+                    Log.e("HomeFragment", "Error while filtering: ${e.message}")
+                }
+            }
+
+            removeAllChildren.setOnClickListener {
+                try {
+                    val person = Person().apply {
+                        _id = ObjectId(this@HomeFragment.homeViewModel.personId.value!!)
+                    }
+                    this@HomeFragment.homeViewModel.removeAllChildren(person)
+                } catch (e: Exception) {
+                    Log.e("HomeFragment", "Error while deleting children: ${e.message}")
                 }
             }
 
@@ -111,14 +130,17 @@ class HomeFragment : Fragment() {
                     binding.nameET.text.clear()
                     binding.phoneNumberET.text.clear()
                     binding.idET.text.clear()
+
+                    binding.increaseAge.isEnabled = it.isNotEmpty()
+                    binding.clear.isEnabled = it.isNotEmpty()
                 }
             }
             personChildren.observe(viewLifecycleOwner) {
-                if(clickedPerson.isNotEmpty())
+                if (clickedPerson.isNotEmpty())
                     AlertDialog.Builder(requireContext())
-                    .setTitle("$clickedPerson children")
-                    .setMessage(it.joinToString("\n"))
-                    .show()
+                        .setTitle("$clickedPerson children")
+                        .setMessage(it.joinToString("\n"))
+                        .show()
             }
 
             personName.observe(viewLifecycleOwner) {
@@ -126,6 +148,7 @@ class HomeFragment : Fragment() {
                 binding.update.isEnabled =
                     it.isNotEmpty() && personMobile.value?.isNotEmpty() ?: false && personId.value?.isNotEmpty() ?: false
                 binding.filter.isEnabled = it.isNotEmpty()
+                binding.filterDesc.isEnabled = it.isNotEmpty()
             }
 
             personMobile.observe(viewLifecycleOwner) {
@@ -138,6 +161,7 @@ class HomeFragment : Fragment() {
                 binding.delete.isEnabled = it.isNotEmpty()
                 binding.update.isEnabled =
                     it.isNotEmpty() && personName.value?.isNotEmpty() ?: false && personMobile.value?.isNotEmpty() ?: false
+                binding.removeAllChildren.isEnabled = it.isNotEmpty()
             }
         }
 

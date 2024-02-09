@@ -91,15 +91,53 @@
             app:layout_constraintStart_toEndOf="@+id/update"
             app:layout_constraintTop_toBottomOf="@+id/phoneNumberET" />
 
+        <Button
+            android:id="@+id/filterDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Filter desc"
+            app:layout_constraintEnd_toStartOf="@+id/increaseAge"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add" />
+
+        <Button
+            android:id="@+id/increaseAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> homeViewModel.increasePersonAgeBy(3)}"
+            android:text="Age +3"
+            app:layout_constraintBaseline_toBaselineOf="@id/filterDesc"
+            app:layout_constraintEnd_toStartOf="@+id/clear"
+            app:layout_constraintStart_toEndOf="@id/filterDesc" />
+
+        <Button
+            android:id="@+id/removeAllChildren"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Remove children"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/filterDesc" />
+
+
+        <Button
+            android:id="@+id/clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> homeViewModel.deleteTwoOldest()}"
+            android:text="Clear DB"
+            app:layout_constraintBaseline_toBaselineOf="@id/filterDesc"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/increaseAge" />
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/personsRV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/add"
+            app:layout_constraintTop_toBottomOf="@+id/removeAllChildren"
             tools:itemCount="10"
             tools:listitem="@layout/person_item" />
 

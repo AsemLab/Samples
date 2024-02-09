@@ -11,10 +11,14 @@ interface PersonRepository {
     suspend fun insertPerson(person: Person)
     suspend fun updatePerson(person: Person)
     suspend fun deletePerson(id: ObjectId)
-    fun getChildrenList(id: ObjectId): List<Child>
-    fun getAllPersonsHaveMore(childrenCount: Int): List<Person>
-    fun getPersonsByName(name: String): Flow<List<Person>>
-    fun getPersonsByNameDesc(name: String): Flow<RealmResults<Person>>
+    suspend fun getChildrenList(id: ObjectId): List<Child>
+    suspend fun getAllPersonsHaveMore(childrenCount: Int): List<Person>
+    suspend fun getPersonsByName(name: String): Flow<List<Person>>
+    suspend fun getPersonsByNameDesc(name: String): Flow<RealmResults<Person>>
     suspend fun increasePersonAgeBy(amount: Int)
     suspend fun updateChildOf(id: ObjectId, index: Int, newName: String)
+    suspend fun deleteAllPersons()
+    suspend fun deleteTwoOldest()
+    suspend fun clearDatabase()
+    suspend fun removeAllChildren(id: ObjectId, index: Int)
 }

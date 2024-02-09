@@ -78,4 +78,30 @@ class HomeViewModel @Inject constructor(private val personRepository: PersonRepo
         }
     }
 
+    fun clear() {
+        viewModelScope.launch {
+            personRepository.deleteAllPersons()
+        }
+    }
+
+    fun getPersonsByNameDesc(name: String) {
+        viewModelScope.launch {
+            personRepository.getPersonsByNameDesc(name).collect {
+                persons.emit(it)
+            }
+        }
+    }
+
+    fun deleteTwoOldest() {
+        viewModelScope.launch {
+            personRepository.deleteTwoOldest()
+        }
+    }
+
+    fun removeAllChildren(person: Person) {
+        viewModelScope.launch {
+            personRepository.removeAllChildren(person._id, 0)
+        }
+    }
+
 }

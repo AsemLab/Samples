@@ -61,25 +61,26 @@ class PersonRepoImp(private val realm: Realm) : PersonRepository {
     }
 
     // TODO Read a RealmList
-    override fun getChildrenList(id: ObjectId): List<Child> {
+    override suspend fun getChildrenList(id: ObjectId): List<Child> {
         val p = realm.query<Person>(query = "_id == $0", id).find().first()
         return p.childrenList.toList()
     }
 
     // TODO Read a RealmSet and apply filter
-    override fun getAllPersonsHaveMore(childrenCount: Int): List<Person> {
+    override suspend fun getAllPersonsHaveMore(childrenCount: Int): List<Person> {
         val personsQuery =
             realm.query<Person>(query = "childrenSet.@size > $0", childrenCount).find()
         return personsQuery.toList()
     }
 
     // TODO Filter by property(name)
-    override fun getPersonsByName(name: String) =
+    override suspend fun getPersonsByName(name: String) =
         realm.query<Person>(query = "name CONTAINS $0", name).find().asFlow().map { it.list }
 
     // TODO Filter by property(name) and sort descending
-    override fun getPersonsByNameDesc(name: String) =
-        realm.query<Person>(query = "name CONTAINS $0", name).sort("name", Sort.DESCENDING).find()
+    override suspend fun getPersonsByNameDesc(name: String) =
+        realm.query<Person>(query = "name CONTAINS[c] $0", name).sort("name", Sort.DESCENDING)
+            .find() // TODO Adding [c] after (contains) for case insensitive
             .asFlow().map { it.list }
 
     // TODO Update multiple objects in Realm
@@ -101,6 +102,37 @@ class PersonRepoImp(private val realm: Realm) : PersonRepository {
                 name = newName
             }
 
+        }
+    }
+
+    // TODO Delete all objects of a type
+    override suspend fun deleteAllPersons() {
+        realm.writeBlocking {
+            delete(query<Person>().find())
+        }
+    }
+
+    // TODO Delete multiple objects
+    override suspend fun deleteTwoOldest() {
+        realm.writeBlocking {
+            val query = query<Person>("age > 0 sort(age DESC)").limit(2).find()
+            delete(query)
+        }
+    }
+
+    // TODO Clear the database
+    override suspend fun clearDatabase() {
+        realm.writeBlocking {
+            deleteAll()
+        }
+    }
+
+    // TODO Delete from RealmList, SAME for RealmSet & RealmDictionary
+    override suspend fun removeAllChildren(id: ObjectId, index: Int) {
+        realm.writeBlocking {
+            val person = query<Person>("_id == $0", id).find().first()
+//            person.childrenList.removeAt(index) // To remove at index
+            person.childrenList.clear()
         }
     }
 }
