@@ -66,5 +66,16 @@ class HomeViewModel @Inject constructor(private val personRepository: PersonRepo
             }
         }
     }
+    fun increasePersonAgeBy(amount: Int) {
+        viewModelScope.launch {
+            personRepository.increasePersonAgeBy(amount)
+        }
+    }
+
+    fun updateChildOf(person: Person, index: Int, newName: String) {
+        viewModelScope.launch {
+            personRepository.updateChildOf(person._id, index, newName)
+        }
+    }
 
 }

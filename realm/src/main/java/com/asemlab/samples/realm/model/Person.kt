@@ -31,6 +31,8 @@ class Person() : RealmObject {
     var timeCreated: RealmInstant =
         RealmInstant.now() // Realm datetime property as '2024-02-06T12:02:25.371Z'
 
+    var age = 0
+
     override fun toString(): String {
         return "$name, $phoneNumber"
     }

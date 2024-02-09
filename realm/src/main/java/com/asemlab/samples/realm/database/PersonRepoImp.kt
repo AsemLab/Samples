@@ -4,6 +4,7 @@ import android.util.Log
 import com.asemlab.samples.realm.model.Child
 import com.asemlab.samples.realm.model.Person
 import io.realm.kotlin.Realm
+import io.realm.kotlin.UpdatePolicy
 import io.realm.kotlin.ext.query
 import io.realm.kotlin.ext.toRealmList
 import io.realm.kotlin.ext.toRealmSet
@@ -22,15 +23,18 @@ class PersonRepoImp(private val realm: Realm) : PersonRepository {
         realm.writeBlocking {
             // TODO Add random number of children
             person.apply {
-                val children = buildList {
-                    repeat(Random.nextInt(0, 5)) {
-                        add(Child().apply { name = "Child #$it" })
-                    }
-                }
+                val children = getRandomChildren()
                 childrenList = children.toRealmList()
                 childrenSet = children.toRealmSet()
+                age = Random.nextInt(18, 64)
             }
-            copyToRealm(person)
+            copyToRealm(person, UpdatePolicy.ALL) // TODO Enable update when same id is exists
+        }
+    }
+
+    private fun getRandomChildren() = buildList {
+        repeat(Random.nextInt(0, 5)) {
+            add(Child().apply { name = "Child #$it" })
         }
     }
 
@@ -78,4 +82,25 @@ class PersonRepoImp(private val realm: Realm) : PersonRepository {
         realm.query<Person>(query = "name CONTAINS $0", name).sort("name", Sort.DESCENDING).find()
             .asFlow().map { it.list }
 
+    // TODO Update multiple objects in Realm
+    override suspend fun increasePersonAgeBy(amount: Int) {
+        realm.writeBlocking {
+            val persons = query<Person>().find()
+            for (person in persons) {
+                person.age += amount
+            }
+        }
+    }
+
+    // TODO Update RealmList and add to it, SAME for RealmSet & RealmDictionary
+    override suspend fun updateChildOf(id: ObjectId, index: Int, newName: String) {
+        realm.writeBlocking {
+            val person = query<Person>("_id == $0", id).find().first()
+//            person.childrenList.addAll(getRandomChildren().toList()) // To Add to RealmList
+            person.childrenList[index].apply {
+                name = newName
+            }
+
+        }
+    }
 }

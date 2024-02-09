@@ -39,6 +39,17 @@
             app:layout_constraintTop_toBottomOf="@id/name"
             tools:text="Mobile: +9600511200" />
 
+        <TextView
+            android:id="@+id/age"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="@{@string/person_age( String.valueOf(person.age))}"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+            app:layout_constraintStart_toEndOf="@id/mobile"
+            app:layout_constraintTop_toBottomOf="@id/name"
+            tools:text="Age: +9600511200" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

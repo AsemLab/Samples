@@ -15,4 +15,6 @@ interface PersonRepository {
     fun getAllPersonsHaveMore(childrenCount: Int): List<Person>
     fun getPersonsByName(name: String): Flow<List<Person>>
     fun getPersonsByNameDesc(name: String): Flow<RealmResults<Person>>
+    suspend fun increasePersonAgeBy(amount: Int)
+    suspend fun updateChildOf(id: ObjectId, index: Int, newName: String)
 }

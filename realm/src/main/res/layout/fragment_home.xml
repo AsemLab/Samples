@@ -22,7 +22,7 @@
             android:id="@+id/idET"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="ID"
+            android:hint="Click on any person to get ID &amp; paste"
             android:inputType="text"
             android:text="@={homeViewModel.personId}"
             app:layout_constraintEnd_toEndOf="parent"

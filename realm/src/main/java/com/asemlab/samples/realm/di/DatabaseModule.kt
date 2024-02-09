@@ -27,8 +27,9 @@ class DatabaseModule {
             // Add initial data
             .initialData {
                 copyToRealm(Person().apply {
-                    name = "Emergency"
-                    phoneNumber = "911"
+                    name = "Paul"
+                    phoneNumber = "+962"
+                    age = 51
                 })
             }
             .schemaVersion(1) // Used after the schema has changed
