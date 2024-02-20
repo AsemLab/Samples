@@ -29,6 +29,8 @@ glide = "4.16.0"
 hilt-android = "2.48"
 hilt-plugin= "2.48"
 realm="1.11.0"
+legacy-support-v4 = "1.0.0"
+lifecycle-livedata-ktx = "2.7.0"
 
 [libraries]
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
@@ -68,6 +70,8 @@ hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hil
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt-android" }
 realm-base = { module = "io.realm.kotlin:library-base", version.ref = "realm" }
 realm-sync = { module = "io.realm.kotlin:library-sync", version.ref = "realm" }
+legacy-support-v4 = { group = "androidx.legacy", name = "legacy-support-v4", version.ref = "legacy-support-v4" }
+lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycle-livedata-ktx" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "android-application" }
@@ -78,6 +82,7 @@ safe-args = { id = "androidx.navigation.safeargs", version.ref = "navigation" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 hilt-plugin = { id = "com.google.dagger.hilt.android", version.ref = "hilt-plugin" }
 realm-plugin = { id = "io.realm.kotlin", version.ref = "realm" }
+kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
 
 
 [bundles]

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nameMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="Name" />
+    <item
+        android:id="@+id/rateMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="Rate" />
+    <item
+        android:id="@+id/starMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:title="Stars" />
+
+</menu>

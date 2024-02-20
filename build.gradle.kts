@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.kotlin.kapt) apply false
     alias(libs.plugins.safe.args) apply false
     alias(libs.plugins.hilt.plugin) apply false
+    alias(libs.plugins.kotlin.parcelize) apply false
     // TODO Add Kotlin Serialization plugin  if don't use Gson serialization
 //    alias(libs.plugins.kotlin.serialization) apply false
 

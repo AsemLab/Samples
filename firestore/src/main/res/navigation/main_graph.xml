@@ -6,6 +6,25 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.asemlab.samples.firestore.ui.fragments.HomeFragment"
-        android:label="HomeFragment" />
+        android:name="com.asemlab.samples.firestore.ui.fragments.home.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_addHotelFragment"
+            app:destination="@id/addHotelFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_hotelFragment"
+            app:destination="@id/hotelFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addHotelFragment"
+        android:name="com.asemlab.samples.firestore.ui.fragments.addhotel.AddHotelFragment"
+        android:label="AddHotelFragment" />
+    <fragment
+        android:id="@+id/hotelFragment"
+        android:name="com.asemlab.samples.firestore.ui.fragments.hotel.HotelFragment"
+        android:label="HotelFragment" >
+        <argument
+            android:name="hotel"
+            app:argType="com.asemlab.samples.firestore.model.Hotel" />
+    </fragment>
 </navigation>
