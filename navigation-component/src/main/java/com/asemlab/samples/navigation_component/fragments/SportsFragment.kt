@@ -45,6 +45,10 @@ class SportsFragment : Fragment() {
 
         // TODO Pass results between fragments
         setFragmentResult("has_open_sports", bundleOf("open_sports" to true))
+        requireActivity().supportFragmentManager.setFragmentResult(
+            "has_open_sports",
+            bundleOf("open_sports" to true)
+        )
 
         return binding.root
     }
@@ -52,7 +56,10 @@ class SportsFragment : Fragment() {
     private fun createDeepLinkNotification() {
         val pendingIntent = NavDeepLinkBuilder(requireContext())
             .setGraph(R.navigation.main_graph)
-            .setDestination(R.id.internationalDetailsFragment, null)
+            .setDestination(
+                R.id.internationalDetailsFragment,
+                bundleOf("id" to "404", "pageBackground" to R.color.white)
+            )
             .createPendingIntent()
 
         val notification = NotificationCompat.Builder(requireContext())

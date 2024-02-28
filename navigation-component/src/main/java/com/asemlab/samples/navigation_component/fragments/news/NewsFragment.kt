@@ -25,6 +25,7 @@ class NewsFragment : Fragment() {
 
         binding = FragmentBinding.inflate(inflater, container, false)
         binding.title.text = args.pageTitle
+
         // TODO Add NavOptions when navigate
         binding.newsSections.setOnClickListener {
             findNavController().navigate(
@@ -41,11 +42,11 @@ class NewsFragment : Fragment() {
         // TODO Pass results between fragments
         setFragmentResultListener("has_open_sports"){ _, bundle ->
             val hasOpen = bundle.getBoolean("open_sports")
-            Toast.makeText(requireContext(), "$hasOpen", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Sports page has opened: $hasOpen", Toast.LENGTH_SHORT).show()
         }
 
         // TODO Pass results between parent and child fragments
-        childFragmentManager.setFragmentResultListener("news_heading", viewLifecycleOwner){ _, bundle ->
+        setFragmentResultListener("news_heading"){ _, bundle ->
             val heading = bundle.getString("news_details_heading")
             Toast.makeText(requireContext(), "$heading", Toast.LENGTH_SHORT).show()
         }

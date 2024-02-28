@@ -4,10 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.setFragmentResult
 import androidx.navigation.fragment.navArgs
 import androidx.transition.TransitionInflater
 import com.asemlab.samples.navigation_component.R
@@ -16,6 +16,7 @@ import com.asemlab.samples.navigation_component.databinding.FragmentInternationa
 class InternationalDetailsFragment : Fragment() {
 
     private lateinit var binding: FragmentInternationalDetailsBinding
+
     // TODO Get arguments using Safe Args
     private val args by navArgs<InternationalDetailsFragmentArgs>()
 
@@ -25,10 +26,23 @@ class InternationalDetailsFragment : Fragment() {
     ): View {
         binding = FragmentInternationalDetailsBinding.inflate(inflater, container, false)
 
-        binding.root.setBackgroundColor(ResourcesCompat.getColor(resources, args.pageBackground, null))
+        binding.root.setBackgroundColor(
+            ResourcesCompat.getColor(
+                resources,
+                args.pageBackground,
+                null
+            )
+        )
 
         // TODO Pass results between parent and child fragments
-        setFragmentResult("news_heading", bundleOf("news_details_heading" to binding.titleTV.text))
+        parentFragmentManager.setFragmentResult(
+            "news_heading",
+            bundleOf("news_details_heading" to binding.titleTV.text)
+        )
+
+        // TODO Get arguments from deep link
+        val id = arguments?.getString("id", "-1") ?: "-99"
+        Toast.makeText(requireContext(), "DeepLink id: $id", Toast.LENGTH_SHORT).show()
 
         return binding.root
     }

@@ -42,8 +42,8 @@ class MainActivity : AppCompatActivity() {
         // TODO Receive results in the host activity
         supportFragmentManager
             .setFragmentResultListener("has_open_sports", this) { _, bundle ->
-                val result = bundle.getString("open_sports")
-                Toast.makeText(this, "$result", Toast.LENGTH_SHORT).show()
+                val result = bundle.getBoolean("open_sports")
+                Toast.makeText(this, "Result in Activity\nSports page has opened: $result", Toast.LENGTH_LONG).show()
             }
 
     }

@@ -5,7 +5,8 @@ import androidx.lifecycle.ViewModel
 
 class FragmentsVM: ViewModel() {
 
-    val title = MutableLiveData("Dummy Title")
+    // TODO This liveData will be shared across all fragments by using ActivityVM
+    val title = MutableLiveData("Click to change this title")
 
     fun setTitle(title: String) {
         this.title.value = title

@@ -38,10 +38,6 @@ class InternationalFragment : Fragment() {
 
         }
 
-        // TODO Get arguments from deep link
-        val id = arguments?.getString("id", "-1") ?: "-99"
-        Toast.makeText(requireContext(), id, Toast.LENGTH_SHORT).show()
-
 
         return binding.root
     }

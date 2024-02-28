@@ -29,6 +29,8 @@ class BusinessFragment : Fragment() {
             val deepLinkRequest =
                 NavDeepLinkRequest.Builder.fromUri(Uri.parse("http://www.example.com/15"))
                     .setAction("HIDE").build()
+
+            // TODO Navigate with DeepLinkRequest
             findNavController().navigate(deepLinkRequest)
         }
 
