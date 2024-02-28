@@ -7,16 +7,15 @@ import com.asemlab.samples.firestore.model.SortBy
 
 interface HotelsRepository {
 
-    suspend fun getHotels(): List<Hotel>
+    suspend fun getHotels(onSuccess: (List<Hotel>) -> Unit)
 
-    suspend fun insertHotel(hotel: Hotel)
+    suspend fun insertHotel(hotel: Hotel, onSuccess: () -> Unit, onFailure: (String) -> Unit)
 
-    suspend fun deleteHotel(hotel: Hotel)
+    suspend fun deleteHotel(hotel: Hotel, onSuccess: () -> Unit, onFailure: (String) -> Unit)
 
-    suspend fun insertRate(rate: Rate)
+    suspend fun insertRate(hotel: Hotel, rate: Rate, onSuccess: (List<Rate>) -> Unit, onFailure: (String) -> Unit)
 
-    suspend fun sortHotel(sortBy: SortBy)
-
-    suspend fun filterHotel(filter: Filter)
+    suspend fun sortHotel(sortBy: SortBy, onSuccess: (List<Hotel>) -> Unit)
+    suspend fun filterHotel(filter: Filter, value: Any, onSuccess: (List<Hotel>) -> Unit)
 
 }

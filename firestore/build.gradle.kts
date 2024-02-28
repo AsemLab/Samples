@@ -8,6 +8,8 @@ plugins {
     alias(libs.plugins.hilt.plugin)
     alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.kotlin.parcelize)
+    // TODO Add the Google services Gradle plugin
+    alias(libs.plugins.google.services)
 
 }
 
@@ -65,6 +67,10 @@ dependencies {
     // Hilt
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
+
+    // TODO Add Firebase dependencies
+    implementation(platform("com.google.firebase:firebase-bom:32.2.3"))
+    implementation("com.google.firebase:firebase-firestore")
 
 
 }

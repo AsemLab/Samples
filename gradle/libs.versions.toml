@@ -31,6 +31,7 @@ hilt-plugin= "2.48"
 realm="1.11.0"
 legacy-support-v4 = "1.0.0"
 lifecycle-livedata-ktx = "2.7.0"
+google-services-plugin= "4.4.1"
 
 [libraries]
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
@@ -83,6 +84,7 @@ kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", versi
 hilt-plugin = { id = "com.google.dagger.hilt.android", version.ref = "hilt-plugin" }
 realm-plugin = { id = "io.realm.kotlin", version.ref = "realm" }
 kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
+google-services = { id = "com.google.gms.google-services", version.ref = "google-services-plugin" }
 
 
 [bundles]

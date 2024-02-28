@@ -10,7 +10,8 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class AddHotelViewModel @Inject constructor(private val hotelsRepository: HotelsRepository) : ViewModel() {
+class AddHotelViewModel @Inject constructor(private val hotelsRepository: HotelsRepository) :
+    ViewModel() {
 
     val hotelName = MutableLiveData("")
     val hotelCity = MutableLiveData("")
@@ -19,13 +20,13 @@ class AddHotelViewModel @Inject constructor(private val hotelsRepository: Hotels
     val havePool = MutableLiveData(false)
 
 
-    fun insertHotel(hotel: Hotel){
+    fun insertHotel(hotel: Hotel, onSuccess: () -> Unit, onFailure: (String) -> Unit) {
         viewModelScope.launch {
-            hotelsRepository.insertHotel(hotel)
+            hotelsRepository.insertHotel(hotel, onSuccess, onFailure)
         }
     }
 
-    fun getNewHotel(): Hotel{
+    fun getNewHotel(): Hotel {
         return Hotel(
             hotelName.value!!,
             hotelCity.value!!,

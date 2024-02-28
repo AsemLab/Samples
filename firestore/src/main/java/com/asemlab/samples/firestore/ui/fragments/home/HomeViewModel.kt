@@ -24,35 +24,25 @@ class HomeViewModel @Inject constructor(private val hotelsRepository: HotelsRepo
 
     fun getHotels() {
         viewModelScope.launch {
-            hotels.value = buildList {
-                repeat(7) {
-                    add(
-                        Hotel(
-                            "Hotel $it",
-                            "City $it",
-                            it,
-                            freeWifi = false,
-                            swimmingPool = false,
-                            buildList {
-                                repeat(25) {
-                                    add(Rate((1..5).random(), "Nice place!"))
-                                }
-                            })
-                    )
-                }
+            hotelsRepository.getHotels {
+                hotels.value= it
             }
         }
     }
 
     fun sortHotels(sortBy: SortBy) {
         viewModelScope.launch {
-            hotelsRepository.sortHotel(sortBy)
+            hotelsRepository.sortHotel(sortBy){
+                hotels.value= it
+            }
         }
     }
 
-    fun filterHotels(filter: Filter) {
+    fun filterHotels(filter: Filter, value: Any) {
         viewModelScope.launch {
-            hotelsRepository.filterHotel(filter)
+            hotelsRepository.filterHotel(filter, value){
+                hotels.value= it
+            }
         }
     }
 }

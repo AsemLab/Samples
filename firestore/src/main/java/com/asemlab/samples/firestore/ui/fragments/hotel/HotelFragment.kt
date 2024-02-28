@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -37,20 +38,37 @@ class HotelFragment : Fragment() {
 
             emptyRatingTV.isVisible = adapter.itemCount == 0
 
-            ratings.text =
-                "${ratings.text}  ${(navArgs.hotel.rates?.sumOf { it.score } ?: 5) / (navArgs.hotel.rates?.size ?: 1)} of 5"
-
             back.setOnClickListener {
                 findNavController().navigateUp()
             }
             delete.setOnClickListener {
-                viewModel.deleteHotel(hotel!!)
-                findNavController().navigateUp()
+                viewModel.deleteHotel(hotel!!, {
+                    findNavController().navigateUp()
+                }, {
+                    Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
+                })
             }
             addRate.setOnClickListener {
                 RateBottomSheet.getInstance {
-                    viewModel.addRate(it)
+                    viewModel.addRate(navArgs.hotel, it) { message ->
+                        Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+                    }
                 }.show(parentFragmentManager, "RateBottomSheet")
+            }
+        }
+
+        with(viewModel) {
+
+            rates.value = navArgs.hotel.rates
+
+            rates.observe(viewLifecycleOwner) {
+                it?.let {
+                    val count = it.size.takeIf { s -> s > 0 } ?: 1
+                    val sum = if (it.isEmpty()) 5 else it.sumOf { r -> r.score }
+                    binding.ratings.text = "Ratings ${sum / count} of 5"
+
+                    adapter.updateData(it)
+                }
             }
         }
 

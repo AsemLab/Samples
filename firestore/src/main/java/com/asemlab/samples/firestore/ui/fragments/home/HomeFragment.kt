@@ -69,9 +69,9 @@ class HomeFragment : Fragment() {
         filterMenu = PopupMenu(requireContext(), binding.filter).apply {
             setOnMenuItemClickListener {
                 when (it.itemId) {
-                    R.id.fiveStarsFilter -> viewModel.filterHotels(Filter.FIVE_STARS)
-                    R.id.poolFilter -> viewModel.filterHotels(Filter.HAVE_POOL)
-                    R.id.wifiFilter -> viewModel.filterHotels(Filter.HAVE_WIFI)
+//                    R.id.fiveStarsFilter -> viewModel.filterHotels(Filter.STARS, 5)
+                    R.id.poolFilter -> viewModel.filterHotels(Filter.HAVE_POOL, true)
+                    R.id.wifiFilter -> viewModel.filterHotels(Filter.HAVE_WIFI, true)
                 }
                 return@setOnMenuItemClickListener true
             }

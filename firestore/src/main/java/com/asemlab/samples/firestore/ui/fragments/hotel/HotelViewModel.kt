@@ -1,5 +1,6 @@
 package com.asemlab.samples.firestore.ui.fragments.hotel
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.asemlab.samples.firestore.database.HotelsRepository
@@ -13,15 +14,19 @@ import javax.inject.Inject
 class HotelViewModel @Inject constructor(private val hotelsRepository: HotelsRepository) :
     ViewModel() {
 
-    fun addRate(rate: Rate) {
+    val rates = MutableLiveData<List<Rate>?>(emptyList())
+
+    fun addRate(hotel: Hotel, rate: Rate, onFailure: (String) -> Unit) {
         viewModelScope.launch {
-            hotelsRepository.insertRate(rate)
+            hotelsRepository.insertRate(hotel, rate, onFailure = onFailure, onSuccess = {
+                rates.value = it
+            })
         }
     }
 
-    fun deleteHotel(hotel: Hotel) {
+    fun deleteHotel(hotel: Hotel, onSuccess: () -> Unit, onFailure: (String) -> Unit) {
         viewModelScope.launch {
-            hotelsRepository.deleteHotel(hotel)
+            hotelsRepository.deleteHotel(hotel, onSuccess, onFailure)
         }
     }
 }

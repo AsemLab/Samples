@@ -11,14 +11,14 @@ data class Hotel(
     var stars: Int,
     var freeWifi: Boolean,
     var swimmingPool: Boolean,
-    var rates: List<Rate>? = null,
-    val id: UUID? = UUID.randomUUID()
+    var rates: List<Rate>? = listOf(Rate(5, "Nice!"),Rate(2, "Nice!")),
+    var id: String = UUID.randomUUID().toString()
 ) : Parcelable
 
-enum class SortBy{
-    NAME, STARS, RATE
+enum class SortBy(val title: String){
+    NAME("name"), STARS("stars"), RATE("rates")
 }
 
-enum class Filter{
-    HAVE_WIFI, HAVE_POOL, FIVE_STARS
+enum class Filter(val title: String){
+    HAVE_WIFI("freeWifi"), HAVE_POOL("swimmingPool"), STARS("stars")
 }

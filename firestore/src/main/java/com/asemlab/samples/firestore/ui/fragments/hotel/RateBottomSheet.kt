@@ -35,6 +35,7 @@ class RateBottomSheet private constructor(private val onClick: (Rate) -> Unit) :
                         this@RateBottomSheet.username
                     )
                 )
+                dismiss()
             }
 
             comment.editText?.doOnTextChanged { text, _, _, _ ->
@@ -42,7 +43,7 @@ class RateBottomSheet private constructor(private val onClick: (Rate) -> Unit) :
                 binding.rateButton.isEnabled = text!!.isNotEmpty()
             }
             username.editText?.doOnTextChanged { text, _, _, _ ->
-                this@RateBottomSheet.username = text.toString()
+                this@RateBottomSheet.username = text.toString().ifEmpty { "Anonymous" }
             }
             ratingBar.setOnRatingBarChangeListener { _, rating, _ ->
                 this@RateBottomSheet.score = if(rating.toInt() > 0) rating.toInt() else 1

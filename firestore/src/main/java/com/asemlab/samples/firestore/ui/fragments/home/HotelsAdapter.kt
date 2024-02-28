@@ -34,7 +34,9 @@ class HotelsAdapter(private val items: MutableList<Hotel>, private val onClick: 
             binding.root.setOnClickListener {
                 onClick(hotel)
             }
-            binding.hotelRate.text = "${ (hotel.rates?.sumOf { it.score } ?: 5) / (hotel.rates?.size ?: 1) }"
+            val count = if ((hotel.rates?.size ?: 0) == 0) 1 else hotel.rates?.size
+            val sum = if ((hotel.rates?.size ?: 0) == 0) 5 else hotel.rates?.sumOf { it.score }
+            binding.hotelRate.text = "${(sum ?: 5) / (count ?:1)}"
         }
 
         companion object {
