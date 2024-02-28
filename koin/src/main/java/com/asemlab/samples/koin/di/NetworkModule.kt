@@ -1,26 +1,26 @@
 package com.asemlab.samples.koin.di
 
-import com.asemlab.samples.koin.model.HomePage
+import com.asemlab.samples.koin.model.SearchEngine
 import com.asemlab.samples.koin.remote.CountryService
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-const val YOUTUBE_URL = "https://youtube.com"
-const val YOUTUBE_NAME = "YouTube"
-const val GOOGLE_URL = "https://google.com"
-const val GOOGLE_NAME = "WhatsApp"
+const val BING_URL = "https://bing.com/search?q="
+const val BING_NAME = "Bing"
+const val GOOGLE_URL = "https://google.com/search?q="
+const val GOOGLE_NAME = "Google"
 const val BASE_URL = "https://restcountries.com/v3.1/"
 
 // TODO Declare modules using qualifiers
 val NetworkModule = module {
-    single(named(YOUTUBE_NAME)) {
-        HomePage(YOUTUBE_URL)
+    single(named(BING_NAME)) {
+        SearchEngine(BING_NAME, BING_URL)
     }
 
     single(named(GOOGLE_NAME)) {
-        HomePage(GOOGLE_URL)
+        SearchEngine(GOOGLE_NAME, GOOGLE_URL)
     }
 
     single {

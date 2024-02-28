@@ -9,85 +9,80 @@
         android:padding="16dp"
         tools:context=".MainActivity">
 
-        <TextView
-            android:id="@+id/urlTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Home page link:   "
-            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/url"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:autoLink="all"
-            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-            app:layout_constraintBaseline_toBaselineOf="@+id/urlTitle"
-            app:layout_constraintStart_toEndOf="@id/urlTitle"
-            tools:text="Network base url: " />
-
-        <TextView
-            android:id="@+id/usersTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Current users:"
-            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/urlTitle" />
-
-        <TextView
-            android:id="@+id/users"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/usersTitle"
-            tools:text="User 1" />
-
         <EditText
             android:id="@+id/countryET"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
             android:hint="Country name"
+            android:inputType="textCapSentences"
+            app:layout_constraintEnd_toStartOf="@+id/getCapital"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/users" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/getCapital"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:text="Get capital"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/countryET"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/searchTipTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Click on any country to search"
+            android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/countryET" />
 
+        <TextView
+            android:id="@+id/defaultSearchTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Default search engine:   "
+            android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchTipTV" />
 
         <TextView
-            android:id="@+id/capitalTitle"
+            android:id="@+id/defaultSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autoLink="all"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+            app:layout_constraintBaseline_toBaselineOf="@+id/defaultSearchTitle"
+            app:layout_constraintStart_toEndOf="@id/defaultSearchTitle"
+            tools:text="Google" />
+
+        <TextView
+            android:id="@+id/historyTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="The capital is: "
-            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:text="Search history"
+            android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/getCapital" />
+            app:layout_constraintTop_toBottomOf="@+id/defaultSearchTitle" />
 
-        <TextView
-            android:id="@+id/capital"
-            android:layout_width="wrap_content"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/historyRV"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-            app:layout_constraintBaseline_toBaselineOf="@+id/capitalTitle"
-            app:layout_constraintStart_toEndOf="@id/capitalTitle"
-            tools:text="Network base url: " />
-
-
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/historyTitle"
+            tools:itemCount="16"
+            tools:listitem="@layout/history_item" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

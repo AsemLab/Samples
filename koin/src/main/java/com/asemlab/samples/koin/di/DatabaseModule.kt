@@ -1,7 +1,7 @@
 package com.asemlab.samples.koin.di
 
 import androidx.room.Room
-import com.asemlab.samples.koin.database.UserDatabase
+import com.asemlab.samples.koin.database.CountryDatabase
 import org.koin.dsl.module
 
 // TODO Declare Modules
@@ -9,8 +9,8 @@ val DatabaseModule = module {
     single {
         Room.databaseBuilder(
             get(),
-            UserDatabase::class.java,
-            "user_db"
+            CountryDatabase::class.java,
+            "country_db"
         ).build().apply { init() }
     }
 
@@ -20,6 +20,6 @@ val DatabaseModule = module {
 val DaoModule = module {
     single {
         // TODO Declare properties from injected classes
-        get<UserDatabase>().provideUserDao()
+        get<CountryDatabase>().provideCountryDao()
     }
 }

@@ -1,14 +1,20 @@
 package com.asemlab.samples.koin
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.lifecycleScope
-import com.asemlab.samples.koin.database.UserDao
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.asemlab.samples.koin.database.CountryDao
 import com.asemlab.samples.koin.databinding.ActivityMainBinding
-import com.asemlab.samples.koin.di.GOOGLE_NAME
-import com.asemlab.samples.koin.model.HomePage
-import com.asemlab.samples.koin.model.User
+import com.asemlab.samples.koin.di.BING_NAME
+import com.asemlab.samples.koin.model.Country
+import com.asemlab.samples.koin.model.SearchEngine
 import com.asemlab.samples.koin.model.performOnError
 import com.asemlab.samples.koin.model.performOnSuccess
 import com.asemlab.samples.koin.remote.CountryService
@@ -20,33 +26,55 @@ import kotlinx.coroutines.withContext
 import org.koin.android.ext.android.inject
 import org.koin.core.qualifier.named
 
+
 class MainActivity : AppCompatActivity() {
 
     // TODO Inject from Koin
-    private val userDao by inject<UserDao>()
+    private val countryDao by inject<CountryDao>()
 
     // TODO Inject from Koin using qualifiers
-    private val homePage by inject<HomePage>(named(GOOGLE_NAME)) // OR YOUTUBE_NAME
+    private val searchEngine by inject<SearchEngine>(named(BING_NAME)) // OR YOUTUBE_NAME
 
     private val countryService by inject<CountryService>()
 
     private lateinit var binding: ActivityMainBinding
+    private val historyItems = MutableLiveData<List<Country>>(emptyList())
+    private val historyAdapter = HistoryAdapter(historyItems.value!!.toMutableList()) {
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("${searchEngine.url}$it"))
+        startActivity(intent)
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        lifecycleScope.launch {
-            val users = getUsers()
-            binding.users.text = users.joinToString("\n") { "${it.name} with id: ${it.id}" }
+        getHistory()
+
+        with(binding) {
+
+            historyRV.layoutManager = LinearLayoutManager(this@MainActivity)
+            historyRV.addItemDecoration(
+                DividerItemDecoration(
+                    this@MainActivity,
+                    LinearLayout.VERTICAL
+                )
+            )
+            historyRV.adapter = historyAdapter
+
+            getCapital.setOnClickListener {
+                lifecycleScope.launch {
+                    val country = binding.countryET.text.toString()
+                    getCapital(country)
+                    binding.countryET.text.clear()
+                }
+            }
+            defaultSearch.text = searchEngine.name
         }
 
-        binding.getCapital.setOnClickListener {
-            lifecycleScope.launch {
-                val country = binding.countryET.text.toString().lowercase()
-                getCapital(country)
-                binding.countryET.text.clear()
-            }
+        historyItems.observe(this) {
+            historyAdapter.updateData(it)
         }
-        binding.url.text = homePage.url
+
     }
 
     private suspend fun getCapital(country: String) {
@@ -54,21 +82,31 @@ class MainActivity : AppCompatActivity() {
             performRequest {
                 countryService.getCountryCapital(country)
             }.performOnSuccess {
-                runOnUiThread {
-                    binding.capital.text = it[0].toString()
-                }
+                insertCountry(Country(country, it[0].toString()))
+                getHistory()
             }.performOnError {
-                runOnUiThread {
-                    binding.capital.text = it
+                lifecycleScope.launch {
+                    insertCountry(Country(country, "Unknown"))
+                    getHistory()
                 }
             }
         }
     }
 
-    private suspend fun getUsers(): List<User> {
-        return lifecycleScope.async {
+    private fun getHistory() {
+        lifecycleScope.launch {
+            historyItems.value = lifecycleScope.async {
+                withContext(Dispatchers.IO) {
+                    countryDao.getAll()
+                }
+            }.await()
+        }
+    }
+
+    private suspend fun insertCountry(country: Country) {
+        lifecycleScope.async {
             withContext(Dispatchers.IO) {
-                userDao.getAll()
+                countryDao.insert(country)
             }
         }.await()
     }
