@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
             "news" -> controller.navigate(R.id.news_nav)
         }
 
-
+        //TODO Create dynamic shortcuts
         val shortcuts = listOf(
             ShortcutInfoCompat.Builder(this, "id1")
                 .setShortLabel("kooora")
@@ -49,10 +49,10 @@ class MainActivity : AppCompatActivity() {
                 .build(),
             // TODO Open multiple Activities
             ShortcutInfoCompat.Builder(this, "id2")
-                .setShortLabel("News 1")
+                .setShortLabel("News 1 details")
                 .setLongLabel("Open News 1")
                 .setRank(10)
-                .setIcon(IconCompat.createWithResource(this, R.drawable.news))
+                .setIcon(IconCompat.createWithResource(this, R.drawable.ic_news))
                 .setIntents(
                     arrayOf(
                         Intent(

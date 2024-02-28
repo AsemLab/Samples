@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.asemlab.samples.appshortcuts.databinding.FragmentBinding
 
@@ -18,6 +19,7 @@ class BusinessFragment : Fragment() {
         binding = FragmentBinding.inflate(inflater, container, false)
         binding.title.text = "Business"
         binding.toActivity2.text = "Open Business page"
+        binding.toActivity2.isVisible = false
 
         return binding.root
     }

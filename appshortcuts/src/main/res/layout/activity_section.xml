@@ -73,7 +73,7 @@
             android:id="@+id/pinButton"
             android:layout_width="wrap_content"
             android:layout_height="64dp"
-            android:text="Add section to home"
+            android:text="Add section to home screen"
             android:textAllCaps="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

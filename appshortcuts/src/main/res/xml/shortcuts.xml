@@ -17,12 +17,12 @@
 
     <shortcut
         android:enabled="true"
-        android:icon="@drawable/ic_globe"
+        android:icon="@drawable/ic_euro"
         android:shortcutDisabledMessage="@string/shortcut_disabled_message1"
         android:shortcutId="business"
         android:shortcutLongLabel="@string/business_shortcut_long_label1"
         android:shortcutShortLabel="@string/business_shortcut_short_label1">
-        <!--        TODO Open multiple Activities -->
+        <!--        TODO Open multiple Activities (stack of activities) -->
         <intent
             android:action="business"
             android:targetClass="com.asemlab.samples.appshortcuts.SectionActivity"

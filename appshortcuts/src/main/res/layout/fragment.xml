@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:text="Open Activity 2"
             android:textAllCaps="false"
-            android:textSize="24sp"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"

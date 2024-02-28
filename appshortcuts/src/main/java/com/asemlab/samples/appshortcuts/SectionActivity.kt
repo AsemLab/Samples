@@ -24,8 +24,8 @@ class SectionActivity : AppCompatActivity() {
 
             if (ShortcutManagerCompat.isRequestPinShortcutSupported(this)) {
                 val shortcut = ShortcutInfoCompat.Builder(this, "news_id")
-                    .setShortLabel("News")
-                    .setLongLabel("Open news section")
+                    .setShortLabel("News page")
+                    .setLongLabel("Open news page")
                     .setIcon(IconCompat.createWithResource(this, R.drawable.ic_news))
                     .setIntent(
                         Intent(this, MainActivity::class.java).setAction("news")
