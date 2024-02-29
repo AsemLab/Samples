@@ -1,0 +1,14 @@
+root = true
+
+[*.{kt,kts}]
+
+# TODO Add more configuration for Ktlint
+ktlint_standard_no-wildcard-imports = enabled
+max_line_length = 100
+indent_size = 4
+
+# TODO The order of the imports in any file
+ij_kotlin_imports_layout = *
+
+# TODO Ignore wildcard imports of this package
+ij_kotlin_packages_to_use_import_on_demand = org.junit.Assert.**
