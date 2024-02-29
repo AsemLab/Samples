@@ -1,7 +1,12 @@
+import com.android.build.gradle.internal.tasks.factory.dependsOn
+import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
+
 @Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin)
+    // TODO Add Ktlint plugin
+    alias(libs.plugins.ktlint)
 }
 
 android {
@@ -45,4 +50,36 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+}
+
+// TODO Ktlint config
+// TODO Also add .editorconfig to root project folder
+ktlint {
+    // TODO when set to false, build will fail when there is issues
+    ignoreFailures.set(false)
+    android.set(true)
+
+    // TODO Filter the folders
+    filter {
+//        exclude("**/generated/**")
+//        include("**/kotlin/**")
+    }
+
+    // TODO Set the Ktlint report styles
+    reporters {
+        reporter(ReporterType.HTML)
+        reporter(ReporterType.PLAIN)
+        reporter(ReporterType.JSON)
+    }
+}
+
+// TODO Apply Ktlint check and format before Build the project
+tasks.preBuild.dependsOn("ktlintCheck")
+tasks.preBuild.dependsOn("ktlintFormat")
+
+// TODO Change Klint reports folder
+tasks.withType<org.jlleitschuh.gradle.ktlint.tasks.GenerateReportsTask> {
+    reportsOutputDirectory.set(
+        project.layout.projectDirectory.dir("Ktlint reports/$name"),
+    )
 }
