@@ -1,0 +1,17 @@
+# TODO See https://detekt.dev/docs/rules/formatting for more information
+formatting:
+  active: true
+  NoWildcardImports:
+    active: false
+
+# TODO See https://detekt.dev/docs/rules/style for more information
+style:
+  WildcardImport:
+    active: false
+
+# TODO See https://detekt.dev/docs/rules/naming for more information
+naming:
+  active: true
+  ClassNaming:
+    active: true
+    classPattern : '[a-zA-Z0-9]*'
