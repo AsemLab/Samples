@@ -1,3 +1,4 @@
+import com.asemlab.samples.Configuration
 import com.android.build.gradle.internal.tasks.factory.dependsOn
 import io.gitlab.arturbosch.detekt.Detekt
 import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
@@ -14,14 +15,13 @@ plugins {
 
 android {
     namespace = "com.asemlab.samples.lint"
-    compileSdk = 34
+    compileSdk = Configuration.compileSdk
 
     defaultConfig {
-        applicationId = "com.asemlab.samples.lint"
-        minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        minSdk = Configuration.minSdk
+        targetSdk = Configuration.targetSdk
+        versionCode = Configuration.versionCode
+        versionName = Configuration.versionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
