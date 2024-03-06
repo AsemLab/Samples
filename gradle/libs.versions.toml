@@ -9,6 +9,7 @@ detektFormatting = "1.23.3"
 epoxyVer = "5.1.1"
 espresso-core = "3.5.0"
 junit = "4.13.2"
+leakcanary = "3.0-alpha-1"
 logbackClassic = "1.2.3"
 material = "1.7.0"
 navigation-ui-ktx = "2.5.3"
@@ -51,6 +52,7 @@ epoxy = { module = "com.airbnb.android:epoxy", version.ref = "epoxyVer" }
 epoxy-databinding = { module = "com.airbnb.android:epoxy-databinding", version.ref = "epoxyVer" }
 epoxy-processor = { module = "com.airbnb.android:epoxy-processor", version.ref = "epoxyVer" }
 junit = { module = "junit:junit", version.ref = "junit" }
+leakcanary = { module = "com.squareup.leakcanary:leakcanary-android", version.ref = "leakcanary" }
 logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logbackClassic" }
 material = { module = "com.google.android.material:material", version.ref = "material" }
 google-shortcuts = { module = "androidx.core:core-google-shortcuts", version.ref = "google-shortcuts" }

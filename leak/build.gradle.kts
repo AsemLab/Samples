@@ -38,7 +38,7 @@ android {
         jvmTarget = "17"
     }
 
-    buildFeatures {
+    buildFeatures{
         dataBinding = true
     }
 
@@ -54,4 +54,6 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    // TODO Add LeakCanary dependency
+    debugImplementation (libs.leakcanary)
 }
