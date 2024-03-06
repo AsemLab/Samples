@@ -37,6 +37,7 @@ lifecycle-livedata-ktx = "2.7.0"
 google-services-plugin= "4.4.1"
 ktlint="12.1.0"
 detekt="1.23.3"
+activity = "1.8.0"
 
 [libraries]
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
@@ -81,6 +82,7 @@ realm-base = { module = "io.realm.kotlin:library-base", version.ref = "realm" }
 realm-sync = { module = "io.realm.kotlin:library-sync", version.ref = "realm" }
 legacy-support-v4 = { group = "androidx.legacy", name = "legacy-support-v4", version.ref = "legacy-support-v4" }
 lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycle-livedata-ktx" }
+activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "android-application" }
