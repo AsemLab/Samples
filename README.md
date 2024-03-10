@@ -30,4 +30,5 @@ Currently it contains codebases for:
 
 ## How to explore the `TODO`s
 
-![Explore TODOs)](https://github.com/AsemLab/Samples/assets/82704241/30860b73-d844-49ed-b99d-76864adc0acb)
+![Explore TODOs)](https://github.com/AsemLab/Samples/assets/82704241/618cf8cc-adf0-4df2-8036-eef967c6780d)
+
