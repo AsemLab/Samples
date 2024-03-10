@@ -28,6 +28,6 @@ Currently it contains codebases for:
 
 </br></br>
 
-## How to navigate the `TODO`s
+## How to explore the `TODO`s
 
-![Desktop 2024 03 07 - 21 13 19 01 (online-video-cutter com)](https://github.com/AsemLab/Samples/assets/82704241/30860b73-d844-49ed-b99d-76864adc0acb)
+![Explore TODOs)](https://github.com/AsemLab/Samples/assets/82704241/30860b73-d844-49ed-b99d-76864adc0acb)
