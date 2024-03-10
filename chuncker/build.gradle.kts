@@ -22,6 +22,15 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        create("release") {
+            storeFile = File(project.parent?.projectDir!!.path + "/samples.jks")
+            storePassword = "12345678"
+            keyAlias = "sampleskey"
+            keyPassword = "12345678"
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -29,6 +38,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("release")
         }
     }
     compileOptions {
@@ -66,5 +76,9 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
     implementation(libs.gson)
+
+    // TODO Add Chuncker dependencies
+    debugImplementation(libs.chucker)
+    releaseImplementation(libs.chucker.no.op)
 
 }
