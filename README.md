@@ -19,6 +19,8 @@ Currently it contains codebases for:
 - [Realm](https://www.mongodb.com/docs/realm/sdk/kotlin/): fast, powerful data storage for Kotlin and KMM apps.
 - [Timber](https://github.com/JakeWharton/timber/): a logger with a small, extensible API which provides utility on top of Android's normal Log class.
 - [ViewPager2](https://developer.android.com/guide/navigation/advanced/swipe-view-2): navigate between sibling screens, such as tabs, with a horizontal finger gesture, or swipe.
+- [Unit Testing](): conduct unit tests with various frameworks:
+  - [Mockk](https://mockk.io/): mocking library for Kotlin.
 
 </br></br>
 
