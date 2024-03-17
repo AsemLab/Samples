@@ -20,6 +20,7 @@ navigation-fragment-ktx = "2.5.3"
 android-application = "8.1.0"
 kotlin = "1.8.10"
 google-shortcuts = "1.0.0"
+robolectric = "4.11.1"
 timber = "5.0.1"
 viewpager = "1.0.0"
 koin_version = "3.5.3"
@@ -63,6 +64,7 @@ logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "lo
 material = { module = "com.google.android.material:material", version.ref = "material" }
 google-shortcuts = { module = "androidx.core:core-google-shortcuts", version.ref = "google-shortcuts" }
 mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
+robolectric = { module = "org.robolectric:robolectric", version.ref = "robolectric" }
 timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
 viewpager = { module = "androidx.viewpager2:viewpager2", version.ref = "viewpager" }
 koin = { module = "io.insert-koin:koin-android", version.ref = "koin_version" }
