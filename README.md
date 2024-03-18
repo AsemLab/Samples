@@ -21,6 +21,7 @@ Currently it contains codebases for:
 - [ViewPager2](https://developer.android.com/guide/navigation/advanced/swipe-view-2): navigate between sibling screens, such as tabs, with a horizontal finger gesture, or swipe.
 - [Unit Testing](): conduct unit tests with various frameworks:
   - [Mockk](https://mockk.io/): mocking library for Kotlin.
+  - [Robolectric](https://robolectric.org/): is a framework that brings fast and reliable unit tests to Android. Tests run inside the JVM on your workstation instead of real device.
 
 </br></br>
 
