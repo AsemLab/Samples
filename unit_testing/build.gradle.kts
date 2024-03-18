@@ -80,4 +80,7 @@ dependencies {
 
     // TODO Add Robolectric dependency
     testImplementation(libs.robolectric)
+
+    // TODO Add Kaspresso dependency
+    implementation(libs.kaspresso)
 }
