@@ -17,6 +17,7 @@ class SimpleTest : TestCase() {
     @Test
     fun checkButton() {
 
+        // TODO There are also other view types such as KEditText, KImageView, etc
         val button = KButton {
             withId(R.id.button)
         }

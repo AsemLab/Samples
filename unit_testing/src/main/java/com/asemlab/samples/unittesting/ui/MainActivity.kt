@@ -1,7 +1,11 @@
 package com.asemlab.samples.unittesting.ui
 
+import android.Manifest
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -13,6 +17,8 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var state: String
     private lateinit var binding: ActivityMainBinding
+
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -27,7 +33,20 @@ class MainActivity : AppCompatActivity() {
         binding.button.setOnClickListener {
             binding.titleTV.setText(R.string.new_title)
         }
+
+        binding.permissionButton.setOnClickListener {
+            permissionRequest.launch(Manifest.permission.CALL_PHONE)
+        }
     }
+
+    private val permissionRequest =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) {
+            it?.let {
+                val result = if (it) R.string.permission_allow else R.string.permission_deny
+
+                binding.titleTV.setText(result)
+            }
+        }
 
 
     override fun onPause() {

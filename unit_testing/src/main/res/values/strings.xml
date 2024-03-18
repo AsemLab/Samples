@@ -3,4 +3,6 @@
     <string name="android_sdk">34</string>
     <string name="greeting">Hello</string>
     <string name="new_title">Title has changed</string>
+    <string name="permission_allow">Permission is allowed</string>
+    <string name="permission_deny">Permission is denied</string>
 </resources>
