@@ -65,6 +65,7 @@ material = { module = "com.google.android.material:material", version.ref = "mat
 google-shortcuts = { module = "androidx.core:core-google-shortcuts", version.ref = "google-shortcuts" }
 mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
 robolectric = { module = "org.robolectric:robolectric", version.ref = "robolectric" }
+robolectric-annotations = { module = "org.robolectric:annotations", version.ref = "robolectric" }
 timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
 viewpager = { module = "androidx.viewpager2:viewpager2", version.ref = "viewpager" }
 koin = { module = "io.insert-koin:koin-android", version.ref = "koin_version" }
