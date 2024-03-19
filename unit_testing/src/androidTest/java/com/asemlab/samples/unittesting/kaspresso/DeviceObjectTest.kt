@@ -17,7 +17,7 @@ class DeviceObjectTest : TestCase() {
     val mainActivity = ActivityScenarioRule(MainActivity::class.java)
 
 
-    // TODO Grant permission automatically
+    // TODO Grant permission automatically and must add to manifest.xml
 //    @get:Rule
 //    val grantPermissionRule: GrantPermissionRule = GrantPermissionRule.grant(
 //        android.Manifest.permission.CALL_PHONE
