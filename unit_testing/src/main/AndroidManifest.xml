@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Samples">
         <activity
+            android:name=".ui.tasks.TasksActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.UserActivity"
             android:exported="false" />
         <activity
