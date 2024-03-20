@@ -22,6 +22,7 @@ Currently it contains codebases for:
 - [Unit Testing](): conduct unit tests with various frameworks:
   - [Mockk](https://mockk.io/): mocking library for Kotlin.
   - [Robolectric](https://robolectric.org/): is a framework that brings fast and reliable unit tests to Android. Tests run inside the JVM on your workstation instead of real device.
+  - [Kaspresso](https://kasperskylab.github.io/Kaspresso/): is a framework for Android UI testing. Based on Espresso and UI Automator.
 
 </br></br>
 

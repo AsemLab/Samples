@@ -14,5 +14,6 @@ plugins {
     alias(libs.plugins.realm.plugin) apply false
     //    TODO Add the dependency for the Google services
     alias(libs.plugins.google.services) apply false
+    alias(libs.plugins.androidTest) apply false
 
 }
