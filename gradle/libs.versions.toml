@@ -15,6 +15,7 @@ chucker = "4.0.0"
 logbackClassic = "1.2.3"
 material = "1.7.0"
 mockk = "1.13.10"
+mpandroidchart = "3.1.0"
 navigation-ui-ktx = "2.5.3"
 navigation = "2.5.3"
 navigation-fragment-ktx = "2.5.3"
@@ -68,6 +69,7 @@ logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "lo
 material = { module = "com.google.android.material:material", version.ref = "material" }
 google-shortcuts = { module = "androidx.core:core-google-shortcuts", version.ref = "google-shortcuts" }
 mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
+mpAndroidChart = { module = "com.github.PhilJay:MPAndroidChart", version.ref = "mpandroidchart" }
 robolectric = { module = "org.robolectric:robolectric", version.ref = "robolectric" }
 robolectric-annotations = { module = "org.robolectric:annotations", version.ref = "robolectric" }
 timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }

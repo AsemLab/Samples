@@ -1,12 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <data>
+
+        <import type="com.asemlab.samples.websocket.ui.MainViewModel" />
+
+        <variable
+            name="mainViewModel"
+            type="MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        android:padding="16dp"
+        tools:context=".ui.MainActivity">
+
+        <TextView
+            android:id="@+id/currencyTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Dollar" />
+
+        <ImageView
+            android:id="@+id/changeCurrency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> mainViewModel.showMenu(changeCurrency)}"
+            android:padding="16dp"
+            android:src="@drawable/ic_currency_exchange"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/lineChart"
+            android:layout_width="0dp"
+            android:layout_height="350dp"
+            android:layout_margin="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/currencyTV" />
+
+        <TextView
+            android:id="@+id/currentTitleTV"
+            style="@style/title"
+            android:text="@string/current_price"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lineChart" />
+
+        <TextView
+            android:id="@+id/currentTV"
+            style="@style/body"
+            android:text="@={mainViewModel.currentPrice}"
+            app:layout_constraintBaseline_toBaselineOf="@+id/currentTitleTV"
+            app:layout_constraintStart_toEndOf="@id/currentTitleTV"
+            tools:text="0.73" />
+
+        <TextView
+            android:id="@+id/highestTitleTV"
+            style="@style/title"
+            android:text="@string/highest_price"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/currentTitleTV" />
+
+        <TextView
+            android:id="@+id/highestTV"
+            style="@style/body"
+            android:text="@={mainViewModel.highestPrice}"
+            app:layout_constraintBaseline_toBaselineOf="@+id/highestTitleTV"
+            app:layout_constraintStart_toEndOf="@id/highestTitleTV"
+            tools:text="0.78" />
+
+        <TextView
+            android:id="@+id/lowestTitleTV"
+            style="@style/title"
+            android:text="@string/lowest_price"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/highestTitleTV" />
+
+        <TextView
+            android:id="@+id/lowestTV"
+            style="@style/body"
+            android:text="@={mainViewModel.lowestPrice}"
+            app:layout_constraintBaseline_toBaselineOf="@+id/lowestTitleTV"
+            app:layout_constraintStart_toEndOf="@id/lowestTitleTV"
+            tools:text="0.72" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
