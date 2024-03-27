@@ -1,7 +1,6 @@
 package com.asemlab.samples.websocket.ui
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -10,7 +9,9 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.databinding.DataBindingUtil
 import com.asemlab.samples.websocket.R
 import com.asemlab.samples.websocket.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -32,20 +33,21 @@ class MainActivity : AppCompatActivity() {
         }
 
         with(viewModel) {
+
+            initLineChart(binding.lineChart)
             currency.observe(this@MainActivity) {
-
-                // TODO: Send new currency to Socket
-
-                Toast.makeText(this@MainActivity, "${it.title}, ${it.symbol}", Toast.LENGTH_SHORT)
-                    .show()
-
+                prices.value = listOf()
+                currentPrice.value = "0.0"
+                highestPrice.value = "0.0"
+                lowestPrice.value = "0.0"
                 binding.currencyTV.text = it.title.capitalize()
+
+                sendCurrency()
             }
 
             prices.observe(this@MainActivity) {
-                drawLineChart(binding.lineChart, it ?: emptyList())
+                updateLineChart(binding.lineChart, it ?: emptyList())
             }
-
         }
 
     }
