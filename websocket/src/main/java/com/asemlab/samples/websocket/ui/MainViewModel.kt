@@ -8,6 +8,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.asemlab.samples.websocket.R
+import com.asemlab.samples.websocket.di.NetworkModule
 import com.asemlab.samples.websocket.models.Currencies
 import com.asemlab.samples.websocket.remote.SocketCallbacks
 import com.github.mikephil.charting.charts.LineChart
@@ -21,8 +22,9 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+// TODO socketCallbacks have 2 different implementations KtorSocket & OkHttpSocket
 @HiltViewModel
-class MainViewModel @Inject constructor(private val socketCallbacks: SocketCallbacks) :
+class MainViewModel @Inject constructor(@NetworkModule.KtorSocket private val socketCallbacks: SocketCallbacks) :
     ViewModel() {
 
     private lateinit var menu: PopupMenu

@@ -15,7 +15,7 @@ class OkHttpSocketImp @Inject constructor(
     private val request: Request
 ) : SocketCallbacks, WebSocketListener() {
 
-    private val TAG = OkHttpSocketImp::class.java.name
+    private val TAG = OkHttpSocketImp::class.java.simpleName
     private lateinit var webSocket: WebSocket
     override val prices = MutableSharedFlow<Double>()
 
