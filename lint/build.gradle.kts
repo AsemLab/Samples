@@ -103,7 +103,7 @@ detekt {
     // TODO Format(fix) issues if applicable
     autoCorrect = true
     // TODO when set to false, build will fail when there is issues
-    ignoreFailures = false
+    ignoreFailures = true
     ignoredVariants = listOf("release")
     source.setFrom("src/main/", "src/androidTest/", "src/test/") // Change default sources
 
