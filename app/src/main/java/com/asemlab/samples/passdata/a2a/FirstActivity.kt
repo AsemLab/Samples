@@ -45,6 +45,12 @@ class FirstActivity : AppCompatActivity() {
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.fragment_section, AlertFragment("New title!")).commit()
 
+                // Send data with setArguments
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.fragment_section, AlertFragment("New title!").apply {
+                        arguments = bundleOf("title" to "Hi There!")
+                    }).commit()
+
                 // Send data with bundle
                 supportFragmentManager.beginTransaction()
                     .replace(
