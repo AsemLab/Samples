@@ -23,7 +23,7 @@ Currently it contains codebases for:
   - [Mockk](https://mockk.io/): mocking library for Kotlin.
   - [Robolectric](https://robolectric.org/): is a framework that brings fast and reliable unit tests to Android. Tests run inside the JVM on your workstation instead of real device.
   - [Kaspresso](https://kasperskylab.github.io/Kaspresso/): is a framework for Android UI testing. Based on Espresso and UI Automator.
-- WebSocket: simple currencies prices app with WebSocket connection. Connections are implemented with OkHttp & Ktor libraries. WebSocket server is developed with Ktor see [KtorServer](https://github.com/AsemLab/Kotlin-Samples/tree/main/KtorServer). 
+- [WebSocket](https://github.com/AsemLab/Samples/tree/main/websocket): simple currencies prices app with WebSocket connection. Connections are implemented with OkHttp & Ktor libraries. WebSocket server is developed with Ktor see [KtorServer](https://github.com/AsemLab/Kotlin-Samples/tree/main/KtorServer). 
 
 </br></br>
 
