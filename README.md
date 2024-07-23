@@ -7,6 +7,7 @@ Within each module, you will find detailed TODO comments that guide you through 
 Currently it contains codebases for:
 
 - [App Shortcuts](https://developer.android.com/develop/ui/views/launch/shortcuts): Shortcuts can be diplayed in a supported launcher. They help users quickly start common or recommended tasks within apps.
+- [Broadcast Receiver](https://github.com/AsemLab/Samples/tree/main/broadcast_receiver): Create a custom broadcast receiver.
 - [Chuncker](https://github.com/ChuckerTeam/chucker): an HTTP inspector for Android & OkHTTP. Apps using Chucker will display a notification showing a summary of ongoing HTTP activity.
 - [Firestore](https://firebase.google.com/docs/firestore): a flexible, scalable NoSQL cloud database, built on Google Cloud infrastructure, to store and sync data for client- and server-side development.
 - [Koin](https://insert-koin.io/): a lightweight dependency injection framework for Kotlin & Kotlin Multiplatform

@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        // Register Broadcast Receiver dynamically
+        // TODO Register Broadcast Receiver dynamically
         // Can receive actions as this app is running
         ContextCompat.registerReceiver(
             applicationContext,
