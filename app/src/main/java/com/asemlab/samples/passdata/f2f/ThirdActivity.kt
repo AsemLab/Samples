@@ -1,5 +1,6 @@
 package com.asemlab.samples.passdata.f2f
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
@@ -28,6 +29,10 @@ class ThirdActivity : AppCompatActivity() {
 
         supportFragmentManager.beginTransaction().replace(R.id.topFrag, TopFrag()).commit()
         supportFragmentManager.beginTransaction().replace(R.id.bottomFrag, BottomFrag()).commit()
+
+        sendBroadcast(Intent().also {
+            it.action = Intent.ACTION_MEDIA_MOUNTED
+        })
 
     }
 }
