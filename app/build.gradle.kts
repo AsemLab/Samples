@@ -1,4 +1,7 @@
 import com.asemlab.samples.Configuration
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
@@ -11,6 +14,23 @@ android {
     namespace = "com.asemlab.samples"
     compileSdk = Configuration.compileSdk
 
+    // TODO Change outputs names for by BuildType, ex: 1.0.0-2024-07-24-debug, 1.0.0(1)-release
+    applicationVariants.all {
+        outputs.map { it as com.android.build.gradle.internal.api.ApkVariantOutputImpl }
+            .all { output ->
+                output.outputFileName = when (output.baseName) {
+                    "release" -> "${Configuration.versionName}(${Configuration.versionCode})-${output.baseName}.apk"
+                    else -> {
+                        val format = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+                        val currentTime = format.format(Date())
+                        "${Configuration.versionName}-$currentTime-${output.baseName}.apk"
+                    }
+                }
+
+                false
+            }
+    }
+
     defaultConfig {
         minSdk = Configuration.minSdk
         targetSdk = Configuration.targetSdk
@@ -18,6 +38,8 @@ android {
         versionName = Configuration.versionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        // TODO Set general name for outputs, for .aab files
+        setProperty("archivesBaseName", "${Configuration.versionName}(${Configuration.versionCode})")
     }
 
     buildTypes {
