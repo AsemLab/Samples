@@ -85,6 +85,11 @@ android {
         manifest.srcFile("other/AndroidManifest.xml")
     }
 
+    sourceSets.getByName("minApi24") {
+        java.setSrcDirs(listOf("minApi24/java"))
+        res.setSrcDirs(listOf("minApi24/res"))
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -104,4 +109,8 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    "minApi24Implementation"("com.github.AsemLab:toaster:0.3.0")
+    "demoImplementation"("com.github.AsemLab:toaster:0.3.0")
+
 }
