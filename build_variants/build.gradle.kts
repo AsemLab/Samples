@@ -19,8 +19,6 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
-
-
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -30,6 +28,63 @@ android {
             )
         }
     }
+    flavorDimensions += listOf("api", "mode")
+    productFlavors {
+        create("demo") {
+            dimension = "mode"
+        }
+
+        create("full") {
+            dimension = "mode"
+        }
+
+
+        create("minApi24") {
+            dimension = "api"
+            minSdk = 24
+
+            versionCode = 30000 + (android.defaultConfig.versionCode ?: 0)
+//            versionNameSuffix = "-minApi24"
+        }
+
+        create("minApi23") {
+            dimension = "api"
+            minSdk = 23
+            versionCode = 20000 + (android.defaultConfig.versionCode ?: 0)
+//            versionNameSuffix = "-minApi23"
+        }
+
+        create("minApi21") {
+            dimension = "api"
+            minSdk = 21
+            versionCode = 10000 + (android.defaultConfig.versionCode ?: 0)
+//            versionNameSuffix = "-minApi21"
+        }
+    }
+
+    androidComponents {
+        beforeVariants { variantBuilder ->
+            // To check for a certain build type, use variantBuilder.buildType == "<buildType>"
+            // Disable build variants: minApi21DemoDebug & minApi21DemoRelease
+            if (variantBuilder.productFlavors.containsAll(
+                    listOf(
+                        "api" to "minApi21", "mode" to "demo"
+                    )
+                )
+            ) {
+                // Gradle ignores any variants that satisfy the conditions above.
+                variantBuilder.enable = false
+            }
+        }
+    }
+
+    // Change product flavor source folders
+    sourceSets.getByName("minApi21") {
+        java.setSrcDirs(listOf("other/java"))
+        res.setSrcDirs(listOf("other/res"))
+        manifest.srcFile("other/AndroidManifest.xml")
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8

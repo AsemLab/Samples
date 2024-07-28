@@ -7,6 +7,14 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <!-- will set the title according to priority:
+            src/minApi24DemoDebug/ (build variant source set)
+            src/debug/ (build type source set)
+            src/minApi24Demo/ (product flavor combination source set)
+            src/demo/ (first product flavor source set)
+            src/minApi24/ (second product flavor source set)
+            src/main/ (main source set)
+            -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
