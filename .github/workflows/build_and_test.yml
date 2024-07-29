@@ -14,13 +14,25 @@ jobs:
   java_version:
     name: Use Java
     runs-on: ubuntu-latest
-    if: contains(github.event.head_commit.message, 'Update')
+    #    Runs only when commit message startsWith 'Update'
+    if: startsWith(github.event.head_commit.message, 'Update')
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4.2.1
+        with:
+          java-version: 17
+
         # Print Hello, world!
       - name: Run a one-line script
         run: echo Hello, world!
 
+      # Print Java compiler version
       - name: Print Java
         run: javac -version
+
+      - name: Run Debug Tests
+        run: ./gradlew :app:testDebugUnitTest
