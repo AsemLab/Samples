@@ -45,8 +45,6 @@ class TestFrag(private val title: String) : Fragment() {
 
         }
 
-
-
         log("onCreateView")
         return binding.root
     }
