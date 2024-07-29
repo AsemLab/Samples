@@ -25,6 +25,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: 17
+          distribution: 'temurin'
 
         # Print Hello, world!
       - name: Run a one-line script
