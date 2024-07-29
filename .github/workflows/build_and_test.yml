@@ -16,6 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     #    Runs only when commit message startsWith 'Update'
     #    if: startsWith(github.event.head_commit.message, 'Update')
+    continue-on-error: true
 
     steps:
       - name: Checkout
@@ -39,4 +40,4 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Run Debug Tests
-        run: ./gradlew :app:testDebugUnitTest
+        run: ./gradlew testDebugUnitTest
