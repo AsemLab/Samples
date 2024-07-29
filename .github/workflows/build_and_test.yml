@@ -14,6 +14,7 @@ jobs:
   java_version:
     name: Use Java
     runs-on: ubuntu-latest
+    if: contains(github.event.head_commit.message, 'Update')
 
     steps:
       - uses: actions/checkout@v4

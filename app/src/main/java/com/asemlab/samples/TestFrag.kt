@@ -38,7 +38,6 @@ class TestFrag(private val title: String) : Fragment() {
                     view.setTextColor(color.getLightTextColor())
             }
 
-
             setColors(title, Colors.RED)
             setColors(title2, Colors.YELLOW)
             setColors(title3, Colors.BLUE)
