@@ -35,5 +35,8 @@ jobs:
       - name: Print Java
         run: javac -version
 
+      - name: Change wrapper permissions
+        run: chmod +x ./gradlew
+
       - name: Run Debug Tests
         run: ./gradlew :app:testDebugUnitTest
