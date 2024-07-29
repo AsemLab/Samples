@@ -15,7 +15,7 @@ jobs:
     name: Use Java
     runs-on: ubuntu-latest
     #    Runs only when commit message startsWith 'Update'
-    if: startsWith(github.event.head_commit.message, 'Update')
+    #    if: startsWith(github.event.head_commit.message, 'Update')
 
     steps:
       - name: Checkout
