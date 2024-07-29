@@ -90,7 +90,7 @@ class TestFrag(private val title: String) : Fragment() {
 
 
     private fun log(message: String) {
-        Log.d("TestFrag", "${message}::: $title")
+        Log.d("TestFrag", "${message}:: $title")
     }
 
 }
