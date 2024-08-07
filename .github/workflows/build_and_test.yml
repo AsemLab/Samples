@@ -40,7 +40,7 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Run Debug Tests
-        run: ./gradlew testDebugUnitTest
+        run: ./gradlew :app:testDebugUnitTest
 
   build_job:
     name: Building the APK
@@ -71,7 +71,7 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Assemble Debug
-        run: ./gradlew assembleDebug
+        run: ./gradlew :app:assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v2

@@ -110,7 +110,7 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    "minApi24Implementation"("com.github.AsemLab:toaster:0.3.0")
-    "demoImplementation"("com.github.AsemLab:toaster:0.3.0")
+    "minApi24Implementation"("com.github.AsemLab:toaster:0.4.0")
+    "demoImplementation"("com.github.AsemLab:toaster:0.4.0")
 
 }
