@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Home</string>
+    <string name="name_title">Name:</string>
+    <string name="region_title">Region:</string>
+</resources>
