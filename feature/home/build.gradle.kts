@@ -48,6 +48,7 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.viewmodel)
     implementation(libs.androidx.activity)
+    implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.androidx.constraintlayout)

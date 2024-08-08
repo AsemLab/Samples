@@ -2,38 +2,40 @@ package com.asemlab.samples.feature.home.ui
 
 import android.os.Build
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
-import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
-import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.asemlab.samples.feature.home.R
-import com.asemlab.samples.feature.home.databinding.ActivityCountriesBinding
+import com.asemlab.samples.feature.home.databinding.FragmentCountriesBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class CountriesActivity : AppCompatActivity() {
+class CountriesFragment : Fragment() {
 
-    private lateinit var binding: ActivityCountriesBinding
+    private lateinit var binding: FragmentCountriesBinding
     private val mainViewModel by viewModels<MainViewModel>()
 
 
     @RequiresApi(Build.VERSION_CODES.M)
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_countries)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentCountriesBinding.inflate(inflater, container, false)
 
         with(mainViewModel) {
-            countries.observe(this@CountriesActivity) {
+            countries.observe(viewLifecycleOwner) {
                 it?.let {
                     binding.countriesRV.apply {
-                        layoutManager = LinearLayoutManager(this@CountriesActivity)
+                        layoutManager = LinearLayoutManager(requireContext())
                         adapter = CountryAdapter { country ->
                             Toast.makeText(
-                                this@CountriesActivity,
+                                requireContext(),
                                 "${country.name} clicked",
                                 Toast.LENGTH_SHORT
                             ).show()
@@ -47,5 +49,6 @@ class CountriesActivity : AppCompatActivity() {
             getCountries()
         }
 
+        return binding.root
     }
 }

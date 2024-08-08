@@ -68,4 +68,10 @@
     <action
         android:id="@+id/action_global_international_details"
         app:destination="@id/news_graph" />
+
+    <!--    TODO Navigate to fragment in another module-->
+    <fragment
+        android:id="@+id/countriesFrag_nav"
+        android:name="com.asemlab.samples.feature.home.ui.CountriesFragment"
+        android:label="CountriesActivity" />
 </navigation>

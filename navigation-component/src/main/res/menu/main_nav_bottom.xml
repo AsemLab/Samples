@@ -18,4 +18,10 @@
         android:icon="@drawable/ic_euro"
         android:title="Business"
         app:showAsAction="always" />
+
+    <item
+        android:id="@+id/countriesFrag_nav"
+        android:icon="@drawable/ic_globe"
+        android:title="Countries"
+        app:showAsAction="always" />
 </menu>
