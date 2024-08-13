@@ -1,0 +1,32 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Samples" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/main_color</item>
+        <item name="colorOnPrimaryContainer">#FFFFFF</item>
+    </style>
+
+    <style name="Theme.Samples" parent="Base.Theme.Samples" />
+
+    <style name="RatingBarIndicatorStyle" parent="Widget.AppCompat.RatingBar">
+        <item name="android:progressDrawable">@drawable/indicator_stars_rate</item>
+        <item name="android:progressBackgroundTint">@color/gold</item>
+        <item name="android:progressTint">@color/gold</item>
+        <item name="android:isIndicator">true</item>
+        <item name="android:minHeight">24dp</item>
+        <item name="android:maxHeight">24dp</item>
+    </style>
+
+
+    <style name="RatingBarStyle" parent="Widget.AppCompat.RatingBar">
+        <item name="android:progressDrawable">@drawable/stars_rate</item>
+        <item name="android:progressBackgroundTint">@color/gold</item>
+        <item name="android:progressTint">@color/gold</item>
+        <item name="android:isIndicator">false</item>
+        <item name="android:stepSize">1</item>
+        <item name="android:max">5</item>
+        <item name="android:minHeight">24dp</item>
+        <item name="android:maxHeight">24dp</item>
+    </style>
+
+</resources>

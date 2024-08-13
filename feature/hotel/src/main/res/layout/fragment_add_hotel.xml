@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.asemlab.samples.feature.hotel.ui.fragments.addhotel.AddHotelViewModel" />
+
+        <variable
+            name="viewModel"
+            type="com.asemlab.samples.feature.hotel.ui.fragments.addhotel.AddHotelViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        tools:context=".ui.fragments.addhotel.AddHotelFragment">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name"
+                android:imeOptions="actionNext"
+                android:inputType="textPersonName"
+                android:maxLines="1"
+                android:text="@={viewModel.hotelName}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/city"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/name">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="City"
+                android:imeOptions="actionDone"
+                android:inputType="textPersonName"
+                android:maxLines="1"
+                android:text="@={viewModel.hotelCity}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/starsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="Category"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/city" />
+
+        <RatingBar
+            style="@style/RatingBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:isIndicator="false"
+            android:rating="@={viewModel.hotelStars}"
+            app:layout_constraintStart_toEndOf="@+id/starsTitle"
+            app:layout_constraintTop_toTopOf="@+id/starsTitle" />
+
+        <TextView
+            android:id="@+id/wifiTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="Have WiFi"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@id/wifiRG"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/wifiRG" />
+
+        <RadioGroup
+            android:id="@+id/wifiRG"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/poolTitle"
+            app:layout_constraintTop_toBottomOf="@id/starsTitle">
+
+            <RadioButton
+                android:id="@+id/haveWifi"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Yes" />
+
+            <RadioButton
+                android:id="@+id/noWifi"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="No" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/poolTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="Have Swimming pool"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@id/poolRG"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/poolRG" />
+
+        <RadioGroup
+            android:id="@+id/poolRG"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:orientation="horizontal"
+            app:constraintSet="@id/poolTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/poolTitle"
+            app:layout_constraintTop_toBottomOf="@id/wifiRG">
+
+            <RadioButton
+                android:id="@+id/havePool"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Yes" />
+
+            <RadioButton
+                android:id="@+id/noPool"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="No" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/addHotelButton"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_margin="8dp"
+            android:enabled="false"
+            android:text="Add Hotel"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

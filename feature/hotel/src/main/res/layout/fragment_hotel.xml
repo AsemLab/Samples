@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.asemlab.samples.feature.hotel.model.Hotel" />
+
+        <variable
+            name="hotel"
+            type="com.asemlab.samples.feature.hotel.model.Hotel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:src="@drawable/ic_back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/black" />
+
+            <ImageView
+                android:id="@+id/delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:src="@drawable/ic_delete"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/black" />
+
+            <ImageView
+                android:id="@+id/hotelImg"
+                android:layout_width="256dp"
+                android:layout_height="256dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/hotel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/back" />
+
+            <RatingBar
+                android:id="@+id/hotelStars"
+                style="@style/RatingBarIndicatorStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:isIndicator="true"
+                android:max="5"
+                android:rating="@{hotel.stars}"
+                android:stepSize="1"
+                app:layout_constraintStart_toEndOf="@+id/hotelCity"
+                app:layout_constraintTop_toBottomOf="@+id/hotelImg"
+                tools:rating="3" />
+
+            <TextView
+                android:id="@+id/hotelName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@{hotel.name+','}"
+                android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                app:layout_constraintEnd_toStartOf="@id/hotelCity"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/hotelImg"
+                tools:text="Hotel A" />
+
+            <TextView
+                android:id="@+id/hotelCity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@{hotel.city}"
+                android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                app:layout_constraintBaseline_toBaselineOf="@id/hotelName"
+                app:layout_constraintEnd_toStartOf="@id/hotelStars"
+                app:layout_constraintStart_toEndOf="@id/hotelName"
+                tools:text="Amman" />
+
+
+            <TextView
+                android:id="@+id/hotelWifi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text='@{@string/have_wifi(hotel.freeWifi? "Yes" : "No")}'
+                android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/hotelName"
+                tools:text="Have Wifi?" />
+
+            <TextView
+                android:id="@+id/hotelPool"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text='@{@string/have_pool(hotel.swimmingPool? "Yes" : "No")}'
+                android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/hotelWifi"
+                tools:text="Have swimming pool?" />
+
+
+            <TextView
+                android:id="@+id/ratings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Ratings"
+                android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/hotelPool" />
+
+            <TextView
+                android:id="@+id/addRate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:drawablePadding="4dp"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="4dp"
+                android:text="Rate"
+                android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                app:drawableEndCompat="@drawable/ic_rate_review"
+                app:drawableTint="@color/black"
+                app:layout_constraintBaseline_toBaselineOf="@id/ratings"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/ratingsRV"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:nestedScrollingEnabled="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/addRate"
+                tools:itemCount="10"
+                tools:listitem="@layout/rate_item" />
+
+            <TextView
+                android:id="@+id/emptyRatingTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No Ratings yet!"
+                android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/ratingsRV" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>
