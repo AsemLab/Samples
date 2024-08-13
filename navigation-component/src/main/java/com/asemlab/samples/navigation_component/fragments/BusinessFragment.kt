@@ -5,10 +5,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.fragment.findNavController
+import com.asemlab.samples.navigation_component.R
 import com.asemlab.samples.navigation_component.databinding.FragmentBinding
 
 class BusinessFragment : Fragment() {
@@ -40,6 +42,14 @@ class BusinessFragment : Fragment() {
 
         fragmentsVM.title.observe(viewLifecycleOwner) {
             binding.title.text = it
+        }
+
+
+        binding.toHotels.isVisible = true
+
+        // TODO Navigate to another module
+        binding.toHotels.setOnClickListener {
+            findNavController().navigate(R.id.action_business_fragment_to_home_fragment)
         }
 
         return binding.root

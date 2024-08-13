@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.setupWithNavController
 import com.asemlab.samples.navigation_component.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -25,10 +25,7 @@ class MainActivity : AppCompatActivity() {
         val controller =
             (supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment).navController
 
-        binding.bottomNav.setOnItemSelectedListener {
-            NavigationUI.onNavDestinationSelected(it, controller)
-            true
-        }
+        binding.bottomNav.setupWithNavController(controller)
 
         // TODO Pass data to start destination
         controller.setGraph(R.navigation.main_graph, bundleOf("pageTitle" to "Fake News"))
@@ -45,7 +42,11 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager
             .setFragmentResultListener("has_open_sports", this) { _, bundle ->
                 val result = bundle.getBoolean("open_sports")
-                Toast.makeText(this, "Result in Activity\nSports page has opened: $result", Toast.LENGTH_LONG).show()
+                Toast.makeText(
+                    this,
+                    "Result in Activity\nSports page has opened: $result",
+                    Toast.LENGTH_LONG
+                ).show()
             }
 
     }

@@ -45,6 +45,7 @@ android {
 
 dependencies {
     implementation(project(":feature:home"))
+    implementation(project(":feature:hotel"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.activity)

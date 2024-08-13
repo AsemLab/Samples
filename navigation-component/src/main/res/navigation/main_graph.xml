@@ -24,7 +24,14 @@
     <fragment
         android:id="@+id/business_nav"
         android:name="com.asemlab.samples.navigation_component.fragments.BusinessFragment"
-        android:label="BusinessFragment" />
+        android:label="BusinessFragment" >
+
+        <!--    TODO Navigate to another module -->
+        <action
+            android:id="@+id/action_business_fragment_to_home_fragment"
+            app:destination="@id/hotel_graph" />
+
+    </fragment>
 
     <!--    TODO Or move it to separate file and add it with include element-->
     <navigation
@@ -74,4 +81,7 @@
         android:id="@+id/countriesFrag_nav"
         android:name="com.asemlab.samples.feature.home.ui.CountriesFragment"
         android:label="CountriesActivity" />
+
+    <include app:graph="@navigation/hotel_graph" />
+
 </navigation>
