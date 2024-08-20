@@ -5,8 +5,22 @@ plugins {
     alias(libs.plugins.kotlin)
     alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.hilt.plugin)
+    // TODO Add Apollo plugin
+    alias(libs.plugins.apollo)
 }
 
+apollo {
+    service("service") {
+        packageName.set("com.asemlab.samples.qraphql")
+        // TODO Install Apollo plugin from Android Studio Plugins
+        // TODO Add to download schema with Apollo plugin
+        introspection {
+            endpointUrl.set("https://countries.trevorblades.com/graphql")
+            schemaFile.set(file("src/main/graphql/countries.graphqls"))
+        }
+
+    }
+}
 
 
 android {
@@ -58,4 +72,7 @@ dependencies {
     // Hilt
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
+
+    // TODO Add Apollo dependency
+    implementation(libs.apollo.runtime)
 }
