@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.asemlab.build_variants"
+    namespace = "com.asemlab.samples.build_variants"
     compileSdk = Configuration.compileSdk
 
     defaultConfig {
-        applicationId = "com.asemlab.build_variants"
+        applicationId = "com.asemlab.samples.build_variants"
         minSdk = Configuration.minSdk
         targetSdk = Configuration.targetSdk
         versionCode = Configuration.versionCode

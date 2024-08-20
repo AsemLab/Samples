@@ -1,4 +1,4 @@
-package com.asemlab.build_variants
+package com.asemlab.samples.build_variants
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

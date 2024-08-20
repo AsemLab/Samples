@@ -1,4 +1,4 @@
-package com.asemlab.build_variants
+package com.asemlab.samples.build_variants
 
 import org.junit.Test
 
