@@ -16,7 +16,7 @@ apollo {
         // TODO Add to download schema with Apollo plugin
         introspection {
             endpointUrl.set("https://countries.trevorblades.com/graphql")
-            schemaFile.set(file("src/main/graphql/countries.graphqls"))
+            schemaFile.set(file("src/main/graphql/schema.graphqls"))
         }
 
     }
@@ -53,7 +53,7 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
-    buildFeatures{
+    buildFeatures {
         dataBinding = true
     }
 }
@@ -68,6 +68,8 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.androidx.viewmodel)
+    implementation(libs.androidx.activity)
 
     // Hilt
     implementation(libs.hilt.android)

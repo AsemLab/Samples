@@ -1,0 +1,15 @@
+# TODO Define queries
+query Country($code: ID!) {
+    country(code: $code) {
+        name
+        code
+        continent {
+            name
+        }
+        currency
+        emoji
+        languages {
+            name
+        }
+    }
+}

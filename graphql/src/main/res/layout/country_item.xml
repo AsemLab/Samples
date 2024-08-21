@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.asemlab.samples.graphql.model.SimpleCountry" />
+
+        <variable
+            name="country"
+            type="SimpleCountry" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp">
+
+        <TextView
+            android:id="@+id/countryFlag"
+            android:layout_width="64dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text="@{country.emoji}"
+            android:textSize="32sp"
+            app:layout_constraintBottom_toBottomOf="@id/countryName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="🇧🇷" />
+
+        <TextView
+            android:id="@+id/countryName"
+            style="@style/Title"
+            android:text="@{country.name}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/countryFlag"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Brazil" />
+
+
+        <TextView
+            android:id="@+id/countryCapital"
+            style="@style/Subtitle"
+            android:text="@{@string/capital(country.capital)}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/countryName"
+            tools:text="Capital: Brasilia" />
+
+
+        <TextView
+            android:id="@+id/countryCode"
+            style="@style/Subtitle"
+            android:text="@{@string/code(country.code)}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/countryCapital"
+            tools:text="Code: BR" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
