@@ -10,6 +10,7 @@ Currently it contains codebases for:
 - [Broadcast Receiver](https://github.com/AsemLab/Samples/tree/main/broadcast_receiver): Create a custom broadcast receiver.
 - [Chuncker](https://github.com/ChuckerTeam/chucker): an HTTP inspector for Android & OkHTTP. Apps using Chucker will display a notification showing a summary of ongoing HTTP activity.
 - [Firestore](https://firebase.google.com/docs/firestore): a flexible, scalable NoSQL cloud database, built on Google Cloud infrastructure, to store and sync data for client- and server-side development.
+- [GraphQL](https://graphql.com/learn/what-is-graphql/): is a query language for APIs. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more.
 - [Koin](https://insert-koin.io/): a lightweight dependency injection framework for Kotlin & Kotlin Multiplatform
 - [Ktor](https://ktor.io/): a framework for quickly creating connected applications in Kotlin with minimal effort.
 - [Leak](https://square.github.io/leakcanary/): using LeakCanary that is a memory leak detection library for Android.
