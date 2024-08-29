@@ -3,7 +3,8 @@ import com.asemlab.samples.Configuration
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin)
-
+    // TODO Add the Google services Gradle plugin
+    alias(libs.plugins.google.services)
 }
 
 android {
@@ -48,4 +49,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    // TODO Add Firebase dependencies
+    implementation(libs.firebase.appdistribution.api.ktx)
+    debugImplementation(libs.firebase.appdistribution)
 }

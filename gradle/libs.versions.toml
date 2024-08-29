@@ -49,6 +49,7 @@ kotlinx-coroutines-test= "1.7.3"
 uiautomator = "2.2.0"
 benchmarkMacroJunit4 = "1.2.0-beta01"
 apollo = "4.0.0"
+firebase-distribution = "16.0.0-beta13"
 
 
 [libraries]
@@ -112,6 +113,8 @@ kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-t
 androidx-uiautomator = { group = "androidx.test.uiautomator", name = "uiautomator", version.ref = "uiautomator" }
 androidx-benchmark-macro-junit4 = { group = "androidx.benchmark", name = "benchmark-macro-junit4", version.ref = "benchmarkMacroJunit4" }
 apollo-runtime = { module = "com.apollographql.apollo:apollo-runtime", version.ref = "apollo"}
+firebase-appdistribution = { module = "com.google.firebase:firebase-appdistribution", version.ref="firebase-distribution" }
+firebase-appdistribution-api-ktx = { module = "com.google.firebase:firebase-appdistribution-api-ktx" , version.ref="firebase-distribution"}
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "android-application" }
