@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">media_player</string>
+    <string name="app_name">Media Player</string>
+    <string name="play_button_desc">Play button</string>
 </resources>

@@ -4,6 +4,7 @@ import com.asemlab.samples.Configuration
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin)
+    alias(libs.plugins.kotlin.kapt)
 }
 
 android {
@@ -34,6 +35,10 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+    buildFeatures{
+        viewBinding = true
+        dataBinding = true
     }
 }
 
