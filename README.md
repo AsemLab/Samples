@@ -6,7 +6,7 @@ Within each module, you will find detailed TODO comments that guide you through 
 
 Currently it contains codebases for:
 
-- [App Shortcuts](https://developer.android.com/develop/ui/views/launch/shortcuts): Shortcuts can be diplayed in a supported launcher. They help users quickly start common or recommended tasks within apps.
+- [App Shortcuts](https://developer.android.com/develop/ui/views/launch/shortcuts): Shortcuts can be displayed in a supported launcher. They help users quickly start common or recommended tasks within apps.
 - [Broadcast Receiver](https://github.com/AsemLab/Samples/tree/main/broadcast_receiver): Create a custom broadcast receiver.
 - [Chuncker](https://github.com/ChuckerTeam/chucker): an HTTP inspector for Android & OkHTTP. Apps using Chucker will display a notification showing a summary of ongoing HTTP activity.
 - [Firebase](https://firebase.google.com/):
@@ -19,6 +19,7 @@ Currently it contains codebases for:
 - [lint](https://developer.android.com/reference/tools/gradle-api/7.2/com/android/build/api/dsl/Lint?hl=en): is static code analysis tools used to flag programming errors, bugs, stylistic errors and suspicious constructs:
   - [Ktlint](https://pinterest.github.io/ktlint/latest/): an anti-bikeshedding Kotlin linter with built-in formatter.
   - [Detekt](https://detekt.dev/): a static code analysis tool for the Kotlin.
+- [Media3](https://developer.android.com/media/media3): Jetpack Media3 is the home for media libraries that enables Android apps to display rich audio and visual experiences.
 - [Navigation component](https://developer.android.com/guide/navigation): the Navigation component handles diverse navigation use cases, from straightforward button clicks to more complex patterns, such as app bars and the navigation drawer.
 - [Realm](https://www.mongodb.com/docs/realm/sdk/kotlin/): fast, powerful data storage for Kotlin and KMM apps.
 - [Timber](https://github.com/JakeWharton/timber/): a logger with a small, extensible API which provides utility on top of Android's normal Log class.
