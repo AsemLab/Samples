@@ -1,7 +1,6 @@
 package com.asemlab.samples
 
 import android.Manifest
-import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
@@ -10,6 +9,7 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.asemlab.samples.download.FileDownloaderImp
 
 
 class MainActivity : AppCompatActivity() {
@@ -27,9 +27,13 @@ class MainActivity : AppCompatActivity() {
             requestPermissions(arrayOf(Manifest.permission.POST_NOTIFICATIONS), 200)
         }
 
-
-
-        // TODO Show notifications to see how LeakCanary works
+        // TODO Use DownloadManager
+        FileDownloaderImp(this).download(
+            "https://english.ahram.org.eg/Media/News/2011/7/1/2011-634451360987580451-758.jpg",
+            "Download image",
+            "Inter.jpg",
+            true
+        )
 
     }
 
@@ -48,9 +52,5 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.commit()
     }
 
-    companion object {
-        // TODO This object will leak the memory
-        lateinit var context: Context
-    }
 
 }
