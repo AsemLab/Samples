@@ -19,7 +19,16 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
-    
+
+    // TODO 1.1 Must be signed with YOUR keystore
+    signingConfigs {
+        create("release") {
+            storeFile = File(project.parent?.projectDir!!.path + "/samples.jks")
+            storePassword = "12345678"
+            keyAlias = "sampleskey"
+            keyPassword = "12345678"
+        }
+    }
 
     buildTypes {
         release {
@@ -28,11 +37,13 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("release")
         }
 
         debug {
             isDebuggable = true
             isMinifyEnabled = false
+            signingConfig = signingConfigs.getByName("release")
         }
     }
     compileOptions {
@@ -42,7 +53,7 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    buildFeatures{
+    buildFeatures {
         dataBinding = true
     }
 }
@@ -58,4 +69,7 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    // TODO 1. Add Play Services SMS dependencies
+    implementation(libs.play.services.auth)
+    implementation(libs.play.services.auth.api.phone)
 }

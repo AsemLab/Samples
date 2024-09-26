@@ -24,6 +24,8 @@ android-application = "8.1.0"
 kotlin = "2.0.10"
 google-shortcuts = "1.0.0"
 okhttpBom = "4.10.0"
+playServicesAuth = "21.2.0"
+playServicesAuthApiPhone = "18.1.0"
 robolectric = "4.11.1"
 stripeAndroid = "20.42.0"
 timber = "5.0.1"
@@ -83,6 +85,8 @@ mpAndroidChart = { module = "com.github.PhilJay:MPAndroidChart", version.ref = "
 okhttp-bom = { module = "com.squareup.okhttp3:okhttp-bom", version.ref = "okhttpBom" }
 okhttp = { module = "com.squareup.okhttp3:okhttp" }
 okhttp-interceptor = { module = "com.squareup.okhttp3:logging-interceptor" }
+play-services-auth = { module = "com.google.android.gms:play-services-auth", version.ref = "playServicesAuth" }
+play-services-auth-api-phone = { module = "com.google.android.gms:play-services-auth-api-phone", version.ref = "playServicesAuthApiPhone" }
 robolectric = { module = "org.robolectric:robolectric", version.ref = "robolectric" }
 robolectric-annotations = { module = "org.robolectric:annotations", version.ref = "robolectric" }
 stripe-android = { module = "com.stripe:stripe-android", version.ref = "stripeAndroid" }

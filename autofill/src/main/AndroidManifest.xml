@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
+        android:name=".AutoFillApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -19,6 +20,16 @@
             </intent-filter>
         </activity>
 
+        <!-- TODO 4. Add SMSReceiver with IntentFilter       -->
+        <receiver
+            android:name=".services.SMSReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="com.google.android.gms.auth.api.phone.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.gms.auth.api.phone.SMS_RETRIEVED" />
+            </intent-filter>
+        </receiver>
 
     </application>
 

@@ -7,6 +7,7 @@ Within each module, you will find detailed TODO comments that guide you through 
 Currently it contains codebases for:
 
 - [App Shortcuts](https://developer.android.com/develop/ui/views/launch/shortcuts): Shortcuts can be displayed in a supported launcher. They help users quickly start common or recommended tasks within apps.
+- [Autofill](https://developers.google.com/identity/sms-retriever/request): Retrieve otp from SMS automatically using Google SMS Retriever API.
 - [Broadcast Receiver](https://github.com/AsemLab/Samples/tree/main/broadcast_receiver): Create a custom broadcast receiver.
 - [Chuncker](https://github.com/ChuckerTeam/chucker): an HTTP inspector for Android & OkHTTP. Apps using Chucker will display a notification showing a summary of ongoing HTTP activity.
 - [Firebase](https://firebase.google.com/):
