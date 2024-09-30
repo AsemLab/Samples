@@ -38,24 +38,55 @@
             android:layout_width="256dp"
             android:layout_height="wrap_content"
             android:text="Pick contact"
-            android:textAllCaps="false"
+            
             app:layout_constraintBottom_toTopOf="@id/pickImage"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed" />
 
-
         <Button
             android:id="@+id/pickImage"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Pick image"
-            android:textAllCaps="false"
-            app:layout_constraintBottom_toBottomOf="parent"
+            
+            app:layout_constraintBottom_toTopOf="@id/newPickImage"
             app:layout_constraintEnd_toEndOf="@+id/pickContact"
             app:layout_constraintStart_toStartOf="@+id/pickContact"
             app:layout_constraintTop_toBottomOf="@+id/pickContact" />
+
+        <Button
+            android:id="@+id/newPickImage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="New Pick image"
+            
+            app:layout_constraintBottom_toTopOf="@id/pickVideo"
+            app:layout_constraintEnd_toEndOf="@+id/pickContact"
+            app:layout_constraintStart_toStartOf="@+id/pickContact"
+            app:layout_constraintTop_toBottomOf="@+id/pickImage" />
+
+        <Button
+            android:id="@+id/pickVideo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Pick video"
+            
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/pickContact"
+            app:layout_constraintStart_toStartOf="@+id/pickContact"
+            app:layout_constraintTop_toBottomOf="@+id/newPickImage" />
+        
+        <Button
+            android:id="@+id/pickMultiple"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Pick multiple"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/pickContact"
+            app:layout_constraintStart_toStartOf="@+id/pickContact"
+            app:layout_constraintTop_toBottomOf="@+id/newPickImage" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

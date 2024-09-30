@@ -10,6 +10,7 @@ import android.provider.ContactsContract
 import android.provider.MediaStore
 import android.util.Log
 import android.widget.Toast
+import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -78,26 +79,65 @@ class RegisterForResultActivity : AppCompatActivity() {
             }
         }
 
+    private val photoPickerLauncher =
+        registerForActivityResult(ActivityResultContracts.PickVisualMedia()) {
+            if (it != null) {
+                Toast.makeText(this, "Selected URI: $it", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "No media selected", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+    // TODO Pick multiple images/videos
+    private val pickMultipleMedia =
+        registerForActivityResult(ActivityResultContracts.PickMultipleVisualMedia(5)) { uris ->
+            if (uris.isNotEmpty()) {
+                Toast.makeText(this, "Number of items selected: ${uris.size}", Toast.LENGTH_SHORT)
+                    .show()
+            } else {
+                Toast.makeText(this, "No media selected", Toast.LENGTH_SHORT).show()
+            }
+        }
+
 
     @SuppressLint("Range")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_register_for_result)
 
-        binding.pickContact.setOnClickListener {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                if (contactPermissionNotGranted()) {
-                    permissionLauncher.launch(Manifest.permission.READ_CONTACTS)
+        with(binding) {
+            pickContact.setOnClickListener {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    if (contactPermissionNotGranted()) {
+                        permissionLauncher.launch(Manifest.permission.READ_CONTACTS)
+                    } else {
+                        getContactLauncher.launch(null)
+                    }
                 } else {
                     getContactLauncher.launch(null)
                 }
-            } else {
-                getContactLauncher.launch(null)
             }
-        }
 
-        binding.pickImage.setOnClickListener {
-            imagePickerLauncher.launch("image/*")
+            pickImage.setOnClickListener {
+                imagePickerLauncher.launch("image/*")
+            }
+
+            // TODO Use PhotoPicker
+            newPickImage.setOnClickListener {
+                photoPickerLauncher.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
+//                photoPickerLauncher.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.VideoOnly))
+//                photoPickerLauncher.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageAndVideo))
+                // Use with desired file type
+//                photoPickerLauncher.launch(PickVisualMediaRequest(PickVisualMedia.SingleMimeType("image/gif)))
+            }
+
+            pickVideo.setOnClickListener {
+                photoPickerLauncher.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.VideoOnly))
+            }
+
+            pickMultiple.setOnClickListener {
+                pickMultipleMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
+            }
         }
 
     }
