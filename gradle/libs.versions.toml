@@ -3,6 +3,7 @@ androidx-junit = "1.1.4"
 # TODO Next two versions must be > 1.6.0
 appcompat = "1.6.1"
 androidx-activity = "1.7.2"
+biometric = "1.1.0"
 constraintlayout = "2.1.4"
 core-ktx = "1.7.0"
 detektFormatting = "1.23.3"
@@ -58,6 +59,7 @@ firebase-distribution = "16.0.0-beta13"
 [libraries]
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
 androidx-activity = { module = "androidx.activity:activity-ktx", version.ref = "androidx-activity" }
+androidx-biometric = { module = "androidx.biometric:biometric", version.ref = "biometric" }
 androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
 androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
 androidx-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "espresso-core" }

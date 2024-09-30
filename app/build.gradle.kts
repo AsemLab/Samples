@@ -80,4 +80,5 @@ dependencies {
     implementation(libs.epoxy)
     implementation(libs.epoxy.databinding)
     kapt(libs.epoxy.processor)
+    implementation(libs.androidx.biometric)
 }
