@@ -1,0 +1,8 @@
+### This general module contains and covers the following topics:
+
+1. [Biometric Dialog](https://github.com/AsemLab/Samples/blob/main/app/src/main/java/com/asemlab/samples/ui/BiometricActivity.kt): show biometric dialog using the Biometric library. [Official](https://developer.android.com/identity/sign-in/biometric-auth)
+2. [DownloadManager](https://github.com/AsemLab/Samples/blob/main/app/src/main/java/com/asemlab/samples/download/FileDownloaderImp.kt): is a system service that handles long-running HTTP downloads. Clients may request that a URI be downloaded to a particular destination file. [Official](https://developer.android.com/reference/android/app/DownloadManager)
+3. [Epoxy](https://github.com/AsemLab/Samples/blob/main/app/src/main/java/com/asemlab/samples/epoxy/EpoxyActivity.kt): is an Android library for building complex screens in a RecyclerView. [Official](https://github.com/airbnb/epoxy)
+4. [Pass data between components](https://github.com/AsemLab/Samples/tree/main/app/src/main/java/com/asemlab/samples/passdata): demonstrate how to pass data from Activity to Activity/Fragment and from Fragment to Activity/Fragment.
+5. [Progress in Notifications](https://github.com/AsemLab/Samples/blob/main/app/src/main/java/com/asemlab/samples/ui/NotificationProgressActivity.kt): display and update progressBar in notification.
+6. [RegisterForActifityResult](https://github.com/AsemLab/Samples/blob/main/app/src/main/java/com/asemlab/samples/ui/RegisterForResultActivity.kt): call an activity and retrieve the result from it. [Official](https://developer.android.com/training/basics/intents/result)
