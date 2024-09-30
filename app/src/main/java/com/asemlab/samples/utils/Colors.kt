@@ -1,4 +1,4 @@
-package com.asemlab.samples
+package com.asemlab.samples.utils
 
 import android.graphics.Color
 

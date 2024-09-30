@@ -7,7 +7,7 @@
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".RegisterForResultActivity">
+        tools:context=".ui.RegisterForResultActivity">
 
         <ImageView
             android:id="@+id/img"

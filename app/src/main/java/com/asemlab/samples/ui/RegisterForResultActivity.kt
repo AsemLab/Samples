@@ -1,4 +1,4 @@
-package com.asemlab.samples
+package com.asemlab.samples.ui
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -15,6 +15,7 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
 import androidx.databinding.DataBindingUtil
+import com.asemlab.samples.R
 import com.asemlab.samples.databinding.ActivityRegisterForResultBinding
 
 

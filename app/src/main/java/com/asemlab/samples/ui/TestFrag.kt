@@ -1,4 +1,4 @@
-package com.asemlab.samples
+package com.asemlab.samples.ui
 
 import android.content.res.Configuration
 import android.graphics.Color
@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.asemlab.samples.utils.Colors
 import com.asemlab.samples.databinding.FragBinding
 
 class TestFrag(private val title: String) : Fragment() {

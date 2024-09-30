@@ -1,4 +1,4 @@
-package com.asemlab.samples
+package com.asemlab.samples.ui
 
 import android.Manifest
 import android.content.pm.PackageManager
@@ -9,6 +9,7 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.asemlab.samples.R
 import com.asemlab.samples.download.FileDownloaderImp
 
 

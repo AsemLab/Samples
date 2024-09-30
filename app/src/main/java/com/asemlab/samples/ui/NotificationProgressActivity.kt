@@ -1,4 +1,4 @@
-package com.asemlab.samples
+package com.asemlab.samples.ui
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.coroutineScope
+import com.asemlab.samples.R
 import com.asemlab.samples.utils.NotificationsUtils
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
