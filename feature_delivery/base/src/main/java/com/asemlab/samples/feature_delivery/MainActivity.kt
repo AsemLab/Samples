@@ -20,5 +20,7 @@ class MainActivity : AppCompatActivity() {
         val navView: BottomNavigationView = binding.navView
         val navController = findNavController(R.id.navHost)
         navView.setupWithNavController(navController)
+
+
     }
 }
