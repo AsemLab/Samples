@@ -1,12 +1,11 @@
 import com.asemlab.samples.Configuration
 
 plugins {
-    // TODO Add dynamic feature plugin
     alias(libs.plugins.android.dynamic.feature)
     alias(libs.plugins.kotlin)
 }
 android {
-    namespace = "com.asemlab.samples.feature_delivery.settings"
+    namespace = "com.asemlab.samples.feature_delivery.account"
     compileSdk = Configuration.compileSdk
 
     defaultConfig {
@@ -22,22 +21,12 @@ android {
             )
         }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
 }
 
 dependencies {
     implementation(project(":feature_delivery:base"))
     implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.constraintlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    implementation(libs.androidx.navigation.fragment.ktx)
-
 }

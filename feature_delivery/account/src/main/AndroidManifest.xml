@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:dist="http://schemas.android.com/apk/distribution">
+
+    <dist:module
+        dist:instant="false"
+        dist:title="@string/title_account">
+        <dist:delivery>
+            <dist:install-time>
+                <!--    TODO Configure conditional install-time module  -->
+                <dist:conditions>
+                    <!-- TODO Include or exclude this module by user countries -->
+                    <!-- TODO Don't download in US -->
+                    <dist:user-countries dist:exclude="true">
+                        <dist:country dist:code="US" />
+                    </dist:user-countries>
+                    <!-- TODO Require the following features to install the module -->
+                    <dist:device-feature dist:name="android.hardware.bluetooth" />
+                    <dist:device-feature dist:name="android.hardware.type.television" />
+                    <!--  The API level you specify must be greater or equal to the module's own minSdkVersion. -->
+                    <dist:min-sdk dist:value="22" />
+                    <!--  The API level you specify must be less than or equal to the module's own maxSdkVersion. -->
+                    <dist:max-sdk dist:value="34" />
+                </dist:conditions>
+            </dist:install-time>
+        </dist:delivery>
+        <dist:fusing dist:include="false" />
+    </dist:module>
+</manifest>

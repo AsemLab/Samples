@@ -40,12 +40,12 @@ android {
         viewBinding = true
         dataBinding = true
     }
-    dynamicFeatures += setOf(":feature_delivery:settings")
+    // TODO Add the delivery feature modules
+    dynamicFeatures += setOf(":feature_delivery:settings", ":feature_delivery:account")
 }
 
 dependencies {
 
-    implementation(project(":feature_delivery:settings"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.activity)
