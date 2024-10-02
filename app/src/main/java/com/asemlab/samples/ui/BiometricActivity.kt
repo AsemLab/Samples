@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
@@ -95,6 +96,18 @@ class BiometricActivity : AppCompatActivity() {
                     }
                 }
             }
+        }
+    }
+
+    // TODO Hide screen content in recent apps screen
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        if (hasFocus) {
+            // Remove when back to activity
+            window.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
+        } else {
+            // TODO Prevent screenshot
+            window.addFlags(WindowManager.LayoutParams.FLAG_SECURE)
         }
     }
 }
