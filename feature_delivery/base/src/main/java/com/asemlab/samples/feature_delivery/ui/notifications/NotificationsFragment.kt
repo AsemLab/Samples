@@ -1,5 +1,6 @@
 package com.asemlab.samples.feature_delivery.ui.notifications
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -23,6 +24,7 @@ class NotificationsFragment : Fragment() {
     private val viewModel by viewModels<NotificationsViewModel>()
     private lateinit var manager: SplitInstallManager
     private var sessionId = 0
+    private val moduleName by lazy { getString(R.string.module_notifications) }
 
     // TODO Listener used to handle changes in state for install requests.
     private val listener = SplitInstallStateUpdatedListener { state ->
@@ -34,7 +36,8 @@ class NotificationsFragment : Fragment() {
             }
 
             SplitInstallSessionStatus.INSTALLED -> {
-                displayButton()
+                displayButtons()
+                launchNotificationsActivity()
             }
 
             SplitInstallSessionStatus.INSTALLING -> displayLoadingState(state, "Installing $names")
@@ -44,7 +47,7 @@ class NotificationsFragment : Fragment() {
 
             SplitInstallSessionStatus.CANCELED -> {
                 makeToast("Install canceled for module ${state.moduleNames()}")
-                displayButton()
+                displayButtons()
             }
         }
     }
@@ -65,8 +68,16 @@ class NotificationsFragment : Fragment() {
                 manager.cancelInstall(sessionId)
             }
 
+            uninstallButton.isVisible = manager.installedModules.contains(moduleName)
+            downloadButton.isVisible = !manager.installedModules.contains(moduleName)
+
+            uninstallButton.setOnClickListener {
+                if (manager.installedModules.contains(moduleName))
+                    // TODO Remove installed modules
+                    manager.deferredUninstall(listOf(moduleName))
+            }
+
             downloadButton.setOnClickListener {
-                val moduleName = getString(R.string.module_notifications)
 
                 // TODO Check if module is installed
                 if (!manager.installedModules.contains(moduleName)) {
@@ -91,11 +102,24 @@ class NotificationsFragment : Fragment() {
 //                    manager.deferredInstall(listOf(moduleName))
                 } else {
                     makeToast("Module is installed")
+                    launchNotificationsActivity()
                 }
             }
         }
 
+        // TODO You can access base module without any additional configuration
+//        HomeFragment()
+
         return binding.root
+    }
+
+    private fun launchNotificationsActivity() {
+        val notificationsAct =
+            "${requireContext().packageName}.notifications.MainActivity"
+        Intent().setClassName(requireContext().packageName, notificationsAct)
+            .also {
+                startActivity(it)
+            }
     }
 
     // TODO Register/Unregister status listener
@@ -131,13 +155,15 @@ class NotificationsFragment : Fragment() {
     private fun displayProgress() {
         binding.progressGroup.isVisible = true
         binding.downloadButton.isVisible = false
+        binding.uninstallButton.isVisible = false
         binding.cancelButton.isVisible = true
     }
 
-    private fun displayButton() {
+    private fun displayButtons() {
         binding.progressGroup.isVisible = false
-        binding.downloadButton.isVisible = true
         binding.cancelButton.isVisible = false
+        binding.uninstallButton.isVisible = manager.installedModules.contains(moduleName)
+        binding.downloadButton.isVisible = !manager.installedModules.contains(moduleName)
     }
 
 }

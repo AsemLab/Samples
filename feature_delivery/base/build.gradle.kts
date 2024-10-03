@@ -63,4 +63,6 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     // TODO Add Play Feature Delivery, to support on-demand delivery
     implementation(libs.feature.delivery.ktx)
+    // TODO Used for cast classes from on-demand modules
+    implementation(kotlin("reflect"))
 }
