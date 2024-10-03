@@ -7,11 +7,10 @@ plugins {
 }
 
 android {
-    namespace = "com.asemlab.samples.feature_delivery"
+    namespace = "com.asemlab.quakes"
     compileSdk = Configuration.compileSdk
 
     defaultConfig {
-        applicationId = "com.asemlab.samples.feature_delivery"
         minSdk = Configuration.minSdk
         targetSdk = Configuration.targetSdk
         versionCode = Configuration.versionCode
@@ -41,7 +40,11 @@ android {
         dataBinding = true
     }
     // TODO Add the delivery feature modules
-    dynamicFeatures += setOf(":feature_delivery:settings", ":feature_delivery:account")
+    dynamicFeatures += setOf(
+        ":feature_delivery:settings",
+        ":feature_delivery:account",
+        ":feature_delivery:notifications"
+    )
 }
 
 dependencies {
@@ -58,4 +61,6 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    // TODO Add Play Feature Delivery, to support on-demand delivery
+    implementation(libs.feature.delivery.ktx)
 }

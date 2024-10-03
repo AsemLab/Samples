@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.asemlab.samples.feature_delivery.databinding.FragmentDashboardBinding
+import com.asemlab.quakes.databinding.FragmentDashboardBinding
 
 class DashboardFragment : Fragment() {
 

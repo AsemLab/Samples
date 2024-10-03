@@ -3,7 +3,7 @@
 
     <dist:module
         dist:instant="false"
-        dist:title="@string/title_account">
+        dist:title="@string/module_account">
         <dist:delivery>
             <dist:install-time>
                 <!--    TODO Configure conditional install-time module  -->

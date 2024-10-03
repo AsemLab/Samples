@@ -4,7 +4,7 @@
     <!--    TODO Configure install-time module  -->
     <dist:module
         dist:instant="false"
-        dist:title="@string/title_settings">
+        dist:title="@string/module_settings">
         <dist:delivery>
             <dist:install-time>
                 <dist:removable dist:value="true" /> <!-- Enable the ability to uninstall later -->

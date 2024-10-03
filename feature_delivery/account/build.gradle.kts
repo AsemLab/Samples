@@ -5,7 +5,7 @@ plugins {
     alias(libs.plugins.kotlin)
 }
 android {
-    namespace = "com.asemlab.samples.feature_delivery.account"
+    namespace = "com.asemlab.quakes"
     compileSdk = Configuration.compileSdk
 
     defaultConfig {

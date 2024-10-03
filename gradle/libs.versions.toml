@@ -9,6 +9,7 @@ core-ktx = "1.7.0"
 detektFormatting = "1.23.3"
 epoxyVer = "5.1.1"
 espresso-core = "3.5.0"
+featureDeliveryKtx = "2.1.0"
 junit = "4.13.2"
 kaspresso = "1.5.5"
 leakcanary = "3.0-alpha-1"
@@ -74,6 +75,7 @@ detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", 
 epoxy = { module = "com.airbnb.android:epoxy", version.ref = "epoxyVer" }
 epoxy-databinding = { module = "com.airbnb.android:epoxy-databinding", version.ref = "epoxyVer" }
 epoxy-processor = { module = "com.airbnb.android:epoxy-processor", version.ref = "epoxyVer" }
+feature-delivery-ktx = { module = "com.google.android.play:feature-delivery-ktx", version.ref = "featureDeliveryKtx" }
 junit = { module = "junit:junit", version.ref = "junit" }
 kaspresso = { module = "com.kaspersky.android-components:kaspresso", version.ref = "kaspresso" }
 leakcanary = { module = "com.squareup.leakcanary:leakcanary-android", version.ref = "leakcanary" }

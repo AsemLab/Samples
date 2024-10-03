@@ -3,6 +3,7 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="title_settings">Settings Module</string>
-    <string name="title_account">Account Module</string>
+    <string name="module_settings">settings</string>
+    <string name="module_account">account</string>
+    <string name="module_notifications">notifications</string>
 </resources>

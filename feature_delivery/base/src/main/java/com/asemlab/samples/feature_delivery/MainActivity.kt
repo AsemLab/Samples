@@ -1,10 +1,10 @@
-package com.asemlab.samples.feature_delivery
+package com.asemlab.quakes
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
-import com.asemlab.samples.feature_delivery.databinding.ActivityMainBinding
+import com.asemlab.quakes.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {

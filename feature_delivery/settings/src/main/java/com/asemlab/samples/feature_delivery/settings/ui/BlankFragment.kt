@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.asemlab.samples.feature_delivery.settings.R
+import com.asemlab.quakes.settings.R
 
 
 class BlankFragment : Fragment() {
