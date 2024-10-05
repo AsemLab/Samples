@@ -14,7 +14,7 @@ import com.asemlab.samples.feature.hotel.model.Rate
 interface HotelDao {
 
     @Insert
-    suspend fun addHotel(hotel: Hotel)
+    fun addHotel(hotel: Hotel)
 
     @Delete
     fun deleteHotel(hotel: Hotel): Int
@@ -26,7 +26,7 @@ interface HotelDao {
     fun getHotels(): LiveData<List<Hotel>>
 
     @Insert
-    suspend fun addRate(rate: Rate)
+    fun addRate(rate: Rate)
 
     @Query("SELECT * FROM rate WHERE hotel_id = :hotelId")
     fun getHotelRates(hotelId: String): List<Rate>
