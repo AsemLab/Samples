@@ -1,9 +1,12 @@
 package com.asemlab.samples.ui
 
 import android.Manifest
+import android.app.LocaleConfig
+import android.app.LocaleManager
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.os.LocaleList
 import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
@@ -36,6 +39,11 @@ class MainActivity : AppCompatActivity() {
             true
         )
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            // TODO Set per-app supported languages dynamically
+            updateSupportedLocales()
+        }
+
     }
 
     fun selectFragment(view: View) {
@@ -53,5 +61,20 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.commit()
     }
 
+    @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
+    fun updateSupportedLocales() {
+        val localeManager = applicationContext
+            .getSystemService(LocaleManager::class.java)
+
+        // For getOverrideLocaleConfig
+        val overrideLocaleConfig = localeManager.overrideLocaleConfig
+        val supportedLocales = overrideLocaleConfig?.supportedLocales
+
+        // For setOverrideLocaleConfig, update supported and remove old ones
+        localeManager.overrideLocaleConfig = LocaleConfig(
+            LocaleList.forLanguageTags("en-US,ja-JP,ar")
+        )
+
+    }
 
 }

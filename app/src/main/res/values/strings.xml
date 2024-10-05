@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">ContactsContent</string>
+    <string name="app_name" translatable="false">ContactsContent</string>
+    <string name="language_title">English</string>
 </resources>

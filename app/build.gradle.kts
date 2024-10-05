@@ -39,7 +39,13 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         // TODO Set general name for outputs, for .aab files
-        setProperty("archivesBaseName", "${Configuration.versionName}(${Configuration.versionCode})")
+        setProperty(
+            "archivesBaseName",
+            "${Configuration.versionName}(${Configuration.versionCode})"
+        )
+
+        // TODO Include language resources in the APK for these specified languages (Optional)
+        resourceConfigurations += mutableSetOf("en", "ar", "de")
     }
 
     buildTypes {
@@ -62,6 +68,10 @@ android {
     buildFeatures {
         dataBinding = true
     }
+    // TODO Generate per-app language support automatically, (NOT RECOMMENDED)
+//    androidResources {
+//        generateLocaleConfig = true
+//    }
 }
 
 dependencies {
