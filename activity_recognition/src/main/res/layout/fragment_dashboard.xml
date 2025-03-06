@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_background"
+    tools:context=".ui.dashboard.DashboardFragment">
+
+    <TextView
+        android:id="@+id/title_dashboard"
+        style="@style/FragmentTitle"
+        android:text="@string/title_dashboard"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_coins"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/gradient_green"
+        android:backgroundTint="#434040"
+        android:drawablePadding="6dp"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="4dp"
+        android:text="450"
+        android:textColor="@color/white"
+        app:drawableStartCompat="@drawable/ic_point"
+        app:drawableTint="#FF9800"
+        app:layout_constraintBottom_toBottomOf="@id/title_dashboard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/title_dashboard" />
+
+    <View
+        android:id="@+id/first_rec"
+        android:layout_width="match_parent"
+        android:layout_height="175dp"
+        android:layout_margin="16dp"
+        android:background="@drawable/rectangle_green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_dashboard" />
+
+
+    <TextView
+        android:id="@+id/current_points"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline3"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/current_points_title"
+        app:layout_constraintEnd_toEndOf="@id/first_rec"
+        app:layout_constraintStart_toStartOf="@id/first_rec"
+        app:layout_constraintTop_toTopOf="@id/first_rec"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="2.555" />
+
+    <TextView
+        android:id="@+id/current_points_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Current points"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/first_rec"
+        app:layout_constraintEnd_toEndOf="@id/first_rec"
+        app:layout_constraintStart_toStartOf="@id/first_rec"
+        app:layout_constraintTop_toBottomOf="@id/current_points" />
+
+    <View
+        android:id="@+id/second_rec"
+        android:layout_width="match_parent"
+        android:layout_height="175dp"
+        android:layout_margin="16dp"
+        android:background="@drawable/rectangle_green"
+        android:backgroundTint="@color/green_center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/first_rec" />
+
+    <TextView
+        android:id="@+id/total_points"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:drawablePadding="6dp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textColor="@color/white"
+        app:drawableStartCompat="@drawable/ic_point"
+        app:drawableTint="@color/white"
+        app:layout_constraintBottom_toTopOf="@id/total_points_title"
+        app:layout_constraintEnd_toStartOf="@+id/last_points"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="@+id/second_rec"
+        app:layout_constraintTop_toTopOf="@id/second_rec"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="3000" />
+
+    <TextView
+        android:id="@+id/total_points_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Total points"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/second_rec"
+        app:layout_constraintEnd_toEndOf="@+id/total_points"
+        app:layout_constraintStart_toStartOf="@+id/total_points"
+        app:layout_constraintTop_toBottomOf="@+id/total_points" />
+
+    <TextView
+        android:id="@+id/last_points"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:drawablePadding="6dp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textColor="@color/white"
+        app:drawableStartCompat="@drawable/ic_point"
+        app:drawableTint="@color/white"
+        app:layout_constraintBaseline_toBaselineOf="@id/total_points"
+        app:layout_constraintEnd_toEndOf="@+id/second_rec"
+        app:layout_constraintStart_toEndOf="@id/total_points"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="3000" />
+
+    <TextView
+        android:id="@+id/last_points_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Last time points"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+        android:textColor="@color/white"
+        app:layout_constraintBaseline_toBaselineOf="@id/total_points_title"
+        app:layout_constraintEnd_toEndOf="@+id/last_points"
+        app:layout_constraintStart_toStartOf="@+id/last_points" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/start_button"
+        style="@style/Button"
+        android:enabled="false"
+        android:text="@string/start_title"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!--    For Testing purposes -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/send_action_button"
+        style="@style/Button"
+        android:text="send action"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/start_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

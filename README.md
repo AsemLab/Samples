@@ -6,6 +6,7 @@ Within each module, you will find detailed TODO comments that guide you through 
 
 Currently it contains codebases for:
 
+- [Activity Recognition](https://developer.android.com/develop/sensors-and-location/location/transitions): Detects changes in the user's activity( such as walking, running, or driving). By subscribes to a transition in activities of interest and the API notifies the app only when needed.
 - [App Shortcuts](https://developer.android.com/develop/ui/views/launch/shortcuts): Shortcuts can be displayed in a supported launcher. They help users quickly start common or recommended tasks within apps.
 - [Autofill](https://developers.google.com/identity/sms-retriever/request): Retrieve otp from SMS automatically using Google SMS Retriever API.
 - [Broadcast Receiver](https://github.com/AsemLab/Samples/tree/main/broadcast_receiver): Create a custom broadcast receiver.

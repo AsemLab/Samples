@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ActivityRecognition</string>
+    <string name="title_stats">Stats</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_profile">Profile</string>
+    <string name="stats_hint">Here are shown the steps you\n walked every day.</string>
+    <string name="clear_title">Clear</string>
+    <string name="entry_message">You earned <b>%1$d</b> at <b>%2$s</b> for <b>%3$s</b></string>
+    <string name="start_title">Start</string>
+    <string name="stop_title">Stop</string>
+</resources>

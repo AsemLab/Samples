@@ -55,6 +55,7 @@ uiautomator = "2.2.0"
 benchmarkMacroJunit4 = "1.2.0-beta01"
 apollo = "4.0.0"
 firebase-distribution = "16.0.0-beta13"
+play-services-location = "21.3.0"
 
 
 [libraries]
@@ -128,6 +129,7 @@ androidx-benchmark-macro-junit4 = { group = "androidx.benchmark", name = "benchm
 apollo-runtime = { module = "com.apollographql.apollo:apollo-runtime", version.ref = "apollo"}
 firebase-appdistribution = { module = "com.google.firebase:firebase-appdistribution", version.ref="firebase-distribution" }
 firebase-appdistribution-api-ktx = { module = "com.google.firebase:firebase-appdistribution-api-ktx" , version.ref="firebase-distribution"}
+play-services-location = { module = "com.google.android.gms:play-services-location", version.ref = "play-services-location" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "android-application" }
