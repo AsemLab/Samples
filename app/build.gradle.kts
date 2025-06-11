@@ -91,4 +91,7 @@ dependencies {
     implementation(libs.epoxy.databinding)
     kapt(libs.epoxy.processor)
     implementation(libs.androidx.biometric)
+
+    // TODO Add DataStore dependency
+    implementation(libs.datastore)
 }
