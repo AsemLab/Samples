@@ -10,4 +10,4 @@ Display simple inventory dashboard (products & their quantities in warehouses) w
 
 </br></br>
 
-<img src="./figures/inventory-app.png"/>
+<img src="../figures/inventory-app.png" width="25%"/>
