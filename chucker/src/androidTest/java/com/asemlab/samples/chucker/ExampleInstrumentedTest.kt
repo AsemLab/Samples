@@ -1,4 +1,4 @@
-package com.asemlab.samples.feature.home
+package com.asemlab.samples.chucker
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.asemlab.samples.feature.home", appContext.packageName)
+        assertEquals("com.asemlab.samples.chucker", appContext.packageName)
     }
 }

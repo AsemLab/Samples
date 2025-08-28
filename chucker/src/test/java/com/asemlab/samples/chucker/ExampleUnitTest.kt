@@ -1,4 +1,4 @@
-package com.asemlab.samples.feature.home
+package com.asemlab.samples.chucker
 
 import org.junit.Test
 
