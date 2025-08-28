@@ -57,6 +57,7 @@ apollo = "4.0.0"
 firebase-distribution = "16.0.0-beta13"
 play-services-location = "21.3.0"
 datastore = "1.1.7"
+swiperefreshlayout = "1.1.0"
 
 [libraries]
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
@@ -131,6 +132,7 @@ firebase-appdistribution = { module = "com.google.firebase:firebase-appdistribut
 firebase-appdistribution-api-ktx = { module = "com.google.firebase:firebase-appdistribution-api-ktx" , version.ref="firebase-distribution"}
 play-services-location = { module = "com.google.android.gms:play-services-location", version.ref = "play-services-location" }
 datastore = { module = "androidx.datastore:datastore-preferences", version.ref = "datastore" }
+androidx-swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "swiperefreshlayout" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "android-application" }

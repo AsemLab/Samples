@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Inventory</string>
+    <string name="quantity_in_stock">%.0f in stock</string>
+    <string name="out_of_stock">Out of stock</string>
+    <string name="retry">Retry</string>
+    <string name="empty_title">The inventory is empty</string>
+    <string name="no_internet_connection">No internet connection</string>
+    <string name="search">Search</string>
+</resources>

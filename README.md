@@ -6,15 +6,17 @@ Within each module, you will find detailed TODO comments that guide you through 
 
 Currently it contains codebases for:
 
+- [App](https://github.com/AsemLab/Samples/tree/main/app): a general module contains and covers the various topics.
 - [Activity Recognition](https://developer.android.com/develop/sensors-and-location/location/transitions): Detects changes in the user's activity( such as walking, running, or driving). By subscribes to a transition in activities of interest and the API notifies the app only when needed.
 - [App Shortcuts](https://developer.android.com/develop/ui/views/launch/shortcuts): Shortcuts can be displayed in a supported launcher. They help users quickly start common or recommended tasks within apps.
 - [Autofill](https://developers.google.com/identity/sms-retriever/request): Retrieve otp from SMS automatically using Google SMS Retriever API.
 - [Broadcast Receiver](https://github.com/AsemLab/Samples/tree/main/broadcast_receiver): Create a custom broadcast receiver.
 - [Chuncker](https://github.com/ChuckerTeam/chucker): an HTTP inspector for Android & OkHTTP. Apps using Chucker will display a notification showing a summary of ongoing HTTP activity.
 - [Firebase](https://firebase.google.com/):
-  - [App Distribution](https://firebase.google.com/docs/app-distribution):  makes distributing your apps to trusted testers painless. By getting your apps onto testers' devices quickly, you can get feedback early and often.
+  - [App Distribution](https://firebase.google.com/docs/app-distribution): makes distributing your apps to trusted testers painless. By getting your apps onto testers' devices quickly, you can get feedback early and often.
   - [Firestore](https://firebase.google.com/docs/firestore): a flexible, scalable NoSQL cloud database, built on Google Cloud infrastructure, to store and sync data for client- and server-side development.
 - [GraphQL](https://graphql.com/learn/what-is-graphql/): is a query language for APIs. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more.
+- [Inventory](https://github.com/AsemLab/Samples/tree/main/inventory): a simple app demonstrates how to implement offline-first app
 - [Koin](https://insert-koin.io/): a lightweight dependency injection framework for Kotlin & Kotlin Multiplatform
 - [Ktor](https://ktor.io/): a framework for quickly creating connected applications in Kotlin with minimal effort.
 - [Leak](https://square.github.io/leakcanary/): using LeakCanary that is a memory leak detection library for Android.
