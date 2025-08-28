@@ -69,6 +69,5 @@ dependencies {
     implementation(libs.ktor.serialization.gson)
     implementation(libs.ktor.negotiation)
     implementation(libs.ktor.logging)
-    implementation(libs.logback.classic)
 
 }

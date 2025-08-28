@@ -10,9 +10,10 @@ plugins {
 
 }
 // TODO Add Your Stripe secret key and publishable key in local.properties file
-val publishable_key: String = gradleLocalProperties(rootDir).getProperty("STRIPE_PUBLISHABLE_KEY")
-val secret_key: String = gradleLocalProperties(rootDir).getProperty("SECRET_KEY")
-val customer_id: String = gradleLocalProperties(rootDir).getProperty("CUSTOMER_ID")
+val publishable_key: String =
+    gradleLocalProperties(rootDir, providers).getProperty("STRIPE_PUBLISHABLE_KEY")
+val secret_key: String = gradleLocalProperties(rootDir, providers).getProperty("SECRET_KEY")
+val customer_id: String = gradleLocalProperties(rootDir, providers).getProperty("CUSTOMER_ID")
 
 android {
     namespace = "com.asemlab.samples.stripe"

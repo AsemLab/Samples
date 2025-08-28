@@ -3,6 +3,7 @@ import com.asemlab.samples.Configuration
 @Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
     alias(libs.plugins.android.application)
+    // TODO IMPORTANT degrade kotlin to 2.0.20 to fix issues
     alias(libs.plugins.kotlin)
     alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.hilt.plugin)
@@ -67,5 +68,4 @@ dependencies {
 
     //    TODO Add Realm dependencies
     implementation(libs.realm.base)
-    implementation(libs.realm.sync)
 }
