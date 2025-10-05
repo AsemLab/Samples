@@ -1,4 +1,4 @@
-package com.example.asemlab.media_player.ui
+package com.asemlab.samples.media_player.ui
 
 import android.content.ComponentName
 import android.content.ContentResolver
@@ -14,10 +14,10 @@ import androidx.media3.common.MediaItem
 import androidx.media3.common.Player
 import androidx.media3.session.MediaController
 import androidx.media3.session.SessionToken
-import com.example.asemlab.media_player.R
-import com.example.asemlab.media_player.databinding.ActivityMainBinding
-import com.example.asemlab.media_player.services.MediaPlayerService
-import com.example.asemlab.media_player.utils.MediaPlayerUtils
+import com.asemlab.samples.media_player.R
+import com.asemlab.samples.media_player.databinding.ActivityMainBinding
+import com.asemlab.samples.media_player.services.MediaPlayerService
+import com.asemlab.samples.media_player.utils.MediaPlayerUtils
 import com.google.common.util.concurrent.MoreExecutors
 
 class MainActivity : AppCompatActivity() {

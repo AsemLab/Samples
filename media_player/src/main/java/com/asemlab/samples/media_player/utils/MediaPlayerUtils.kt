@@ -1,4 +1,4 @@
-package com.example.asemlab.media_player.utils
+package com.asemlab.samples.media_player.utils
 
 import android.content.ContentResolver
 import android.content.Context

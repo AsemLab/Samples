@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.asemlab.media_player"
+    namespace = "${Configuration.baseNamespace}.media_player"
     compileSdk = Configuration.compileSdk
 
     defaultConfig {

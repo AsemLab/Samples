@@ -1,4 +1,4 @@
-package com.example.asemlab.media_player.utils
+package com.asemlab.samples.media_player.utils
 
 object CommandActions{
     val ACTION_BACK_15_SECS = "BACK_15_SECONDS"
