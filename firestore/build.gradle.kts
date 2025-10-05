@@ -75,8 +75,8 @@ dependencies {
     kapt(libs.hilt.compiler)
 
     // TODO Add Firebase dependencies
-    implementation(platform("com.google.firebase:firebase-bom:32.2.3"))
-    implementation("com.google.firebase:firebase-firestore")
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.firestore)
 
 
 }
