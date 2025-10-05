@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "com.asemlab.activity_recognition"
+    namespace = "${Configuration.baseNamespace}.activity_recognition"
     compileSdk = Configuration.compileSdk
 
     defaultConfig {

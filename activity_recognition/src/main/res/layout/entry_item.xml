@@ -3,11 +3,11 @@
 
     <data>
 
-        <import type="com.asemlab.activity_recognition.model.ActivityEntry" />
+        <import type="com.asemlab.samples.activity_recognition.model.ActivityEntry" />
 
         <variable
             name="entry"
-            type="ActivityEntry" />
+            type="com.asemlab.samples.activity_recognition.model.ActivityEntry" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
