@@ -11,7 +11,7 @@ plugins {
 }
 
 android {
-    namespace = "com.asemlab.samples"
+    namespace = "${Configuration.baseNamespace}.base"
     compileSdk = Configuration.compileSdk
 
     // TODO Change outputs names for by BuildType, ex: 1.0.0-2024-07-24-debug, 1.0.0(1)-release
