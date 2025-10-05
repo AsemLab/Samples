@@ -12,7 +12,9 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 
 
-object DataStoreUtils {
+object DataStoreUtils /*@Inject constructor(
+    private val dataStore: DataStore<Preferences>
+)*/ {
 
     // TODO Init DataStore object
     private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "user_details")
@@ -23,6 +25,13 @@ object DataStoreUtils {
     val GENDER_KEY = booleanPreferencesKey("gender")
 
     // TODO Write to DataStore
+
+//    suspend fun <T> putValue(key: Preferences.Key<T>, newValue: T) {
+//        dataStore.edit { data ->
+//            data[key] = newValue
+//        }
+//    }
+
     suspend fun setUsername(context: Context, username: String) {
         context.dataStore.edit { data ->
             data[USERNAME_KEY] = username
@@ -42,6 +51,16 @@ object DataStoreUtils {
     }
 
     // TODO Read from DataStore
+
+//    suspend fun <T> getValue(
+//        key: Preferences.Key<T>,
+//        default: T
+//    ): T {
+//        return dataStore.data.map {
+//            it[key] ?: default
+//        }.first()
+//    }
+
     suspend fun getUsername(context: Context): String {
         return context.dataStore.data.map {
             it[USERNAME_KEY] ?: ""
