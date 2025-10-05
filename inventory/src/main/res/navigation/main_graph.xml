@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/home"
-        android:name="com.asemlab.inventory.ui.home.HomeFragment"
+        android:name="com.asemlab.samples.inventory.ui.home.HomeFragment"
         android:label="HomeFragment"
         tools:layout="@layout/fragment_home" />
 

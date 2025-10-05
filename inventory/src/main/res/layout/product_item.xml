@@ -5,7 +5,7 @@
 
     <data>
 
-        <import type="com.asemlab.inventory.ui.models.ItemUI" />
+        <import type="com.asemlab.samples.inventory.ui.models.ItemUI" />
 
         <variable
             name="product"

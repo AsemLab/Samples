@@ -1,3 +1,5 @@
+import com.asemlab.samples.Configuration
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin)
@@ -6,14 +8,14 @@ plugins {
 }
 
 android {
-    namespace = "com.asemlab.inventory"
-    compileSdk = com.asemlab.samples.Configuration.compileSdk
+    namespace = "${Configuration.baseNamespace}.inventory"
+    compileSdk = Configuration.compileSdk
 
     defaultConfig {
-        minSdk = com.asemlab.samples.Configuration.minSdk
-        targetSdk = com.asemlab.samples.Configuration.targetSdk
-        versionCode = com.asemlab.samples.Configuration.versionCode
-        versionName = com.asemlab.samples.Configuration.versionName
+        minSdk = Configuration.minSdk
+        targetSdk = Configuration.targetSdk
+        versionCode = Configuration.versionCode
+        versionName = Configuration.versionName
 
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
