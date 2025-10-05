@@ -9,4 +9,5 @@ object Configuration {
   const val patchVersion = 0
   const val versionName = "$majorVersion.$minorVersion.$patchVersion"
   const val versionCode = 1
+  const val baseNamespace = "com.asemlab.samples"
 }
