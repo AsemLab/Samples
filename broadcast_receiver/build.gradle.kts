@@ -9,7 +9,7 @@ plugins {
 }
 
 android {
-    namespace = "com.asemlab.broadcast_receiver"
+    namespace = "${Configuration.baseNamespace}.broadcast_receiver"
     compileSdk = Configuration.compileSdk
 
     defaultConfig {

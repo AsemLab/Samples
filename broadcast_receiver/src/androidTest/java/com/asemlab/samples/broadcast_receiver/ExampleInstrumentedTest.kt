@@ -1,4 +1,4 @@
-package com.asemlab.broadcast_receiver
+package com.asemlab.samples.broadcast_receiver
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

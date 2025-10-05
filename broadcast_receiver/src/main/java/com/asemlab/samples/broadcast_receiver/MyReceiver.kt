@@ -1,4 +1,4 @@
-package com.asemlab.broadcast_receiver
+package com.asemlab.samples.broadcast_receiver
 
 import android.content.BroadcastReceiver
 import android.content.Context

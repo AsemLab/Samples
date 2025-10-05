@@ -1,4 +1,4 @@
-package com.asemlab.broadcast_receiver
+package com.asemlab.samples.broadcast_receiver
 
 import org.junit.Test
 

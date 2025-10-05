@@ -16,7 +16,7 @@
             <intent-filter>
                 <!--  TODO Add Intent Filter              -->
                 <!-- Register static Broadcast Receiver, works on SDK < 26 -->
-                <action android:name="com.asemlab.broadcastreceiver.MyCode" />
+                <action android:name="com.asemlab.samples.broadcastreceiver.MyCode" />
             </intent-filter>
 
         </receiver>
