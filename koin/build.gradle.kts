@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "com.asemlab.samples.koin"
+    namespace = "${Configuration.baseNamespace}.koin"
     compileSdk = Configuration.compileSdk
 
     defaultConfig {

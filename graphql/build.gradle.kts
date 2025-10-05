@@ -11,7 +11,7 @@ plugins {
 
 apollo {
     service("service") {
-        packageName.set("com.asemlab.samples.qraphql")
+        packageName.set("${Configuration.baseNamespace}.qraphql")
         // TODO Install Apollo plugin from Android Studio Plugins
         // TODO Add to download schema with Apollo plugin
         introspection {
@@ -24,11 +24,11 @@ apollo {
 
 
 android {
-    namespace = "com.asemlab.samples.graphql"
+    namespace = "${Configuration.baseNamespace}.graphql"
     compileSdk = Configuration.compileSdk
 
     defaultConfig {
-        applicationId = "com.asemlab.samples.graphql"
+        applicationId = "${Configuration.baseNamespace}.graphql"
         minSdk = Configuration.minSdk
         targetSdk = Configuration.targetSdk
         versionCode = Configuration.versionCode

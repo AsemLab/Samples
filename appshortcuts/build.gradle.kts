@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "com.asemlab.samples.appshortcuts"
+    namespace = "${Configuration.baseNamespace}.appshortcuts"
     compileSdk = Configuration.compileSdk
 
     defaultConfig {

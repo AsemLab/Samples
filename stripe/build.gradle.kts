@@ -16,7 +16,7 @@ val secret_key: String = gradleLocalProperties(rootDir, providers).getProperty("
 val customer_id: String = gradleLocalProperties(rootDir, providers).getProperty("CUSTOMER_ID")
 
 android {
-    namespace = "com.asemlab.samples.stripe"
+    namespace = "${Configuration.baseNamespace}.stripe"
     compileSdk = Configuration.compileSdk
 
     defaultConfig {

@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.asemlab.samples.build_variants"
+    namespace = "${Configuration.baseNamespace}.build_variants"
     compileSdk = Configuration.compileSdk
 
     defaultConfig {

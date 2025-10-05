@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = "com.asemlab.samples.autofill"
+    namespace = "${Configuration.baseNamespace}.autofill"
     compileSdk = Configuration.compileSdk
 
     defaultConfig {

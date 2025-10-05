@@ -10,7 +10,7 @@ plugins {
 }
 
 android {
-    namespace = "com.asemlab.samples.unittesting"
+    namespace = "${Configuration.baseNamespace}.unittesting"
     compileSdk = Configuration.compileSdk
 
     defaultConfig {

@@ -13,7 +13,7 @@ plugins {
 }
 
 android {
-    namespace = "com.asemlab.samples.realm"
+    namespace = "${Configuration.baseNamespace}.realm"
     compileSdk = Configuration.compileSdk
 
     defaultConfig {

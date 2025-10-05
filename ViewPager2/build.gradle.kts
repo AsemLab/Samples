@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "com.asemlab.samples.viewpager2"
+    namespace = "${Configuration.baseNamespace}.viewpager2"
     compileSdk = Configuration.compileSdk
 
     defaultConfig {

@@ -9,7 +9,7 @@ plugins {
 }
 
 android {
-    namespace = "com.asemlab.samples.leak"
+    namespace = "${Configuration.baseNamespace}.leak"
     compileSdk = Configuration.compileSdk
 
     defaultConfig {

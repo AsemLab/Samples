@@ -10,7 +10,7 @@ plugins {
 }
 
 android {
-    namespace = "com.asemlab.samples.ktor"
+    namespace = "${Configuration.baseNamespace}.ktor"
     compileSdk = Configuration.compileSdk
 
     defaultConfig {

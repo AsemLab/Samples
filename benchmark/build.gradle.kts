@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = "com.asemlab.samples.benchmark"
+    namespace = "${Configuration.baseNamespace}.benchmark"
     compileSdk = Configuration.compileSdk
 
     compileOptions {

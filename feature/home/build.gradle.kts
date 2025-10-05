@@ -10,7 +10,7 @@ plugins {
 }
 
 android {
-    namespace = "com.asemlab.samples.feature.home"
+    namespace = "${Configuration.baseNamespace}.feature.home"
     compileSdk = Configuration.compileSdk
 
     defaultConfig {

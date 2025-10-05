@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "com.asemlab.samples.appdistribution"
+    namespace = "${Configuration.baseNamespace}.appdistribution"
     compileSdk = Configuration.compileSdk
 
     defaultConfig {

@@ -14,7 +14,7 @@ plugins {
 }
 
 android {
-    namespace = "com.asemlab.samples.firestore"
+    namespace = "${Configuration.baseNamespace}.firestore"
     compileSdk = Configuration.compileSdk
 
     defaultConfig {

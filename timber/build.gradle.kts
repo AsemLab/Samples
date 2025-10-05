@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = "com.asemlab.samples.timber"
+    namespace = "${Configuration.baseNamespace}.timber"
     compileSdk = Configuration.compileSdk
 
     defaultConfig {

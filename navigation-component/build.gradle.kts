@@ -10,7 +10,7 @@ plugins {
 }
 
 android {
-    namespace = "com.asemlab.samples.navigation_component"
+    namespace = "${Configuration.baseNamespace}.navigation_component"
     compileSdk = Configuration.compileSdk
 
     defaultConfig {

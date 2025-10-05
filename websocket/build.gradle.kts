@@ -10,7 +10,7 @@ plugins {
 }
 
 android {
-    namespace = "com.asemlab.samples.websocket"
+    namespace = "${Configuration.baseNamespace}.websocket"
     compileSdk = Configuration.compileSdk
 
     defaultConfig {

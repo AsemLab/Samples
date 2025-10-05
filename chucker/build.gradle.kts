@@ -10,7 +10,7 @@ plugins {
 }
 
 android {
-    namespace = "com.asemlab.samples.chucker"
+    namespace = "${Configuration.baseNamespace}.chucker"
     compileSdk = Configuration.compileSdk
 
     defaultConfig {

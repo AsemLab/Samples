@@ -14,7 +14,7 @@ plugins {
 }
 
 android {
-    namespace = "com.asemlab.samples.lint"
+    namespace = "${Configuration.baseNamespace}.lint"
     compileSdk = Configuration.compileSdk
 
     defaultConfig {
