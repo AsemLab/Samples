@@ -28,6 +28,7 @@ Currently it contains codebases for:
 - [Navigation Component](https://developer.android.com/guide/navigation): The Navigation component handles diverse navigation use cases, from straightforward button clicks to more complex patterns, such as app bars and the navigation drawer.  See [main_graph.xml](https://github.com/AsemLab/Samples/blob/main/navigation-component/src/main/res/navigation/main_graph.xml) to learn how to navigate between modules.
 - [Play Feature Delivery](https://developer.android.com/guide/playcore/feature-delivery): Uses advanced capabilities of app bundles, allowing certain features of your app to be delivered conditionally or downloaded on demand. See [feature_delivery](https://github.com/AsemLab/Samples/tree/main/feature_delivery) module.
 - [Realm](https://www.mongodb.com/docs/realm/sdk/kotlin/): fast, powerful data storage for Kotlin and KMM apps.
+- [RxJava](https://github.com/ReactiveX/RxJava): This module demonstrates how to build simple Java app with RxJava/Retrofit to perform the network calls & Jetpack Navigation Component.
 - [Stripe](https://docs.stripe.com/sdks/android): allows you to quickly build a payment flow in your Android app.
 - [Timber](https://github.com/JakeWharton/timber/): a logger with a small, extensible API which provides utility on top of Android's normal Log class.
 - [Unit Testing](https://github.com/AsemLab/Samples/tree/main/unit_testing): conduct unit tests with various frameworks:

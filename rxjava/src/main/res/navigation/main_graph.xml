@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.asemlab.samples.rxjava.ui.details.DetailsFragment"
+        android:label="BaseFragment" >
+        <argument
+            android:name="country"
+            app:argType="com.asemlab.samples.rxjava.models.CountryResponseItem"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.asemlab.samples.rxjava.ui.home.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_baseFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+</navigation>

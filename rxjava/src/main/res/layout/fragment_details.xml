@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.asemlab.samples.rxjava.models.CountryResponseItem" />
+
+        <variable
+            name="country"
+            type="CountryResponseItem" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/flag"
+            android:layout_width="0dp"
+            android:layout_height="250dp"
+            android:contentDescription="@{country.flags.alt}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:setFlag="@{country.flags.png}"
+            tools:text="Jordan" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".33" />
+
+        <TextView
+            android:id="@+id/nameTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Official name:"
+            android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/flag" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{country.name.official}"
+            android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+            app:layout_constraintBaseline_toBaselineOf="@id/nameTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/guideline"
+            tools:text="Jordan" />
+
+        <TextView
+            android:id="@+id/commonNameTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Common name:"
+            android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name" />
+
+        <TextView
+            android:id="@+id/commonName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{country.name.common}"
+            android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+            app:layout_constraintBaseline_toBaselineOf="@id/commonNameTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/guideline"
+            tools:text="Jordan" />
+
+        <TextView
+            android:id="@+id/regionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Region:"
+            android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/commonName" />
+
+        <TextView
+            android:id="@+id/region"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{country.region}"
+            android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+            app:layout_constraintBaseline_toBaselineOf="@id/regionTitle"
+            app:layout_constraintStart_toEndOf="@id/guideline"
+            tools:text="Asia" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

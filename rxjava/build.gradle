@@ -1,0 +1,77 @@
+import com.asemlab.samples.Configuration
+
+plugins {
+    alias libs.plugins.android.application
+    alias libs.plugins.hilt.plugin
+    alias libs.plugins.safe.args
+    alias libs.plugins.kotlin
+
+}
+
+android {
+    namespace Configuration.baseNamespace + '.rxjava'
+    compileSdk = Configuration.compileSdk
+
+    defaultConfig {
+        minSdk = Configuration.minSdk
+        targetSdk = Configuration.targetSdk
+        versionCode = Configuration.versionCode
+        versionName = Configuration.versionName
+
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    buildFeatures {
+        dataBinding true
+    }
+}
+
+dependencies {
+
+    implementation libs.androidx.appcompat
+    implementation libs.material
+    implementation libs.activity
+    implementation libs.androidx.constraintlayout
+    testImplementation libs.junit
+    androidTestImplementation libs.androidx.junit
+    androidTestImplementation libs.androidx.espresso.core
+
+    // Retrofit
+    implementation libs.retrofit
+    implementation libs.converter.gson
+    implementation libs.gson
+    implementation platform(libs.okhttp.bom)
+    implementation libs.okhttp
+    implementation libs.okhttp.interceptor
+
+    // Hilt
+    implementation libs.hilt.android
+    annotationProcessor libs.hilt.compiler
+
+    // NAV
+    implementation libs.androidx.navigation.fragment
+    implementation libs.androidx.navigation.ui
+
+    // Glide
+    implementation libs.glide
+    annotationProcessor libs.glide.compiler
+
+    // TODO Add RxJava dependencies
+    implementation libs.rxjava
+    implementation libs.adapter.rxjava3
+    implementation libs.rxandroid
+
+
+}
