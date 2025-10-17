@@ -3,6 +3,8 @@ package com.asemlab.samples.activity_recognition.services
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.util.Log
+import android.widget.Toast
 import com.asemlab.samples.activity_recognition.ActivityRecognitionApp
 import com.asemlab.samples.activity_recognition.utilties.ActivityType
 import com.asemlab.samples.activity_recognition.utilties.DetectingMode
@@ -18,6 +20,9 @@ class TransitionsReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
 
+        Log.d("TransitionsReceiver", "Start detecting")
+        Toast.makeText(context, "Start detecting", Toast.LENGTH_SHORT).show()
+
         if (ActivityTransitionResult.hasResult(intent)) {
             val result = ActivityTransitionResult.extractResult(intent)
 
@@ -27,17 +32,21 @@ class TransitionsReceiver : BroadcastReceiver() {
                 val info =
                     "${toTransitionType(event.transitionType)} ${toActivityString(event.activityType)} at $time"
 
+                Toast.makeText(context, info, Toast.LENGTH_SHORT).show()
+
                 when (event.transitionType) {
                     ActivityTransition.ACTIVITY_TRANSITION_ENTER -> {
                         with(context.applicationContext as ActivityRecognitionApp) {
-                            activityType.value = ActivityType.getType(toActivityString(event.activityType))
+                            activityType.value =
+                                ActivityType.getType(toActivityString(event.activityType))
                             detectingMode.value = DetectingMode.ENTER
                         }
                     }
 
                     ActivityTransition.ACTIVITY_TRANSITION_EXIT -> {
                         with(context.applicationContext as ActivityRecognitionApp) {
-                            activityType.value = ActivityType.getType(toActivityString(event.activityType))
+                            activityType.value =
+                                ActivityType.getType(toActivityString(event.activityType))
                             detectingMode.value = DetectingMode.EXIT
                         }
                     }

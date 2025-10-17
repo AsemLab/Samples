@@ -8,4 +8,7 @@
     <string name="entry_message">You earned <b>%1$d</b> at <b>%2$s</b> for <b>%3$s</b></string>
     <string name="start_title">Start</string>
     <string name="stop_title">Stop</string>
+    <string name="location_required">Location required</string>
+    <string name="location_message">The app needs the location to work propably</string>
+    <string name="enable_title">Enable</string>
 </resources>

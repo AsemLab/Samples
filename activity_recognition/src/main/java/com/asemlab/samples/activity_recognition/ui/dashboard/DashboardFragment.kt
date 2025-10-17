@@ -3,14 +3,17 @@ package com.asemlab.samples.activity_recognition.ui.dashboard
 // Developed by: Asem Abu alrub // AsemLab © 2025
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -23,6 +26,7 @@ import com.asemlab.samples.activity_recognition.utilties.ActivityType
 import com.asemlab.samples.activity_recognition.utilties.Constants
 import com.asemlab.samples.activity_recognition.utilties.DetectingMode
 import com.asemlab.samples.activity_recognition.utilties.TimerUtility
+import com.asemlab.samples.activity_recognition.utilties.isLocationEnabled
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -80,7 +84,7 @@ class DashboardFragment : Fragment() {
                     .detectingMode.postValue(if (!isRunning) DetectingMode.ON else DetectingMode.OFF)
 
                 // TODO Start detecting
-                ActivityDetectionUtility.switchDetecting(requireContext())
+                ActivityDetectionUtility.switchDetecting(requireActivity())
             }
 
             // For Testing purposes
@@ -171,6 +175,20 @@ class DashboardFragment : Fragment() {
             )
         } else
             true
+    }
+
+
+    override fun onResume() {
+        super.onResume()
+        if (!isLocationEnabled(requireContext())) {
+            AlertDialog.Builder(requireContext())
+                .setTitle(getString(R.string.location_required))
+                .setMessage(getString(R.string.location_message))
+                .setPositiveButton(getString(R.string.enable_title)) { d, s ->
+                    startActivity(Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+                }.setCancelable(false)
+                .show()
+        }
     }
 
 }

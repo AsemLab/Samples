@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.SystemClock
 import android.widget.Toast
+import com.asemlab.samples.activity_recognition.services.TransitionsReceiver
 import com.google.android.gms.common.internal.safeparcel.SafeParcelableSerializer
 import com.google.android.gms.location.ActivityRecognition
 import com.google.android.gms.location.ActivityTransition
@@ -21,12 +22,16 @@ object ActivityDetectionUtility {
     private var activityTrackingEnabled: Boolean = false
     private var activityTransitionList = mutableListOf<ActivityTransition>()
 
+    private val resultKey = "com.google.android.location.internal.EXTRA_ACTIVITY_TRANSITION_RESULT"
 
     private fun getPendingIntent(context: Context): PendingIntent {
         if (::pendingIntent.isInitialized)
             return pendingIntent
 
-        val intent = Intent(Constants.TRANSITIONS_RECEIVER_ACTION)
+        val intent = Intent(
+            context,
+            TransitionsReceiver::class.java
+        ).setAction(Constants.TRANSITIONS_RECEIVER_ACTION)
 
         pendingIntent =
             PendingIntent.getBroadcast(
@@ -67,9 +72,7 @@ object ActivityDetectionUtility {
                 "Transitions Api was successfully registered.",
                 Toast.LENGTH_SHORT
             ).show()
-        }
-
-        task.addOnFailureListener { e ->
+        }.addOnFailureListener { e ->
             Toast.makeText(
                 context,
                 "Transitions Api could NOT be registered: $e",
@@ -131,8 +134,11 @@ object ActivityDetectionUtility {
 
     // The next two functions are for testing purposes only
     fun testSendAction(context: Context) {
-        val intent2 = Intent()
-        intent2.setAction(Constants.TRANSITIONS_RECEIVER_ACTION)
+        val intent2 = Intent(
+            context,
+            TransitionsReceiver::class.java
+        ).setAction(Constants.TRANSITIONS_RECEIVER_ACTION)
+
         val events: MutableList<ActivityTransitionEvent> = ArrayList()
         var transitionEvent = ActivityTransitionEvent(
             DetectedActivity.STILL,
@@ -147,13 +153,17 @@ object ActivityDetectionUtility {
         val result = ActivityTransitionResult(events)
         SafeParcelableSerializer.serializeToIntentExtra(
             result, intent2,
-            "com.google.android.location.internal.EXTRA_ACTIVITY_TRANSITION_RESULT"
+            resultKey
         )
         context.sendBroadcast(intent2)
     }
+
     fun testSendActionDriving(context: Context) {
-        val intent2 = Intent()
-        intent2.setAction(Constants.TRANSITIONS_RECEIVER_ACTION)
+        val intent2 = Intent(
+            context,
+            TransitionsReceiver::class.java
+        ).setAction(Constants.TRANSITIONS_RECEIVER_ACTION)
+
         val events: MutableList<ActivityTransitionEvent> = ArrayList()
         var transitionEvent = ActivityTransitionEvent(
             DetectedActivity.IN_VEHICLE,
@@ -168,7 +178,7 @@ object ActivityDetectionUtility {
         val result = ActivityTransitionResult(events)
         SafeParcelableSerializer.serializeToIntentExtra(
             result, intent2,
-            "com.google.android.location.internal.EXTRA_ACTIVITY_TRANSITION_RESULT"
+            resultKey
         )
         context.sendBroadcast(intent2)
     }
