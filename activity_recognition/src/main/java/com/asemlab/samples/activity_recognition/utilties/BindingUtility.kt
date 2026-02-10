@@ -9,6 +9,9 @@ import com.asemlab.samples.activity_recognition.model.ActivityEntry
 fun ImageView.setIconEntry(entry: ActivityEntry) {
     when (ActivityType.getType(entry.type)) {
         ActivityType.DRIVING -> setImageResource(R.drawable.ic_car)
-        ActivityType.WALKING -> setImageResource(R.drawable.ic_steps)
+        ActivityType.WALKING, ActivityType.RUNNING -> setImageResource(R.drawable.ic_steps)
+        ActivityType.STILL, ActivityType.UNKNOWN -> {
+            // Not needed
+        }
     }
 }

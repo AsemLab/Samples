@@ -13,6 +13,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.asemlab.samples.activity_recognition.R
 import com.asemlab.samples.activity_recognition.databinding.ActivityMainBinding
+import com.asemlab.samples.activity_recognition.services.ActivityUpdatesReceiver
 import com.asemlab.samples.activity_recognition.services.TransitionsReceiver
 import com.asemlab.samples.activity_recognition.utilties.Constants
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -22,7 +23,9 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var receiver: TransitionsReceiver
+    // TODO Create an instance from the custom receiver and un/register it
+    private var receiver = ActivityUpdatesReceiver()
+//    private var receiver: TransitionsReceiver = TransitionsReceiver()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,14 +47,11 @@ class MainActivity : AppCompatActivity() {
 
         navView.setupWithNavController(navController)
 
-        // TODO Create an instance from the custom receiver and un/register it
-        receiver = TransitionsReceiver()
-
     }
 
-
-    override fun onDestroy() {
-        super.onDestroy()
+    // TODO Register and unregister with suitable filter
+    override fun onStop() {
+        super.onStop()
         unregisterReceiver(receiver)
     }
 
@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
         ContextCompat.registerReceiver(
             this,
             receiver,
-            IntentFilter(Constants.TRANSITIONS_RECEIVER_ACTION),
+            IntentFilter(Constants.ACTIVITY_UPDATES_RECEIVER_ACTION), // OR TRANSITIONS_RECEIVER_ACTION
             ContextCompat.RECEIVER_EXPORTED
         )
     }

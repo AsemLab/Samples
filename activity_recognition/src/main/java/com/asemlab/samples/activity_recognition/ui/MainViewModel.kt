@@ -24,7 +24,8 @@ open class MainViewModel @Inject constructor(private val activitiesRepository: A
     fun addActivity(activityEntry: ActivityEntry) {
         viewModelScope.launch {
             withContext(Dispatchers.IO) {
-                activitiesRepository.addActivity(activityEntry)
+                if(activityEntry.points > 0)
+                    activitiesRepository.addActivity(activityEntry)
             }
         }
     }

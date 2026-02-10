@@ -19,11 +19,15 @@ class TimerUtility(private val interval: Long, private val onTick: () -> Unit) {
     }
 
     fun cancel() {
-        mHandler.removeMessages(MSG);
+        mHandler.removeMessages(MSG)
     }
 
     fun start() {
-        mHandler.sendMessageDelayed(mHandler.obtainMessage(MSG), interval);
+        mHandler.sendMessageDelayed(mHandler.obtainMessage(MSG), interval)
+    }
+
+    fun isRunning(): Boolean{
+        return mHandler.hasMessages(MSG)
     }
 
 

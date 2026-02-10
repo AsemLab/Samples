@@ -6,11 +6,11 @@ import android.content.Intent
 import android.util.Log
 import android.widget.Toast
 import com.asemlab.samples.activity_recognition.ActivityRecognitionApp
-import com.asemlab.samples.activity_recognition.utilties.ActivityType
+import com.asemlab.samples.activity_recognition.utilties.ActivityDetectionUtility.toActivityType
+import com.asemlab.samples.activity_recognition.utilties.ActivityDetectionUtility.toTransitionType
 import com.asemlab.samples.activity_recognition.utilties.DetectingMode
 import com.google.android.gms.location.ActivityTransition
 import com.google.android.gms.location.ActivityTransitionResult
-import com.google.android.gms.location.DetectedActivity
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -27,26 +27,24 @@ class TransitionsReceiver : BroadcastReceiver() {
             val result = ActivityTransitionResult.extractResult(intent)
 
             // TODO Receive transitions and process them
-            for (event in result!!.transitionEvents) {
+            result?.transitionEvents?.forEach { event ->
                 val time = SimpleDateFormat("HH:mm:ss", Locale.US).format(Date())
                 val info =
-                    "${toTransitionType(event.transitionType)} ${toActivityString(event.activityType)} at $time"
+                    "${toTransitionType(event.transitionType)} ${toActivityType(event.activityType)} at $time"
 
                 Toast.makeText(context, info, Toast.LENGTH_SHORT).show()
 
                 when (event.transitionType) {
                     ActivityTransition.ACTIVITY_TRANSITION_ENTER -> {
                         with(context.applicationContext as ActivityRecognitionApp) {
-                            activityType.value =
-                                ActivityType.getType(toActivityString(event.activityType))
+                            activityType.value = toActivityType(event.activityType)
                             detectingMode.value = DetectingMode.ENTER
                         }
                     }
 
                     ActivityTransition.ACTIVITY_TRANSITION_EXIT -> {
                         with(context.applicationContext as ActivityRecognitionApp) {
-                            activityType.value =
-                                ActivityType.getType(toActivityString(event.activityType))
+                            activityType.value = toActivityType(event.activityType)
                             detectingMode.value = DetectingMode.EXIT
                         }
                     }
@@ -55,20 +53,5 @@ class TransitionsReceiver : BroadcastReceiver() {
         }
     }
 
-    private fun toActivityString(activity: Int): String {
-        return when (activity) {
-//            DetectedActivity.STILL -> "STILL"
-            DetectedActivity.WALKING -> "WALKING"
-            DetectedActivity.IN_VEHICLE -> "DRIVING"
-            else -> "WALKING"
-        }
-    }
 
-    private fun toTransitionType(transitionType: Int): String {
-        return when (transitionType) {
-            ActivityTransition.ACTIVITY_TRANSITION_ENTER -> "ENTER"
-            ActivityTransition.ACTIVITY_TRANSITION_EXIT -> "EXIT"
-            else -> "UNKNOWN"
-        }
-    }
 }

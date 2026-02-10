@@ -7,7 +7,6 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
-import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,6 +16,7 @@ import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.asemlab.samples.activity_recognition.ActivityRecognitionApp
+import com.asemlab.samples.activity_recognition.services.ActivityTrackingService
 import com.asemlab.samples.activity_recognition.R
 import com.asemlab.samples.activity_recognition.databinding.FragmentDashboardBinding
 import com.asemlab.samples.activity_recognition.model.ActivityEntry
@@ -35,7 +35,7 @@ class DashboardFragment : Fragment() {
     private lateinit var binding: FragmentDashboardBinding
     private val permissionRequest =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) {
-            if (it == true) {
+            if (it) {
                 requireActivity().recreate()
             }
         }
@@ -82,15 +82,29 @@ class DashboardFragment : Fragment() {
                     .detectingMode.postValue(if (!isRunning) DetectingMode.ON else DetectingMode.OFF)
 
                 // TODO Start detecting
-                ActivityDetectionUtility.switchDetecting(requireActivity())
+                val intent = Intent(context, ActivityTrackingService::class.java)
+                if (!isRunning) {
+
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        requireContext().startForegroundService(intent)
+                    } else {
+                        requireContext().startService(intent)
+                    }
+                } else {
+                    requireContext().stopService(intent)
+                }
             }
 
             // For Testing purposes
-            sendActionButton.setOnClickListener {
-//                if(pointsFactor == Constants.DRIVING_POINTS_FACTOR)
-//                    ActivityDetectionUtility.testSendAction(requireContext())
-//                else
-                ActivityDetectionUtility.testSendActionDriving(requireContext())
+//            testing.root.isVisible = BuildConfig.DEBUG
+            testing.walking.setOnClickListener {
+                ActivityDetectionUtility.testEnterWalking(requireContext())
+            }
+            testing.driving.setOnClickListener {
+                ActivityDetectionUtility.testWalkingToDriving(requireContext())
+            }
+            testing.toWalking.setOnClickListener {
+                ActivityDetectionUtility.testDrivingToWalking(requireContext())
             }
 
         }
@@ -102,6 +116,9 @@ class DashboardFragment : Fragment() {
         } else {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                 permissionRequest.launch(Manifest.permission.ACTIVITY_RECOGNITION)
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    permissionRequest.launch(Manifest.permission.POST_NOTIFICATIONS)
+                }
             }
             binding.startButton.isEnabled = false
         }
@@ -132,6 +149,8 @@ class DashboardFragment : Fragment() {
                                 "Entered to ${activityType.value}",
                                 Toast.LENGTH_SHORT
                             ).show()
+                            timer.start()
+
                             currentPoints.value = 0
                             points = 0
                         }
@@ -145,6 +164,10 @@ class DashboardFragment : Fragment() {
                                     System.currentTimeMillis()
                                 )
                             )
+                            currentPoints.value = 0
+                            points = 0
+                            detectingMode.postValue(null)
+                            timer.cancel()
                         }
                     }
                 }
@@ -152,8 +175,9 @@ class DashboardFragment : Fragment() {
 
             activityType.observe(this@DashboardFragment.viewLifecycleOwner) {
                 pointsFactor = when (it!!) {
-                    ActivityType.WALKING -> Constants.WALKING_POINTS_FACTOR
                     ActivityType.DRIVING -> Constants.DRIVING_POINTS_FACTOR
+                    ActivityType.STILL,  ActivityType.UNKNOWN -> Constants.STILL_POINTS_FACTOR
+                    ActivityType.WALKING, ActivityType.RUNNING -> Constants.WALKING_POINTS_FACTOR
                 }
             }
 
@@ -168,9 +192,17 @@ class DashboardFragment : Fragment() {
 
     private fun activityRecognitionPermissionApproved(): Boolean {
         return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            PackageManager.PERMISSION_GRANTED == ActivityCompat.checkSelfPermission(
-                requireContext(), Manifest.permission.ACTIVITY_RECOGNITION
-            )
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                PackageManager.PERMISSION_GRANTED == ActivityCompat.checkSelfPermission(
+                    requireContext(), Manifest.permission.ACTIVITY_RECOGNITION
+                ) && PackageManager.PERMISSION_GRANTED == ActivityCompat.checkSelfPermission(
+                    requireContext(), Manifest.permission.POST_NOTIFICATIONS
+                )
+            } else {
+                PackageManager.PERMISSION_GRANTED == ActivityCompat.checkSelfPermission(
+                    requireContext(), Manifest.permission.ACTIVITY_RECOGNITION
+                )
+            }
         } else
             true
     }

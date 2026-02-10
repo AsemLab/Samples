@@ -150,13 +150,14 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <!--    For Testing purposes -->
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/send_action_button"
-        style="@style/Button"
-        android:text="send action"
+    <include
+        android:id="@+id/testing"
         android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@id/start_button"
+        layout="@layout/testing_buttons"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toTopOf="@id/start_button"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,9 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- TODO Add required permissions-->
+    <!-- Required for 28 and below. -->
     <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" />
     <!-- Required for 29+. -->
     <uses-permission android:name="android.permission.ACTIVITY_RECOGNITION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_HEALTH" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
         android:name=".ActivityRecognitionApp"
@@ -20,6 +25,7 @@
         <activity
             android:name=".ui.MainActivity"
             android:exported="true"
+            android:launchMode="singleInstance"
             android:label="@string/app_name"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -31,13 +37,16 @@
 
         <receiver
             android:name=".services.TransitionsReceiver"
+            android:enabled="false"
+            android:exported="false"/>
+        <receiver
+            android:name=".services.ActivityUpdatesReceiver"
             android:enabled="true"
+            android:exported="false"/>
+        <service
+            android:name=".services.ActivityTrackingService"
             android:exported="false"
-            android:permission="com.google.android.gms.permission.ACTIVITY_RECOGNITION">
-            <intent-filter>
-                <action android:name="TRANSITIONS_RECEIVER_ACTION" />
-            </intent-filter>
-        </receiver>
+            android:foregroundServiceType="health" />
     </application>
 
 </manifest>
