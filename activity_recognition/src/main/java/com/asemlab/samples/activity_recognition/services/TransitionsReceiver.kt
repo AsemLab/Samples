@@ -34,21 +34,21 @@ class TransitionsReceiver : BroadcastReceiver() {
 
                 Toast.makeText(context, info, Toast.LENGTH_SHORT).show()
 
-                when (event.transitionType) {
-                    ActivityTransition.ACTIVITY_TRANSITION_ENTER -> {
-                        with(context.applicationContext as ActivityRecognitionApp) {
-                            activityType.value = toActivityType(event.activityType)
-                            detectingMode.value = DetectingMode.ENTER
-                        }
-                    }
-
-                    ActivityTransition.ACTIVITY_TRANSITION_EXIT -> {
-                        with(context.applicationContext as ActivityRecognitionApp) {
-                            activityType.value = toActivityType(event.activityType)
-                            detectingMode.value = DetectingMode.EXIT
-                        }
-                    }
-                }
+//                when (event.transitionType) {
+//                    ActivityTransition.ACTIVITY_TRANSITION_ENTER -> {
+//                        with(context.applicationContext as ActivityRecognitionApp) {
+//                            activityType.value = toActivityType(event.activityType)
+//                            detectingMode.value = DetectingMode.ENTER
+//                        }
+//                    }
+//
+//                    ActivityTransition.ACTIVITY_TRANSITION_EXIT -> {
+//                        with(context.applicationContext as ActivityRecognitionApp) {
+//                            activityType.value = toActivityType(event.activityType)
+//                            detectingMode.value = DetectingMode.EXIT
+//                        }
+//                    }
+//                }
             }
         }
     }

@@ -69,4 +69,7 @@ dependencies {
 
     // TODO Add Google Play Services Location library
     implementation(libs.play.services.location)
+
+    implementation(libs.datastore)
+
 }

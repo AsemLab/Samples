@@ -94,7 +94,7 @@ object ActivityDetectionUtility {
     @SuppressLint("MissingPermission")
     fun enableActivityUpdates(context: Context){
         val task = ActivityRecognition.getClient(context)
-            .requestActivityUpdates(10000L, getPendingIntent(context))
+            .requestActivityUpdates(3000L, getPendingIntent(context))
 
         task.addOnSuccessListener {
             activityTrackingEnabled = true

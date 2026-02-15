@@ -5,9 +5,17 @@ import android.content.Context
 import android.content.Intent
 import android.util.Log
 import android.widget.Toast
-import com.asemlab.samples.activity_recognition.ActivityRecognitionApp
 import com.asemlab.samples.activity_recognition.utilties.ActivityDetectionUtility.toActivityType
+import com.asemlab.samples.activity_recognition.utilties.ActivityType.DRIVING
+import com.asemlab.samples.activity_recognition.utilties.ActivityType.RUNNING
+import com.asemlab.samples.activity_recognition.utilties.ActivityType.STILL
+import com.asemlab.samples.activity_recognition.utilties.ActivityType.UNKNOWN
+import com.asemlab.samples.activity_recognition.utilties.ActivityType.WALKING
+import com.asemlab.samples.activity_recognition.utilties.DataStoreUtils
 import com.google.android.gms.location.ActivityRecognitionResult
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 
 class ActivityUpdatesReceiver : BroadcastReceiver() {
@@ -26,9 +34,16 @@ class ActivityUpdatesReceiver : BroadcastReceiver() {
                 val type = toActivityType(activity.type)
                 val confidence = activity.confidence
 
-                with(context.applicationContext as ActivityRecognitionApp) {
-                    activityType.value = type
+                val steps = when (type) {
+                    STILL, DRIVING, UNKNOWN -> 0
+                    WALKING -> confidence / 10
+                    RUNNING -> confidence / 10
                 }
+
+                CoroutineScope(Dispatchers.IO).launch {
+                    DataStoreUtils.updateCurrentPoints(context, confidence / 10)
+                }
+
 
                 Toast.makeText(context, "$type : $confidence%", Toast.LENGTH_SHORT).show()
             }

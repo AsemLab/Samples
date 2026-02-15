@@ -19,7 +19,7 @@ open class MainViewModel @Inject constructor(private val activitiesRepository: A
 
     val entries = MediatorLiveData<List<ActivityEntry>>(emptyList())
     var lastEntry: LiveData<ActivityEntry> = MutableLiveData()
-    var totalPoints: LiveData<Long> = MutableLiveData()
+    var totalSteps: LiveData<Long> = MutableLiveData()
 
     fun addActivity(activityEntry: ActivityEntry) {
         viewModelScope.launch {
@@ -56,7 +56,7 @@ open class MainViewModel @Inject constructor(private val activitiesRepository: A
     fun getTotalPoints() {
         viewModelScope.launch {
             withContext(Dispatchers.IO) {
-                totalPoints = activitiesRepository.getTotalPoints()
+                totalSteps = activitiesRepository.getTotalPoints()
             }
         }
     }

@@ -9,9 +9,4 @@ import dagger.hilt.android.HiltAndroidApp
 @HiltAndroidApp
 class ActivityRecognitionApp : Application() {
 
-    val detectingMode = MutableLiveData<DetectingMode>()
-    val activityType = MutableLiveData(ActivityType.STILL)
-    val currentPoints = MutableLiveData(0)
-
-
 }

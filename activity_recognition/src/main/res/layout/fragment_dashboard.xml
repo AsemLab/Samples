@@ -26,6 +26,7 @@
         android:paddingVertical="4dp"
         android:text="450"
         android:textColor="@color/white"
+        android:visibility="gone"
         app:drawableStartCompat="@drawable/ic_point"
         app:drawableTint="#FF9800"
         app:layout_constraintBottom_toBottomOf="@id/title_dashboard"
@@ -44,13 +45,13 @@
 
 
     <TextView
-        android:id="@+id/current_points"
+        android:id="@+id/current_steps"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline3"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@id/current_points_title"
+        app:layout_constraintBottom_toTopOf="@id/current_steps_title"
         app:layout_constraintEnd_toEndOf="@id/first_rec"
         app:layout_constraintStart_toStartOf="@id/first_rec"
         app:layout_constraintTop_toTopOf="@id/first_rec"
@@ -58,18 +59,21 @@
         tools:text="2.555" />
 
     <TextView
-        android:id="@+id/current_points_title"
+        android:id="@+id/current_steps_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
-        android:text="Current points"
+        android:drawablePadding="8dp"
+        android:text="Steps"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
         android:textColor="@color/white"
+        app:drawableStartCompat="@drawable/ic_footprint"
+        app:drawableTint="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/first_rec"
         app:layout_constraintEnd_toEndOf="@id/first_rec"
         app:layout_constraintStart_toStartOf="@id/first_rec"
-        app:layout_constraintTop_toBottomOf="@id/current_points" />
+        app:layout_constraintTop_toBottomOf="@id/current_steps" />
 
     <View
         android:id="@+id/second_rec"
@@ -83,17 +87,17 @@
         app:layout_constraintTop_toBottomOf="@id/first_rec" />
 
     <TextView
-        android:id="@+id/total_points"
+        android:id="@+id/total_steps"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:drawablePadding="6dp"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
         android:textColor="@color/white"
-        app:drawableStartCompat="@drawable/ic_point"
+        app:drawableStartCompat="@drawable/ic_sum"
         app:drawableTint="@color/white"
-        app:layout_constraintBottom_toTopOf="@id/total_points_title"
-        app:layout_constraintEnd_toStartOf="@+id/last_points"
+        app:layout_constraintBottom_toTopOf="@id/total_steps_title"
+        app:layout_constraintEnd_toStartOf="@+id/last_steps"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="@+id/second_rec"
         app:layout_constraintTop_toTopOf="@id/second_rec"
@@ -101,44 +105,44 @@
         tools:text="3000" />
 
     <TextView
-        android:id="@+id/total_points_title"
+        android:id="@+id/total_steps_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:text="Total points"
+        android:text="Total steps"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/second_rec"
-        app:layout_constraintEnd_toEndOf="@+id/total_points"
-        app:layout_constraintStart_toStartOf="@+id/total_points"
-        app:layout_constraintTop_toBottomOf="@+id/total_points" />
+        app:layout_constraintEnd_toEndOf="@+id/total_steps"
+        app:layout_constraintStart_toStartOf="@+id/total_steps"
+        app:layout_constraintTop_toBottomOf="@+id/total_steps" />
 
     <TextView
-        android:id="@+id/last_points"
+        android:id="@+id/last_steps"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:drawablePadding="6dp"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
         android:textColor="@color/white"
-        app:drawableStartCompat="@drawable/ic_point"
+        app:drawableStartCompat="@drawable/ic_history"
         app:drawableTint="@color/white"
-        app:layout_constraintBaseline_toBaselineOf="@id/total_points"
+        app:layout_constraintBaseline_toBaselineOf="@id/total_steps"
         app:layout_constraintEnd_toEndOf="@+id/second_rec"
-        app:layout_constraintStart_toEndOf="@id/total_points"
+        app:layout_constraintStart_toEndOf="@id/total_steps"
         app:layout_constraintVertical_chainStyle="packed"
         tools:text="3000" />
 
     <TextView
-        android:id="@+id/last_points_title"
+        android:id="@+id/last_steps_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Last time points"
+        android:text="Last time steps"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
         android:textColor="@color/white"
-        app:layout_constraintBaseline_toBaselineOf="@id/total_points_title"
-        app:layout_constraintEnd_toEndOf="@+id/last_points"
-        app:layout_constraintStart_toStartOf="@+id/last_points" />
+        app:layout_constraintBaseline_toBaselineOf="@id/total_steps_title"
+        app:layout_constraintEnd_toEndOf="@+id/last_steps"
+        app:layout_constraintStart_toStartOf="@+id/last_steps" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/start_button"
@@ -152,12 +156,12 @@
     <!--    For Testing purposes -->
     <include
         android:id="@+id/testing"
-        android:visibility="gone"
         layout="@layout/testing_buttons"
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/start_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/start_button"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
