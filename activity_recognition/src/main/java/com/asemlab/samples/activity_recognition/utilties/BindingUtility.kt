@@ -1,6 +1,7 @@
 package com.asemlab.samples.activity_recognition.utilties
 
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.asemlab.samples.activity_recognition.R
 import com.asemlab.samples.activity_recognition.model.ActivityEntry
@@ -14,4 +15,9 @@ fun ImageView.setIconEntry(entry: ActivityEntry) {
             // Not needed
         }
     }
+}
+
+@BindingAdapter("dateEntry")
+fun TextView.setDateEntry(date: Long) {
+   text = date.toDate().formatDateWithPattern()
 }

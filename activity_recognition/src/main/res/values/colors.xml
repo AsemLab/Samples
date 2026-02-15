@@ -11,4 +11,5 @@
     <color name="red_start">#EF9A9A</color>
     <color name="red_end">#C62828</color>
     <color name="red_center">#F44336</color>
+    <color name="notification">#FF000000</color>
 </resources>

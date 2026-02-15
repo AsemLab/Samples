@@ -11,10 +11,13 @@ import com.asemlab.samples.activity_recognition.utilties.ActivityType.RUNNING
 import com.asemlab.samples.activity_recognition.utilties.ActivityType.STILL
 import com.asemlab.samples.activity_recognition.utilties.ActivityType.UNKNOWN
 import com.asemlab.samples.activity_recognition.utilties.ActivityType.WALKING
+import com.asemlab.samples.activity_recognition.utilties.Constants
 import com.asemlab.samples.activity_recognition.utilties.DataStoreUtils
+import com.asemlab.samples.activity_recognition.utilties.NotificationUtils
 import com.google.android.gms.location.ActivityRecognitionResult
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
 
@@ -41,7 +44,15 @@ class ActivityUpdatesReceiver : BroadcastReceiver() {
                 }
 
                 CoroutineScope(Dispatchers.IO).launch {
-                    DataStoreUtils.updateCurrentPoints(context, confidence / 10)
+                    DataStoreUtils.updateCurrentPoints(context, steps)
+
+                    val currentSteps = DataStoreUtils.getCurrentPoints(context).first()
+
+                    NotificationUtils.updateNotification(
+                        context,
+                        Constants.SERVICE_NOTIFICATION_ID,
+                        currentSteps.toString()
+                    )
                 }
 
 

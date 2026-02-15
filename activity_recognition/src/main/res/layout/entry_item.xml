@@ -43,5 +43,18 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="500" />
 
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:dateEntry="@{entry.date}"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Su, 15 Feb" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

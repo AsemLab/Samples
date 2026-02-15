@@ -12,8 +12,10 @@ fun Date.formatDate(): String {
     return formatter.format(this)
 }
 
-fun Date.formatDateWithPattern(format: String): String {
+fun Date.formatDateWithPattern(format: String = mainPattern): String {
     val formatter = SimpleDateFormat(format)
 
     return formatter.format(this)
 }
+
+const val mainPattern = "EE, dd MMM"
